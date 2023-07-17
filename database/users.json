@@ -1,0 +1,114 @@
+[{
+  "_id": {
+    "$oid": "61e1d338e179240774a9bcfc"
+  },
+  "userName": "kamgarodrigue5",
+  "email": "kamgarodrigue54@gmail.com",
+  "phone": "679988712",
+  "birthDay": "Date de naissance",
+  "avatar": "upload\\UserProfil\\1642189622991.png",
+  "password": "$2a$10$57JRarheCPxG/NMaSPCWWuyo7aYVEnqcZpXNmLkorYLhnlXqBrY3q",
+  "address": "gujklllgdf",
+  "sexe": "Masculin",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1642189624625"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1642189624625"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62d5d32987c67022b0f0f18b"
+  },
+  "userName": "Choco Bami",
+  "email": "chocobami@gmail.com",
+  "phone": "681176708",
+  "birthDay": "17/05/2021",
+  "avatar": "upload\\UserProfil\\1658180392747.jpg",
+  "password": "$2a$10$fjaF9TJZ.LICnRyKmT4.7.rvxT7kNjkDT7mRFp7uKaCvQvQBlhonO",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658180400416"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1658180400416"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6304dfa01e4bb33e0cf28e9d"
+  },
+  "userName": "kam",
+  "email": "hjjg@gmail.com",
+  "phone": "523652552",
+  "birthDay": "2022-08-23",
+  "avatar": "",
+  "password": "$2a$10$CdjHeLrLcLhRL9KSZBXhLehrG6Ls1aAuGVqiN1ltiSu6E.gzoCOy6",
+  "address": "dfh",
+  "sexe": "Masculin",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661263791552"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661263791552"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6304e0471e4bb33e0cf28ea3"
+  },
+  "userName": "Chocobami ",
+  "email": "chocobami5@gmail.com",
+  "phone": "681176708",
+  "birthDay": "2022-08-27",
+  "avatar": "",
+  "password": "$2a$10$fN5kamtFBjPwpRN.sxNsleG8lltmEwTOlBlgqL0rQ4QV/snfXnAq2",
+  "address": "cssdddd",
+  "sexe": "Masculin",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661263943775"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661263943775"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6304e28d896178066c1f4f52"
+  },
+  "userName": "tôt ",
+  "email": "tot@gmail.com",
+  "phone": "681174523",
+  "birthDay": "2022-08-23",
+  "avatar": "",
+  "password": "$2a$10$NjRLlcl05LalLOukPVECjOYbnrbLgA8QkqFlXCdzEaqNY3ZYhlpMa",
+  "address": "xxcggggg",
+  "sexe": "Masculin",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661264525812"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661264525812"
+    }
+  },
+  "__v": 0
+}]

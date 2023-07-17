@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "6247615bff910a0504663f5d"
+  },
+  "Name": "MAKAMTE JUGUE",
+  "email": "MAKAMTE@gmail.com",
+  "phone": "687895741",
+  "address": "YOUNDE8CAPITAL",
+  "birthDay": "17/05/2020",
+  "intbusness": "comerce",
+  "avatar": "upload\\partenaire\\1648845146766.png",
+  "password": "$2a$10$ijL7WfgySl/zWVA0QgtxyO41JjbDWYqjsH9B6gpHRu4w/l3uyiK0W",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648845147417"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648845147417"
+    }
+  },
+  "__v": 0
+}]

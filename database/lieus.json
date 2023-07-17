@@ -1,0 +1,1658 @@
+[{
+  "_id": {
+    "$oid": "61f15377fa45313e28e76907"
+  },
+  "intitule": "Ex1_R1_s107",
+  "id_user": "",
+  "description": "salle située au departement d'informatique (Ext1).Elle est dediée aux etudiants de ICTL3 et Master 2 pro .\n",
+  "image": "upload\\lieu\\1643205494920.jpg",
+  "lat": 3.858864,
+  "long": 11.499432,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643205496090"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643205496090"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15530fa45313e28e76909"
+  },
+  "intitule": "Ex1_R1_S111",
+  "id_user": "",
+  "description": "salle située au departement d'informatique (Ext1).Elle est dediée aux etudiants de Master 2info\n",
+  "image": "upload\\lieu\\1643205936707.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643205936955"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643205936955"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 30
+},{
+  "_id": {
+    "$oid": "61f15683fa45313e28e7690b"
+  },
+  "intitule": "Ex1_R1_S105",
+  "id_user": "",
+  "description": "salle d'informatiue du depqrtement d'informatique située au niveau 1\n",
+  "image": "upload\\lieu\\1643206275832.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643206275987"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643206275987"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 17
+},{
+  "_id": {
+    "$oid": "61f156e3fa45313e28e7690d"
+  },
+  "intitule": "Ex1_R1_S106",
+  "id_user": "",
+  "description": "a 2 metres de la salle informatique",
+  "image": "upload\\lieu\\1643206371752.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643206371925"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643206371925"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 0
+},{
+  "_id": {
+    "$oid": "61f1588efa45313e28e7690f"
+  },
+  "intitule": "Ex1_R1_LABO_INFO",
+  "id_user": "",
+  "description": "Laboratoire des etudiants de Master du departement d'informatique",
+  "image": "upload\\lieu\\1643206797875.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643206798074"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643206798074"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 45
+},{
+  "_id": {
+    "$oid": "61f158d7fa45313e28e76911"
+  },
+  "intitule": "Ex1_R1_S113",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643206871594.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643206871714"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643206871714"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f1594afa45313e28e76913"
+  },
+  "intitule": "Ex1_R1_S114",
+  "id_user": "",
+  "description": "magasin du departement infotmatique",
+  "image": "upload\\lieu\\1643206986504.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643206986640"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643206986640"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 0
+},{
+  "_id": {
+    "$oid": "61f15a8ffa45313e28e76915"
+  },
+  "intitule": "Ex1_R1_S101",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643207311234.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643207311268"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643207311268"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 7
+},{
+  "_id": {
+    "$oid": "61f15b1bfa45313e28e76917"
+  },
+  "intitule": "Ex1_R1_S108",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643207451847.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643207451944"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643207451944"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 140
+},{
+  "_id": {
+    "$oid": "61f15b52fa45313e28e76919"
+  },
+  "intitule": "Ex1_R1_S102",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643207506137.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643207506946"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643207506946"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15b7bfa45313e28e7691b"
+  },
+  "intitule": "Ex1_R1_S109",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643207546562.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643207547063"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643207547063"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 0
+},{
+  "_id": {
+    "$oid": "61f15beafa45313e28e7691d"
+  },
+  "intitule": "Ex1_R1_S103",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643207658261.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643207658329"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643207658329"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15c8bfa45313e28e7691f"
+  },
+  "intitule": "Ex1_R1_S110",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643207819328.jpg",
+  "lat": 3.858892,
+  "long": 11.499976,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643207819385"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643207819385"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15d71fa45313e28e76921"
+  },
+  "intitule": "Ex1_R1_S005",
+  "id_user": "",
+  "description": "reservé à ICTL2",
+  "image": "upload\\lieu\\1643208049403.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208049559"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208049559"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15daefa45313e28e76923"
+  },
+  "intitule": "Ex1_R1_S006",
+  "id_user": "",
+  "description": "",
+  "image": "upload\\lieu\\1643208110169.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208110243"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208110243"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15de2fa45313e28e76925"
+  },
+  "intitule": "Ex1_R1_S007",
+  "id_user": "",
+  "description": "au couloir gauche",
+  "image": "upload\\lieu\\1643208162527.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208162588"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208162588"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15e57fa45313e28e76927"
+  },
+  "intitule": "Ex1_RDC_S013",
+  "id_user": "",
+  "description": "au couloir gauche",
+  "image": "upload\\lieu\\1643208279763.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208279820"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208279820"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15e84fa45313e28e76929"
+  },
+  "intitule": "Ex1_RDC_S012",
+  "id_user": "",
+  "description": "au couloir gauche",
+  "image": "upload\\lieu\\1643208324776.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208324811"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208324811"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15ebafa45313e28e7692b"
+  },
+  "intitule": "Ex1_RDC_S010",
+  "id_user": "",
+  "description": "au couloir droit",
+  "image": "upload\\lieu\\1643208377955.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208378024"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208378024"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15efffa45313e28e7692d"
+  },
+  "intitule": "Ex1_RDC_S003",
+  "id_user": "",
+  "description": "au couloir droit",
+  "image": "upload\\lieu\\1643208447112.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208447176"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208447176"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "61f15f56fa45313e28e7692f"
+  },
+  "intitule": "Ex1_RDC_S008",
+  "id_user": "",
+  "description": "au couloir droit",
+  "image": "upload\\lieu\\1643208534142.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208534958"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208534958"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 10
+},{
+  "_id": {
+    "$oid": "61f16021fa45313e28e76931"
+  },
+  "intitule": "Ex1_RDC_S002",
+  "id_user": "",
+  "description": "au couloir droit",
+  "image": "upload\\lieu\\1643208737602.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208737673"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208737673"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 10
+},{
+  "_id": {
+    "$oid": "61f16086fa45313e28e76933"
+  },
+  "intitule": "Ex1_RDC_S001",
+  "id_user": "",
+  "description": "au couloir droit du rais de chausée",
+  "image": "upload\\lieu\\1643208838311.jpg",
+  "lat": 3.858771,
+  "long": 11.300144,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643208838390"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643208838390"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d2253d78410e3805cfaf",
+  "rating": 100
+},{
+  "_id": {
+    "$oid": "61f1621efa45313e28e76937"
+  },
+  "intitule": "Amphi 350",
+  "id_user": "",
+  "description": "au couloir droit du rais de chausée",
+  "image": "upload\\lieu\\1643209246321.jpg,upload\\lieu\\1643209246380.jpg",
+  "lat": 3.858356,
+  "long": 11.500106,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1643209246452"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1643209246452"
+    }
+  },
+  "__v": 0,
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "rating": 5
+},{
+  "_id": {
+    "$oid": "62989e06e347e7469083bba0"
+  },
+  "intitule": "Rectorat ",
+  "id_user": "",
+  "description": "Nouveau Bâtiment Rectorat ",
+  "image": "upload\\lieu\\1654169083985.png,upload\\lieu\\1654169088626.png,upload\\lieu\\1654169091417.png",
+  "lat": 3.8574883,
+  "long": 11.5023683,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654169095062"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654169095062"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62989ed8e347e7469083c370"
+  },
+  "intitule": "ancien rectorat",
+  "id_user": "",
+  "description": "ancien bâtiment rectorat",
+  "image": "upload\\lieu\\1654169292720.png,upload\\lieu\\1654169296913.png,upload\\lieu\\1654169302707.png",
+  "lat": 3.8579053,
+  "long": 11.5020363,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654169304446"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654169304446"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62989f20e347e7469083ca2f"
+  },
+  "intitule": "Amphi 700",
+  "id_user": "",
+  "description": "Amphi théâtre 700 ",
+  "image": "upload\\lieu\\1654169361555.png,upload\\lieu\\1654169367093.png,upload\\lieu\\1654169370931.png",
+  "lat": 3.85785,
+  "long": 11.50207,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654169376182"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654169376182"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6298a01de347e7469083d33a"
+  },
+  "intitule": "parking rectorat",
+  "id_user": "",
+  "description": "parking du rectorat",
+  "image": "upload\\lieu\\1654169621415.png,upload\\lieu\\1654169624130.png,upload\\lieu\\1654169625583.png",
+  "lat": 3.8578871,
+  "long": 11.5021011,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654169629344"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654169629344"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6298a1a9e347e7469083eab6"
+  },
+  "intitule": "Esstic",
+  "id_user": "",
+  "description": "École professionnel Esstic ",
+  "image": "upload\\lieu\\1654170016655.png,upload\\lieu\\1654170019849.png,upload\\lieu\\1654170022877.png",
+  "lat": 3.8586533,
+  "long": 11.5017767,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170025771"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170025771"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6298a2d6e347e7469083ed1d"
+  },
+  "intitule": "Décanat Faculté des science ",
+  "id_user": "",
+  "description": "Décanat Faculté Sciences ",
+  "image": "upload\\lieu\\1654170317071.png,upload\\lieu\\1654170321227.png,upload\\lieu\\1654170323659.png",
+  "lat": 3.858635,
+  "long": 11.500615,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299e861a34164265496cd81"
+  },
+  "intitule": "Scolarité Faculté des science ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Division de Scholarité et de suivi des Etudiants",
+  "image": "upload\\lieu\\1654253665213.jpg,upload\\lieu\\1654253665427.jpg",
+  "lat": 3.8577232,
+  "long": 11.5007365,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654253665857"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654253665857"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299eb38a34164265496cd83"
+  },
+  "intitule": "AMPHY I",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Amphi 1 situer juste a la descente du champignon non loin de la scholaritée",
+  "image": "upload\\lieu\\1654254392565.jpg",
+  "lat": 3.8577905,
+  "long": 11.5008248,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654254392710"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654254392710"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299ec97a34164265496cd85"
+  },
+  "intitule": "AMPHY 501",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Amphi 501 situer juste en face du centre de calcule  ",
+  "image": "upload\\lieu\\1654254743500.jpg",
+  "lat": 3.857575,
+  "long": 11.499396,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654254743617"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654254743617"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299ecc1a34164265496cd87"
+  },
+  "intitule": "AMPHY 502",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Amphi 502 situer juste en face du centre de calcule  ",
+  "image": "upload\\lieu\\1654254785307.jpg",
+  "lat": 3.857575,
+  "long": 11.499396,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654254785759"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654254785759"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299ee51a34164265496cd8d"
+  },
+  "intitule": "Nouveau patiment Rh",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "   ",
+  "image": "",
+  "lat": 3.857862,
+  "long": 11.499983,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654255185273"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654255185273"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f149a34164265496cd93"
+  },
+  "intitule": "AMPHY 135",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "   ",
+  "image": "upload\\lieu\\1654255945888.jpg",
+  "lat": 3.8580789,
+  "long": 11.50012444,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654255945947"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654255945947"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f2e1a34164265496cd99"
+  },
+  "intitule": "Extension 1",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "   Extension 1 departement d informatiques et de mathematiques",
+  "image": "upload\\lieu\\1654256353660.jpg,upload\\lieu\\1654256353768.jpg,upload\\lieu\\1654256353872.jpg",
+  "lat": 3.858908,
+  "long": 11.499979,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654256353986"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654256353986"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f35ea34164265496cd9b"
+  },
+  "intitule": "Extension 2",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "   Extension 2 departement de physique et de chimie",
+  "image": "upload\\lieu\\1654256477925.jpg,upload\\lieu\\1654256478189.jpg,upload\\lieu\\1654256478448.jpg",
+  "lat": 3.858921,
+  "long": 11.500008,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654256478633"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654256478633"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f4b7a34164265496cd9d"
+  },
+  "intitule": "PETIT MAECHER",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "",
+  "image": "",
+  "lat": 3.859317,
+  "long": 11.500683,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654256823962"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654256823962"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f58aa34164265496cd9f"
+  },
+  "intitule": "AMPHY  1001",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "",
+  "image": "upload\\lieu\\1654257034113.jpg,upload\\lieu\\1654257034296.jpg",
+  "lat": 3.8597252,
+  "long": 11.5007967,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654257034470"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654257034470"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f5c2a34164265496cda1"
+  },
+  "intitule": "AMPHY  1002",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "",
+  "image": "upload\\lieu\\1654257090033.jpg,upload\\lieu\\1654257090183.jpg",
+  "lat": 3.8600367,
+  "long": 11.5003783,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654257090446"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654257090446"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f6e0a34164265496cda3"
+  },
+  "intitule": "AMPHY 250",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "",
+  "image": "upload\\lieu\\1654257375499.jpg,upload\\lieu\\1654257376313.jpg",
+  "lat": 3.8581009,
+  "long": 11.5001313,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654257376415"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654257376415"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6299f737a34164265496cda5"
+  },
+  "intitule": "AEFAS",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "AEFAS situé au sous sol troisieme batiment faculté des sciences",
+  "image": "upload\\lieu\\1654257463490.jpg",
+  "lat": 3.858059,
+  "long": 11.5001536,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654257463681"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654257463681"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e0f91c39d32efcdbdb5b"
+  },
+  "intitule": "Bloc Pedagogique",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "nouveau bloc pedagogique de la faculté des sciences",
+  "image": "upload\\lieu\\1654776056449.jpg,upload\\lieu\\1654776056954.jpg,upload\\lieu\\1654776057153.jpg",
+  "lat": 3.8580338,
+  "long": 11.4999026,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654776057282"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654776057282"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e20f1c39d32efcdbdb5d"
+  },
+  "intitule": "Amphi 1003",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Amphi 1003 situé à la sortie de la cité U",
+  "image": "upload\\lieu\\1654776334498.jpg,upload\\lieu\\1654776334649.jpg",
+  "lat": 3.8554795,
+  "long": 11.5011014,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1eb3d78410e3805cfab",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654776335772"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654776335772"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e2e41c39d32efcdbdb5f"
+  },
+  "intitule": "Centre Universitaire Des Ressources Informatiques et Multimedia",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Centre Universitaire Des Ressources Informatiques et Multimedia",
+  "image": "upload\\lieu\\1654776548112.jpg,upload\\lieu\\1654776548311.jpg",
+  "lat": 3.855543,
+  "long": 11.500385,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d2253d78410e3805cfaf",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654776548854"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654776548854"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e5001c39d32efcdbdb6b"
+  },
+  "intitule": "Stade Basket uy1",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Stade Basket",
+  "image": "upload\\lieu\\1654777087954.jpg,upload\\lieu\\1654777088138.jpg",
+  "lat": 3.855473,
+  "long": 11.499966,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1e4a11c39d32efcdbdb66",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654777088354"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654777088354"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f0351c39d32efcdbdb72"
+  },
+  "intitule": "Cité universitaire",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "cité universitaire",
+  "image": "upload\\lieu\\1654779956492.jpg,upload\\lieu\\1654779956647.jpg,upload\\lieu\\1654779956844.jpg",
+  "lat": 3.8548309,
+  "long": 11.4999414,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1efeb1c39d32efcdbdb6d",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654779957037"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654779957037"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f2111c39d32efcdbdb74"
+  },
+  "intitule": "Association des  Endicapés",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Association des  Endicapés",
+  "image": "",
+  "lat": 3.8546954,
+  "long": 11.4986933,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1efeb1c39d32efcdbdb6d",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654780433518"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654780433518"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f2d41c39d32efcdbdb7f"
+  },
+  "intitule": "Restaurant 2 UY1",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "RESTAURANT UNIVERSITAIRE N2",
+  "image": "upload\\lieu\\1654780628102.jpg,upload\\lieu\\1654780628181.jpg,upload\\lieu\\1654780628354.jpg",
+  "lat": 3.855626,
+  "long": 11.4982907,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1f2781c39d32efcdbdb76",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654780628781"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654780628781"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f3821c39d32efcdbdb81"
+  },
+  "intitule": "Stade Mateco",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Stade Mateco",
+  "image": "upload\\lieu\\1654780801723.jpg,upload\\lieu\\1654780801893.jpg",
+  "lat": 3.855923,
+  "long": 11.49721,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1e4a11c39d32efcdbdb66",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654780802060"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654780802060"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f3db1c39d32efcdbdb83"
+  },
+  "intitule": "Stade Renouveau",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Stade Renouveau",
+  "image": "upload\\lieu\\1654780891257.jpg,upload\\lieu\\1654780891419.jpg",
+  "lat": 3.857036,
+  "long": 11.497985,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1e4a11c39d32efcdbdb66",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654780891587"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654780891587"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f4a61c39d32efcdbdb8f"
+  },
+  "intitule": "Stade Tenis UY1",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Stade Tenis UY1",
+  "image": "",
+  "lat": 3.8562367,
+  "long": 11.498863,
+  "id_campus": "61e1f651ba7b511350d40ed2",
+  "id_type": "62a1e4a11c39d32efcdbdb66",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654781094963"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654781094963"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab479372e8bd34a0747ce1"
+  },
+  "intitule": "Infirmerie Faculté des Sciences",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "",
+  "image": "upload\\lieu\\1655392143006.jpg,upload\\lieu\\1655392143954.jpg",
+  "lat": 3.858536,
+  "long": 11.499692,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "62ab458b72e8bd34a0747cdb",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655392148113"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655392148113"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab4b2b72e8bd34a0747ce3"
+  },
+  "intitule": "espace public amphi 2",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "espace public amphi 2",
+  "image": "upload\\lieu\\1655393061458.jpg,upload\\lieu\\1655393062167.jpg,upload\\lieu\\1655393063878.jpg",
+  "lat": 3.858235,
+  "long": 11.500699,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "62a1efeb1c39d32efcdbdb6d",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655393067647"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655393067647"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab4d0972e8bd34a0747ce5"
+  },
+  "intitule": "champignon",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "espace public appele champignons",
+  "image": "upload\\lieu\\1655393545438.jpg",
+  "lat": 3.8576,
+  "long": 11.501166,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "62a1efeb1c39d32efcdbdb6d",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655393545547"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655393545547"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630c86632f855202bc06ce78"
+  },
+  "intitule": "Secretariat du departement informatique",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Secretariat du departement informatique situé au depatement d informatique au  Deuxieme  niveau.",
+  "image": "upload\\lieu\\1661765219510.jpg",
+  "lat": 3.858818,
+  "long": 11.499936,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "62a1e0131c39d32efcdbdb55",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661765219741"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661765219741"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630c86f62f855202bc06ce7a"
+  },
+  "intitule": "Secretariat du departement de mathematique",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Secretariat du departement informatique situé au depatement de mathematique au  Deuxieme  niveau.",
+  "image": "upload\\lieu\\1661765366143.jpg",
+  "lat": 3.858992,
+  "long": 11.50006,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "62a1e0131c39d32efcdbdb55",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661765366318"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661765366318"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e147922b8d631f4a5a196"
+  },
+  "intitule": "Centre de calcul (Cuti)",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "centre de calcule situé a la faculté des sciences de l universite de yaounde 1",
+  "image": "upload\\lieu\\IMG_20220830_165024_084.jpg,upload\\lieu\\IMG_20220830_165024_084.jpg,upload\\lieu\\IMG_20220830_165117_956.jpg",
+  "lat": 3.858209,
+  "long": 11.499511,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "62a1e0131c39d32efcdbdb55",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661867129101"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661867129101"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e27b58eaa89da257e2a72"
+  },
+  "intitule": "Service Courrier Faculté des Sciences",
+  "id_user": "",
+  "description": "Décanat Faculté Science rez-de-chausséé",
+  "image": "upload\\lieu\\1654170317071.png,upload\\lieu\\1654170321227.png,upload\\lieu\\1654170323659.png",
+  "lat": 3.858635,
+  "long": 11.500615,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e28638eaa89da257e2a73"
+  },
+  "intitule": "Service  du vice doyen chargeé de la programation  ",
+  "id_user": "",
+  "description": " Service  du vice doyen chargeé de la programation situé au  Décanat Faculté Science rez-de-chaussé",
+  "image": "upload\\lieu\\1654170317071.png,upload\\lieu\\1654170321227.png,upload\\lieu\\1654170323659.png",
+  "lat": 3.858635,
+  "long": 11.500615,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e28b28eaa89da257e2a74"
+  },
+  "intitule": "Service  du vice doyen chargeé de la Recherche et la coop",
+  "id_user": "",
+  "description": " Service  du vice doyen chargeé de la Recherche et la coop situé au  Décanat Faculté Science rez-de-chaussé",
+  "image": "upload\\lieu\\1654170317071.png,upload\\lieu\\1654170321227.png,upload\\lieu\\1654170323659.png",
+  "lat": 3.858635,
+  "long": 11.500615,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e29068eaa89da257e2a75"
+  },
+  "intitule": "Service  du vice doyen  ",
+  "id_user": "",
+  "description": "Service  du vice doyen  situé au  Décanat Faculté Science rez-de-chaussé",
+  "image": "upload\\lieu\\1654170317071.png,upload\\lieu\\1654170321227.png,upload\\lieu\\1654170323659.png",
+  "lat": 3.858635,
+  "long": 11.500615,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e29b98eaa89da257e2a76"
+  },
+  "intitule": "DAF faculté des ciences ",
+  "id_user": "",
+  "description": "Directiction des affaires financiére  situé au  Décanat Faculté Sciences rez-de-chaussé",
+  "image": "upload\\lieu\\1654170317071.png,upload\\lieu\\1654170321227.png,upload\\lieu\\1654170323659.png",
+  "lat": 3.858635,
+  "long": 11.500615,
+  "rating": 0,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654170326281"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e38f222b8d631f4a5a204"
+  },
+  "intitule": "Departement de physiques  Extension 3 ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de physiques situé au rez-de-chaussé de L'Extension 3",
+  "image": "upload\\lieu\\1661876466093.jpg,upload\\lieu\\1661876466211.jpg,upload\\lieu\\1661876466489.jpg",
+  "lat": 3.859205,
+  "long": 11.499405,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661876466603"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661876466603"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e395622b8d631f4a5a20a"
+  },
+  "intitule": "Departement de Chimie Inorganique Extension 3 ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de Chimie situé au rez-de-chaussé de L'Extension 3",
+  "image": "upload\\lieu\\1661876566026.jpg,upload\\lieu\\1661876566119.jpg,upload\\lieu\\1661876566303.jpg",
+  "lat": 3.859205,
+  "long": 11.499405,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661876566919"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661876566919"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e3a6822b8d631f4a5a20c"
+  },
+  "intitule": "Departement de Chimie Organique  Extension 3 ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de Chimie situé au rez-de-chaussé de L'Extension 3",
+  "image": "upload\\lieu\\1661876839841.jpg,upload\\lieu\\1661876839915.jpg,upload\\lieu\\1661876840044.jpg",
+  "lat": 3.859205,
+  "long": 11.499405,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661876840212"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661876840212"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e3b2f22b8d631f4a5a20e"
+  },
+  "intitule": "Departement de Biologie Animale  Extension 3 ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de Biologie Animale situé au niveau  1 de L'Extension 3",
+  "image": "upload\\lieu\\1661877038773.jpg,upload\\lieu\\1661877038866.jpg,upload\\lieu\\1661877039488.jpg",
+  "lat": 3.859205,
+  "long": 11.499405,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661877039641"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661877039641"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e3b6a22b8d631f4a5a210"
+  },
+  "intitule": "Departement de Bio-chimie  Extension 3 ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de Bio-chimie situé au niveau  1 de L'Extension 3",
+  "image": "upload\\lieu\\1661877097938.jpg,upload\\lieu\\1661877098021.jpg,upload\\lieu\\1661877098767.jpg",
+  "lat": 3.859205,
+  "long": 11.499405,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661877098885"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661877098885"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e3bab22b8d631f4a5a212"
+  },
+  "intitule": "Departement de Microbiologie  Extension 3 ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de Microbiologie situé au niveau  1 de L'Extension 3",
+  "image": "upload\\lieu\\1661877163654.jpg,upload\\lieu\\1661877163717.jpg,upload\\lieu\\1661877163820.jpg",
+  "lat": 3.859205,
+  "long": 11.499405,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661877163970"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661877163970"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "630e3daf22b8d631f4a5a214"
+  },
+  "intitule": "Departement de Bologie vegetale  ",
+  "id_user": "61cc84add8f48e30a8d598d4",
+  "description": "Departement de Bologie vegetale  situé au premier batiment faculté des sciences rez-de-chaussé",
+  "image": "upload\\lieu\\1661877679162.jpg,upload\\lieu\\1661877679267.jpg",
+  "lat": 3.858704,
+  "long": 11.500905,
+  "id_campus": "61e34b84b3c9710b84a6ea84",
+  "id_type": "6242d1d43d78410e3805cfa7",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661877679348"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661877679348"
+    }
+  },
+  "__v": 0
+}]

@@ -1,0 +1,277 @@
+
+<% if(ref == 'user'){ %>
+	<td style="display: none;" id="id<%=idr%>"><%- id %></td>
+	<% if(profil == "none") { %>
+		<td class=""><img class="main-img-user avatar-md rounded-circle" src="/publics/img/profil1.png" alt="img"></td>
+		<div id="profil<%=idr%>" style="display: none;"><%- profil %></div>
+	<% } else { %>
+		<td class=""><img class="main-img-user avatar-md rounded-circle" src="<%- url %><%- profil %>" alt="img"></td>
+		<div id="profil<%=idr%>" style="display: none;"><%- profil %></div>
+	<% } %>
+
+	<td id="name<%=idr%>"><%- name %></td>
+	<td id="email<%=idr%>"><%- email %></td>
+	<td id="address<%=idr%>"><%- address %></td>
+	<td id="tel<%=idr%>"><%- tel %></td>
+	<td id="sexe<%=idr%>"><%- sexe %></td>
+	<td>
+		<p id="fac<%=idr%>"><%- fac.intitule %></p>
+		<p id="facid<%=idr%>" style="display: none;"><%- fac.id %></p>
+	</td>
+	<td>
+		<p id="dep<%=idr%>"><%- departement.intitule %></p>
+		<p id="depid<%=idr%>" style="display: none;"><%- departement.id %></p>
+	</td>
+	<td>
+		<div class="justify-content-center text-center mt-3 d-flex">
+			<a data-toggle="modal"  class="btn ripple btn-secondary btn-icon mr-3" href="#modaldemo8" onclick="senddata('<%=idr%>','user')">
+				<i class="typcn typcn-edit"></i>
+			</a>
+			<a data-toggle="modal" onclick="deleteU('<%= idr %>','user')" class="btn ripple btn-danger btn-icon">
+				<i class="typcn typcn-trash"></i>
+			</a>
+		</div>
+	</td>
+
+
+
+<% } else if(ref == 'auth') { %>
+
+<% } %>
+
+<!-- *********************************** modal meme des suppression des users ************************************************************ -->
+	<script>
+		//$('#swal-delete').click(function () {
+			function redirect(){
+				setTimeout( function(){
+					window.location.href="/user/";
+				}, 1000)
+			}
+
+			function deleteU(i, reff){
+				//alert("yooooo")
+
+				if(reff == 'user'){
+					swal(
+						{
+							title: "Are you sure you want to delete this user?",
+							text: "Your will not be able to revert this action!",
+							type: "warning",
+							showCancelButton: true,
+							confirmButtonClass: "btn btn-danger",
+							confirmButtonText: "Yes, delete it!",
+							closeOnConfirm: false
+						},
+						function(){
+							var id = document.getElementById('id'+i).innerHTML;
+							//alert(id)
+							var formData = {
+								userID : id,
+							};
+
+							$.ajax({
+								url: '<%= url %>web/user/destroy',
+								type: 'POST',
+								dataType: 'json',
+								contentType: 'application/json',
+								data: JSON.stringify({userID : id}),
+								//data: $(this).serialize(),
+								success: function(data) {
+									//$('#modaldemo8').modal('hide')
+									swal("Deleted!", "User Deleted Successfully.", "success");
+									redirect();
+									//alert(data)
+								},
+								error: function(xhr, status, error) {
+									alert("Something went wrong "+error); // handle error response
+								}
+							});
+						}
+					);
+				}else if(reff == 'auth'){
+					swal(
+						{
+							title: "Are you sure you want to delete this authority?",
+							text: "Your will not be able to revert this action!",
+							type: "warning",
+							showCancelButton: true,
+							confirmButtonClass: "btn btn-danger",
+							confirmButtonText: "Yes, delete it!",
+							closeOnConfirm: false
+						},
+						function(){
+							var id = document.getElementById('idA'+i).innerHTML;
+							//alert(id)
+							var formData = {
+								userID : id,
+							};
+
+							$.ajax({
+								url: '<%= url %>webAut/autorite/destroy',
+								type: 'POST',
+								dataType: 'json',
+								contentType: 'application/json',
+								data: JSON.stringify({userID : id}),
+								//data: $(this).serialize(),
+								success: function(data) {
+									//$('#modaldemo8').modal('hide')
+									swal("Deleted!", "Authority Deleted Successfully.", "success");
+									redirect();
+									//alert(data)
+								},
+								error: function(xhr, status, error) {
+									alert("Something went wrong "+error); // handle error response
+								}
+							});
+						}
+					);
+				}
+			}
+		//});
+</script>
+<!---**************************************************************************************************************************************-->
+
+
+<script>
+	function senddata(i, reff){
+		var tmp;
+		if(reff == 'user'){
+
+			let ref = document.getElementById('updateref')
+				ref.innerHTML = reff;
+
+			var avatar = document.getElementById('profil'+i).innerHTML;
+			var id =  document.getElementById('id'+i).innerHTML;
+			
+			var name =  document.getElementById('name'+i).innerHTML;
+
+			var email =  document.getElementById('email'+i);
+			for (const child of email.childNodes) {
+				if (child.nodeType === Node.TEXT_NODE) {
+					email = child.nodeValue
+				}
+			}
+
+			var tel =  document.getElementById('tel'+i);
+			for (const child of tel.childNodes) {
+				if (child.nodeType === Node.TEXT_NODE) {
+					tel = child.nodeValue
+				}
+			}
+
+			var address =  document.getElementById('address'+i);
+			for (const child of address.childNodes) {
+				if (child.nodeType === Node.TEXT_NODE) {
+					address = child.nodeValue
+				}
+			}
+
+			var sexe = document.getElementById('sexe'+i).innerHTML;
+			var dof = document.getElementById('birthDay'+i).innerHTML;
+
+			var fac =  document.getElementById('fac'+i).innerHTML;
+				tmp = fac.split(':');
+				fac = tmp[1].trim();
+			var facid = document.getElementById('facid'+i).innerHTML;
+
+			var dep =  document.getElementById('dep'+i).innerHTML;
+				tmp = dep.split(':');
+				dep = tmp[1].trim();
+
+			// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
+
+				document.getElementById('profilpic').setAttribute("value",avatar)
+				document.getElementById('idU').setAttribute("value",id)
+				document.getElementById('usernameU').setAttribute("value",name)
+				document.getElementById('emailU').setAttribute("value",email)
+				document.getElementById('telU').setAttribute("value",tel)
+
+				document.getElementById('facUmm').setAttribute("value",facid)
+				document.getElementById('facUmm').innerHTML = fac;
+				
+				document.getElementById('types').style.display = 'none';
+				document.getElementById('foruser').style.display = 'block';
+				document.getElementById('forauth').style.display = 'none';
+
+				document.getElementById('addressU').setAttribute("value",address)
+				document.getElementById('datetimepicker').setAttribute("value",dof)
+				document.getElementById('sexeU').setAttribute("value",sexe)
+
+				document.getElementById('depU').setAttribute("value",dep)
+
+
+		} else if(reff == 'auth'){
+
+			let ref = document.getElementById('updateref')
+				ref.innerHTML = reff;
+
+			var avatar = document.getElementById('profilA'+i).innerHTML;
+			var id =  document.getElementById('idA'+i).innerHTML;
+			
+			var type =  document.getElementById('typeA'+i).innerHTML;
+			var typeid =  document.getElementById('typeidA'+i).innerHTML;
+
+			var name =  document.getElementById('nameA'+i).innerHTML;
+
+			var email =  document.getElementById('emailA'+i);
+			for (const child of email.childNodes) {
+				if (child.nodeType === Node.TEXT_NODE) {
+					email = child.nodeValue
+				}
+			}
+
+			var tel =  document.getElementById('telA'+i);
+			for (const child of tel.childNodes) {
+				if (child.nodeType === Node.TEXT_NODE) {
+					tel = child.nodeValue
+				}
+			}
+
+			var address =  document.getElementById('addressA'+i);
+			for (const child of address.childNodes) {
+				if (child.nodeType === Node.TEXT_NODE) {
+					address = child.nodeValue
+				}
+			}
+
+			var fonction =  document.getElementById('fonctionA'+i).innerHTML;
+			var lieudeservice =  document.getElementById('lieudeserviceA'+i).innerHTML;
+			var Profession =  document.getElementById('ProfessionA'+i).innerHTML;
+
+			var fac =  document.getElementById('facA'+i).innerHTML;
+				tmp = fac.split(':');
+				fac = tmp[1].trim();
+				
+			var facid = document.getElementById('facidA'+i).innerHTML;
+
+			var dep =  document.getElementById('depA'+i).innerHTML;
+				tmp = dep.split(':');
+				dep = tmp[1].trim();
+
+			// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
+
+				document.getElementById('profilpic').setAttribute("value",avatar)
+				document.getElementById('idU').setAttribute("value",id)
+				document.getElementById('usernameU').setAttribute("value",name)
+				document.getElementById('emailU').setAttribute("value",email)
+				document.getElementById('telU').setAttribute("value",tel)
+
+				document.getElementById('facUmm').setAttribute("value",facid)
+				document.getElementById('facUmm').innerHTML = fac;
+
+				document.getElementById('typeUm').setAttribute("value",typeid)
+				document.getElementById('typeUm').innerHTML = type;
+				document.getElementById('types').style.display = 'block';
+				document.getElementById('foruser').style.display = 'none';
+				document.getElementById('forauth').style.display = 'block';
+
+				document.getElementById('addressU').setAttribute("value",address)
+				document.getElementById('fonctionU').setAttribute("value",fonction)
+				document.getElementById('lieudeserviceU').setAttribute("value",lieudeservice)
+				document.getElementById('ProfessionU').setAttribute("value",Profession)
+
+				document.getElementById('depU').setAttribute("value",dep)
+
+		}
+	}	
+</script>

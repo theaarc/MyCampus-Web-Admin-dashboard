@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:21:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Description" content="Dashfox - Laravel Admin & Dashboard Template">
+		<meta name="Author" content="Spruko Technologies Private Limited">
+		<meta name="Keywords" content="admin template, admin dashboard, bootstrap dashboard template, bootstrap 4 admin template, laravel, php framework, php laravel, laravel framework, php mvc, laravel admin panel, laravel admin panel, laravel template, laravel bootstrap, blade laravel, best php framework"/>
+
+        <!-- Title -->
+		<title> Admin Dashboard </title>
+
+		<!-- ***********************************test data****************************** -->
+			<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+			<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+
+			<script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+        <!-- ***********************************test data****************************** -->
+		<%- include('component/cssincludes'); %> 
+
+    </head>
+
+    <body  class="main-body light-theme app sidebar-mini active leftmenu-color">
+
+		<script>
+			// Create a new EventSource object for SSE
+			const source = new EventSource('/sse');
+		
+			// Listen for SSE events
+			source.addEventListener('newAnnouncement', (event) => {
+			  const data = JSON.parse(event.data);
+			  alert(data.message);
+			//   var btn = document.getElementById('mybutton');
+			//   btn.click()
+			});
+		</script>
+
+		<script>
+			function makeRequest() {
+				// Create an XMLHttpRequest object or use fetch API
+				var xhr = new XMLHttpRequest();
+				
+				xhr.open('GET', '/web/annonce/dahsbordadmin/', true);
+				xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+				xhr.onload = function() {
+					if (xhr.status === 200) {}
+				};
+				
+				// Send the request
+				xhr.send();
+			}
+
+			setInterval(makeRequest, 1000);
+		</script>
+        
+        <!-- Start Switcher -->
+
+		<!-- End Switcher -->
+
+        <!-- Loader -->
+		<div id="global-loader">
+			<img src="/publics/img/loader-2.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /Loader -->
+
+        <!-- main-sidebar -->
+			<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+			<%- include('component/sidemenu'); %> 
+		<!-- main-sidebar -->
+
+		<!-- main-content -->
+		<div class="main-content app-content">
+			<!-- main-header -->
+			  
+			<%- include('component/header',{profil:user,ref:2,prof:"admin"}); %> 
+			<!-- main-header  -->
+   
+			<!-- container  --> 
+			   <div class="container-fluid mg-t-20">
+				   <!-- breadcrumb  -->
+					<div class="breadcrumb-header justify-content-between">
+                        <div class="left-content">
+							<div class="content-title mb-2">
+								<h3 class="">Hi, welcome back!</h3>
+								<h3 class=""><%- user.Name %></h3>
+							</div>
+							<div id="adminid" style="display: none;"><%- user._id %></div>
+							<nav aria-label="breadcrumb">
+							</nav>
+					   </div>
+					<!-- breadcrumb  -->
+			  		 </div>
+			   <!-- Container closed  -->
+   
+			   <!-- ************************************* les donnees a ajouter ********************************************-->
+			   <div>
+					<!-- Statistic -->
+					<div class="container-fluid mg-t-20 ht-15p">
+							<h1>Annonces</h1>
+								<!-- row -->
+								<div class="row row-sm justify-content-md-center">
+									<div class="col col-lg-5">
+										<div class="card mg-b-20">
+											<div class="card-body">
+												<div class="main-content-label mg-b-5">
+													Statistic sur les types d'annonce
+												</div>
+												<div class="ht-200 ht-sm-200" id="typeannonce"></div>
+											</div>
+										</div>
+									</div><!-- col-6 -->
+									<div class="col col-lg-5">
+										<div class="card mg-b-20">
+											<div class="card-body">
+												<div class="main-content-label mg-b-5">
+													Statistic General sur les annonces
+												</div>
+												<div class="ht-200 ht-sm-200" id="genannonce"></div>
+											</div>
+										</div>
+									</div><!-- col-6 -->
+								</div>
+								<!-- /row -->
+
+								<!-- ***********************************Used data for pie chart ****************************** -->
+									<script>
+										//******************stats sur l'etat des annonces***************************
+										var a_attente = 0;
+										var a_valider = 0;
+										var a_rejeter = 0;
+										
+										'<% for(var i=0; i < annonces.length; i++) { %>'
+											
+											'<% if(annonces[i].etat == "0"){ %>'
+												a_valider++;
+											'<% } %>'
+										
+											'<% if(annonces[i].etat == "1"){ %>'
+												a_attente++;
+											'<% } %>'
+
+											'<% if(annonces[i].etat == "2"){ %>'
+												a_rejeter++;
+											'<% } %>'
+											
+										'<% } %>'
+
+										//******************stats sur le type des annonces***************************
+											var com = 0;
+											var emp = 0;
+											var con = 0;
+
+											'<% for(var i=0; i < annonces.length; i++) { %>'
+												'<% if(annonces[i].type == "641d6fcfe2ee7c2540f18027"){ %>'
+													emp++;
+												'<% } %>'
+												'<% if(annonces[i].type == "641d6fe1e2ee7c2540f1802b"){ %>'
+													com++;
+												'<% } %>'
+												'<% if(annonces[i].type == "641d6ff3e2ee7c2540f1802f"){ %>'
+													con++;
+												'<% } %>'
+											'<% } %>'
+
+										/************************** this data shall be gotten dynamically from the database *********************/
+										var typedata = [{'x': 'communiquer', y: com},
+														{'x': 'emploi temps', y: emp},
+														{'x': 'convocation', y: con},];
+										var gendata = [{'x': 'Valider', y: a_valider},
+													   {'x': 'En Attente', y: a_attente},
+													   {'x': 'Rejeter', y: a_rejeter}];
+										/************************** this data shall be gotten dynamically from the database *********************/
+
+										var pietype = new ej.charts.AccumulationChart({
+											//Series type
+											series: [
+												{
+													radius: '60%',
+													
+													dataSource : typedata,
+													dataLabel: {
+														visible: true,
+													},
+													xName: 'x',
+													yName: 'y'
+												}
+											],
+										});
+										pietype.appendTo('#typeannonce');
+
+										var pieGen = new ej.charts.AccumulationChart({
+											//Series general
+											series: [
+												{
+													radius: '60%',
+
+													dataSource : gendata,
+													dataLabel: {
+														visible: true,
+													},
+													xName: 'x',
+													yName: 'y'
+												}
+											],
+										});
+										pieGen.appendTo('#genannonce');
+									</script>
+								<!-- ***********************************test data****************************** -->
+
+					</div>
+					<!-- Statistic End -->
+
+					<!-- annonce -->
+					<div class="row row-sm">
+						<div class="col-xl-3 col-lg-4 mb-3 mb-md-0">
+							<div class="card overflow-hidden mg-30">
+								<h5 class="m-0 p-3 card-title bg-white border-bottom">Filtre les Annonces</h5>
+								<div class="py-2 px-3">
+									<label class="p-1 mt-2 d-flex align-items-center">
+										<span class="checkbox">
+											<span class="check-box mb-0">
+												<span class="ckbox"><input type="checkbox" id="universite" onclick="validate('universite')"><span></span></span>
+											</span>
+										</span>
+										<span class="ml-2">
+											Universite
+										</span>
+									</label>
+									<label class="p-1 d-flex align-items-center">
+										<span class="checkbox">
+											<span class="check-box mb-0">
+												<span class="ckbox"><input type="checkbox" id="faculte" onclick="validate('faculte')"><span></span></span>
+											</span>
+										</span>
+										<span class="ml-2">
+											Faculte
+										</span>
+									</label>
+									<label class="p-1 d-flex align-items-center">
+										<span class="check-box mb-0">
+											<span class="ckbox"><input type="checkbox" onclick="validate('departement')"><span></span></span>
+										</span>
+										<span class="ml-2">
+											Departement
+										</span>
+									</label>
+								</div>
+								<script>
+									function validate(id) {
+										if (document.getElementById(id).checked) {
+											alert("checked "+id);
+	
+											if(id == "universite"){
+												var send = {faculte:""};
+												$.ajax({
+													type: 'POST',
+													url: '<%= url%>api/annonce/test',
+													dataType: 'json',
+													contentType: 'application/json',
+													data: JSON.stringify(send)
+												})
+												.done(function(response) {
+													// Si la requête réussit, affiche le message de confirmation
+													// window.location.href="/";
+													alert("very good")
+												})
+												.fail(function(data) {
+													// Si la requête échoue, affiche le message d'erreur et ajoute la classe "error" au formulaire
+													$('#error-message').text(data.responseText);
+													$(form).addClass('error');
+												});			
+											}
+										} else {
+											alert("unchecked");
+										}
+									}
+								</script>
+							</div>
+						</div>
+					
+						<div class="container-fluid mg-t-30 ht-85p col-xl-9 col-lg-8">
+							<div class="row row-sm">
+								<% var num = 0 %>
+								<% for(var i=0; i < annonces.length; i++) { %>
+									<% num++; %>
+								<% } %>
+
+								<% if(num == 0) {%>
+									<h5 class="container-fluid">Acucune annonces enregistre !!!</h5>
+								<% } else { %>
+									<% for(var i=0; i < annonces.length; i++) { %>
+										<%  var user= JSON.parse(annonces[i].id_annoncer) %>
+										<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+											<div class="card">
+												<div class="card-body">
+													<div class="d-flex flex-row justify-content-between mg-b-20">
+														<div class="d-flex flex-row justify-content-between">
+															<% if(user.avatar == "none"){ %> 
+																<div class="main-img-user"><img alt="" id="img<%= i %>" src="/publics/img/profil1.png"></div>
+															<% } else { %> 
+																<div class="main-img-user"><img alt="" id="img<%= i %>" src="<%- url %><%- user.avatar  %>"></div>
+															<% } %>
+															<div class="mg-l-20">
+																<div class="card-text" id="nomAner<%= i %>"><%- user.name  %></div><p id="ids<%= i %>" style="display: none;"><%= i %></p>
+																<div class="card-text" ID="titreAner<%= i %>"><%- user.Profession  %></div>
+															</div>
+														</div>
+														<div><a data-toggle="modal" href="#modaldemo8"><i onclick="send('<%= i %>')" class="fas fa-light fa-eye"></i></a></div>
+													</div>
+													<h5 id="titreA<%= i %>"><%= annonces[i].titre %></h5><br>
+													<div class="d-flex flex-row justify-content-between mg-b-20">
+														<p id="descA<%= i %>" class="card-text" style="display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;">
+															<%= annonces[i].description %>
+														</p>
+													</div>
+													<div id="docs" class="d-flex flex-row justify-content-between mg-b-20">
+														<% if(annonces[i].document == "none"){ %>
+															0 file
+														<% } else { %>
+															<%  var arr = annonces[i].document.split(","); %>
+															<%= arr.length %> files
+														<% } %>
+													</div>
+													<div>
+														<% if(annonces[i].etat == 0){ %>
+															<div class="alert alert-success" role="alert">Cette annonce est valider</div>
+														<% }else if(annonces[i].etat == 1) { %>
+															<div class="alert alert-info" role="alert">Cette annonce en attente</div>
+														<% }else if(annonces[i].etat == 2) { %>
+															<div class="alert alert-danger" role="alert">Cette annonce est rejeter</div>
+														<% } %>
+													</div>
+													<!-- ****************** invisible useful data *********************** -->
+													<div style="display: none;">
+														<p id="minsup<%= i %>"><%= annonces[i].minsup %></p>
+														<p id="universite<%= i %>"><%= annonces[i].universite %></p>
+														<p id="faculte<%= i %>"><%= annonces[i].faculte %></p>
+														<p id="departement<%= i %>"><%= annonces[i].departement %></p>
+														<p id="filiere<%= i %>"><%= annonces[i].filiere %></p>
+														<p id="type<%= i %>"><%= annonces[i].type %></p>
+														<p id="document<%= i %>"><%= annonces[i].document %></p>
+														<p id="etat<%= i %>"><%= annonces[i].etat %></p>
+														<p id="id_annoncer<%= i %>"><%= user.id %></p>
+														<p id="id<%= i %>"><%= annonces[i]._id %></p>
+													</div>
+													<!-- ****************** invisible useful data *********************** -->
+												</div>
+											</div>
+										</div>
+										
+										<script>
+											function send(intex){
+												var ids = document.getElementById(`ids${intex}`).innerHTML;
+												
+												var nom = document.getElementById(`nomAner${intex}`).innerHTML;
+												var title = document.getElementById(`titreAner${intex}`).innerHTML;
+												var img = document.getElementById(`img${intex}`).getAttribute("src");
+												var titre = document.getElementById(`titreA${intex}`).innerHTML;
+												var desc = document.getElementById(`descA${intex}`).innerHTML;
+
+												var minsup = document.getElementById(`minsup${intex}`).innerHTML;
+												var universite = document.getElementById(`universite${intex}`).innerHTML;
+												var faculte = document.getElementById(`faculte${intex}`).innerHTML;
+												var departement = document.getElementById(`departement${intex}`).innerHTML;
+												var filiere = document.getElementById(`filiere${intex}`).innerHTML;
+												var type = document.getElementById(`type${intex}`).innerHTML;
+												var etat = document.getElementById('etat'+intex).innerHTML;
+
+												if(etat == 0){
+													document.getElementById("bottoms").style.display = "none";
+													document.getElementById("bottoms").setAttribute('class','')
+												}else if(etat == 1){
+													document.getElementById("bottoms").style.display = "block";
+													document.getElementById("bottoms").setAttribute('class','d-flex')
+												}else if(etat == 2){
+													document.getElementById("bottoms").style.display = "none";
+													document.getElementById("bottoms").setAttribute('class','')
+												}
+
+												var id_annoncer = document.getElementById(`id_annoncer${intex}`).innerHTML;
+												var id = document.getElementById(`id${intex}`).innerHTML;
+												//var code=document.getElementById(`code${intex}`).getAttribute('value');
+
+												/* ----------------- data for validation -------------------*/
+												// document.getElementById("code").setAttribute("value",code)
+												document.getElementById("id").setAttribute("value",id)	
+												/*------------------------------------------------------------*/
+												
+												document.getElementById("nomAnnR").innerHTML = nom;
+												document.getElementById("titreAnnR").innerHTML = title;
+												document.getElementById("titreAR").innerHTML = titre;
+												document.getElementById("descAR").innerHTML = desc;
+												document.getElementById("minsupR").innerHTML = minsup;
+												document.getElementById("universiteR").innerHTML = universite;
+												document.getElementById("faculteR").innerHTML = faculte;
+												document.getElementById("departementR").innerHTML = departement;
+												document.getElementById("filiereR").innerHTML = filiere;
+												document.getElementById("typeR").innerHTML = type;
+												document.getElementById("etatR").innerHTML = etat;
+												document.getElementById("id_annoncerR").innerHTML = id_annoncer;
+												document.getElementById("idR").innerHTML = id;
+												document.getElementById("imgR").setAttribute('src',img);
+
+												
+												var documents = document.getElementById(`document${intex}`).innerHTML;
+												document.getElementById("documentRr").innerHTML = documents;
+
+												if(documents != 'none'){
+
+													var docs = documents.split(",");
+													var divDoc = document.getElementById("documentR").innerHTML = " ";
+													
+														for (let k = 0; k < docs.length; k++) {
+															var arrs = docs[k].split("\\");
+
+															var arrsExt = arrs[2].split(".");
+
+															if(arrsExt[1] == "pdf"){
+																//document.getElementById("documentR").innerHTML += '<a target="_blank" href="<%- url %>'+docs[k]+'"><img width="20" height="20" alt="" id="" src="/publics/img/pdf-icon-png-pdf-zum-download-2.png"> ' +arrs[2]+ '</a>';
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-pdf pdf-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else if(arrsExt[1] == "png" || arrsExt[1] == "jpg" || arrsExt[1] == "jpeg"){
+																//document.getElementById("documentR").innerHTML += '<div><img width="20" height="20" alt="" id="" src="/publics/img/Photos-new-icon.png">' +arrs[2]+ '</div>';
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,2)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-image image-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else if(arrsExt[1] == "mp4" || arrsExt[1] == "mp3"){
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,3)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-video video-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else if(arrsExt[1] == "docx" || arrsExt[1] == "txt"){
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-alt text-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else if(arrsExt[1] == "xlsx"){
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-excel excel-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else if(arrsExt[1] == "ppt" || arrsExt[1] == "pptx"){
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-powerpoint ppt-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else if(arrsExt[1] == "zip" || arrsExt[1] == "rar"){
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-archive zip-file"></i></span> ' +arrs[2]+ '</div>';
+															}
+															else{
+																document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-alt text-file"></i></span> ' +arrs[2]+ '</div>';
+															}	
+														}			
+												}else{
+													document.getElementById("documentR").innerHTML = " ";
+												}
+
+											}
+
+										</script>
+									<% } %>
+								<% } %>
+							</div>
+						</div>
+					</div>
+
+					 <!-- *********************************** modal meme ************************************************************ -->
+					 <div class="container-fluid modal" id="modaldemo8">
+						<div class="modal-dialog modal-lg" role="document">
+							<div id="part1" class="modal-content modal-content-demo">
+									<div class="modal-header">
+										<div class="main-img-user"><img alt="" id="imgR" src="/publics/img/faces/6.jpg"></div>
+										<div class="mg-l-20">
+											<div id="nomAnnR" class="card-text"></div>
+											<div id="titreAnnR" class="card-text"></div>
+										</div>
+										<button onclick="takeoff()" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+									</div>
+									<div class="modal-body row row-sm">
+											<div class="col-lg-6 bd bd-2 bd-dark rounded-20 pd-10 mg-r-3 mg-t-10" style="background-image: url(/publics/img/Blason_univ_Yaoundé_1.png);">
+
+													<h6 id="titreAR" class="text-black"></h6>
+													<p id="descAR" class="text-black"></p>
+
+													<!-- display files -->
+													<br>
+													<div class="justify-content-between" id="documentR"></div>
+													<div id="displaydoc"></div>
+													<!-- display files -->
+											</div>
+											<div class="col-lg-5 bd bd-2 bd-dark rounded-20 pd-10 mg-l-3 mg-t-10">
+												<h3>Voir les document associer ici</h3>
+												<div id="see"></div>
+
+												<!-- ************* scripts for the views ************* -->
+												<script>
+													function dis(data,ref){
+														if(ref == 2){
+															const div = document.getElementById("see");
+
+															div.innerHTML = "";
+															div.innerHTML = "<img src='http://localhost:5000/"+data+"'>";
+														}else if(ref == 1){
+															window.open('http://localhost:5000/'+data, "_blank");
+														} else if(ref == 3){
+															const div = document.getElementById("see");
+
+															div.innerHTML = "";
+															div.innerHTML = "<video width='320' height='240' controls> <source src='http://localhost:5000/"+data+"' type='video/mp4'></video>"
+														}
+													}
+
+													function takeoff(){
+														const div = document.getElementById("see");
+														div.innerHTML = "";
+													}
+												</script>
+											</div>
+									</div>
+									<div class="modal-footer">
+										<div id="bottoms" style="display:none">
+											<!-- ****************** invisible useful data *********************** -->
+												<div style="display: none;">
+													<div id="titreAR"></div>
+													<div id="descAR"></div>
+													<div id="minsupR"></div>
+													<div id="universiteR"></div>
+													<div id="faculteR"></div>
+													<div id="departementR"></div>
+													<div id="filiereR"></div>
+													<div id="typeR"></div>
+													<div id="documentRr"></div>
+													<div id="documentRrr"></div>
+													<div id="etatR"></div>
+													<div id="id_annoncerR"></div>
+													<div id="idR"></div>
+												</div>
+												<!-- ****************** invisible useful data *********************** -->
+													<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+													<form id="myForm">
+														<input type="text" name="id" id="id" style="display:none">
+														<input class="btn ripple btn-primary mg-r-5" type="submit" value="Valider">
+													</form>
+													<input class="btn ripple btn-secondary mg-l-5" type="submit" onclick="ChangeContent('open')" value="Rejeter">
+											</div>
+									</div>
+								</div>
+								
+								<div id="part2" style="display: none;" class="modal-content modal-content-demo">
+									<div class="modal-header">
+										<h3>Dites ce qui ne vas pas sur cette annonce</h3>
+										<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+									</div>
+									<div class="modal-body row row-sm">
+										<textarea id="comment" class="form-control mg-b-5" rows="10" cols="15"></textarea>
+									</div>
+									<div class="modal-footer">
+										<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+										<form id="my-formR">
+											<input type="text" name="id" id="idr" style="display:none">
+											<input class="btn ripple btn-primary" type="submit" value="Submit">
+										</form>
+
+										<input class="btn btn-danger" type="submit" onclick="ChangeContent('close')" value="cancel">
+
+									</div>
+								</div>
+								<script>
+									function ChangeContent(ind){
+										if(ind == "open"){
+											document.getElementById("part1").style.display = "none";
+											document.getElementById("part2").style.display = "block";
+											let id = document.getElementById("id").value;
+											document.getElementById("idr").setAttribute("value",id);
+										}else if(ind == "close"){
+											document.getElementById("part2").style.display = "none";
+											document.getElementById("part1").style.display = "block";
+											document.getElementById('comment').value = "";
+										}
+									}
+								</script>
+						</div>
+					</div>
+					 <!-- *********************************** modal meme ************************************************************ -->
+					<!-- annonce END -->
+			   </div>
+			   <!--******************************************** les donnees a ajouter*************************************** -->
+   
+		   </div>
+		   <!-- main-content closed -->   
+
+		   <%- include('component/footer'); %> 
+
+		   <%- include('component/scriptIncudes'); %> 
+
+		<!---  *************************************************** script for validating annonces ************************************************ -->
+		<script>
+			function showConfirm(callback){
+				swal(
+					{
+						title: 'Well done!',
+						text: 'Your annonce has been validated successfully!',
+						type: 'success',
+						// confirmButtonColor: '#57a94f'
+					}
+				)
+				callback();
+			}
+			function redirectHome(){
+				setTimeout( function(){
+					window.location.href="/annonce/";
+				}, 1000)
+			}
+
+			$(document).ready(function() {
+			  $('#myForm').submit(function(e) {
+				e.preventDefault(); // prevent form from submitting
+
+				alert($(this).serialize())
+
+				$.ajax({
+				  url: '<%= url%>web/annonce/validate',
+				  type: 'POST',
+				  data: $(this).serialize(),
+				  success: function(data) {
+					$('#modaldemo8').modal('hide')
+					showConfirm(redirectHome);
+				  },
+				  error: function(xhr, status, error) {
+					console.log(xhr.responseText); // handle error response
+				  }
+				});
+			  });
+			});
+		</script>
+
+		<!--- *************************************************** script for Rejection annonces *************************************************** -->
+		<script>
+			function showConfirmR(callback){
+				swal(
+					{
+						title: 'Rejected!',
+						text: 'Your annonce has been rejected successfully!',
+						type: 'success',
+						// confirmButtonColor: '#57a94f'
+					}
+				)
+				callback();
+			}
+			function redirectHomeR(){
+				setTimeout( function(){
+					window.location.href="/annonce/";
+				}, 1000)
+			}
+
+			$(document).ready(function() {
+			  $('#my-formR').submit(function(e) {
+				e.preventDefault(); // prevent form from submitting
+
+				var comment = document.getElementById('comment').value
+				var adminid = document.getElementById('adminid').innerHTML
+
+				var formd = $(this).serialize()
+
+				var temp = formd.split('=');
+
+				var data = {
+					'comment':comment,
+					'id_admin': adminid,
+					'id':temp[1]
+				};
+
+				$.ajax({
+				  url: '<%= url%>web/annonce/rejeter',
+				  type: 'POST',
+				  data: data,
+				  success: function(data) {
+					$('#modaldemo8').modal('hide')
+					showConfirmR(redirectHomeR);
+				  },
+				  error: function(xhr, status, error) {
+					console.log(xhr.responseText); // handle error response
+				  }
+				});
+			  });
+			});
+		</script>
+    </body>
+
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:24:51 GMT -->
+</html>

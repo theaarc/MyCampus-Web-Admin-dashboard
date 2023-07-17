@@ -1,0 +1,351 @@
+[{
+  "_id": {
+    "$oid": "62476d3e9f55b23b14928845"
+  },
+  "user": [],
+  "intitule": "CHEMISE RELLE BLEU",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648848190480.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "a domicile",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648848190848"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648848190848"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62476d939f55b23b14928847"
+  },
+  "user": [],
+  "intitule": "CHEMISE Hawaein",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648848275019.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "a domicile",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648848275193"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648848275193"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62476e629f55b23b1492884a"
+  },
+  "user": [],
+  "intitule": "RIZ CANTONNE AU LEGUME FRIT",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648848481872.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "a domicile",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648848482046"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648848482046"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62476fe19f55b23b1492884c"
+  },
+  "user": [],
+  "intitule": "TARO SAUCE JAUNE",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648848865325.jpg,upload\\pub\\1648848865326.jpg,upload\\pub\\1648848865328.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "a domicile",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648848865521"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648848865521"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6247703e9f55b23b1492884f"
+  },
+  "user": [],
+  "intitule": "TEAS BURGUER",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648848958778.jpg,upload\\pub\\1648848958795.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "a domicile",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648848958803"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648848958803"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624770ac9f55b23b14928851"
+  },
+  "user": [],
+  "intitule": "NIKE DEMI-SAISON",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849068101.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849068116"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849068116"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624770de9f55b23b14928853"
+  },
+  "user": [],
+  "intitule": "KNOW NAME",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849118169.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849118318"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849118318"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624770ff9f55b23b14928855"
+  },
+  "user": [],
+  "intitule": "MODELLE PAGNE",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849151278.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849151285"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849151285"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6247714a9f55b23b14928857"
+  },
+  "user": [],
+  "intitule": "Robe Bleu",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849226696.png",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849226715"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849226715"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624771ae9f55b23b14928859"
+  },
+  "user": [],
+  "intitule": "TAPIOCA ERU",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849326450.jpg,upload\\pub\\1648849326451.jpg,upload\\pub\\1648849326452.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849326499"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849326499"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624771d59f55b23b1492885b"
+  },
+  "user": [],
+  "intitule": "TAPIOCA ERUS",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849365137.jpg,upload\\pub\\1648849365139.jpg,upload\\pub\\1648849365141.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849365753"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849365753"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6247721e9f55b23b1492885d"
+  },
+  "user": [],
+  "intitule": "SAUCE PISTACHE",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849438752.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849438822"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849438822"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624772b79f55b23b1492885f"
+  },
+  "user": [],
+  "intitule": "PAUME PILE",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849591224.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849591235"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849591235"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "624772c39f55b23b14928861"
+  },
+  "user": [],
+  "intitule": "PAUME PILE",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648849602874.jpg",
+  "prix": 7500,
+  "qte": 5,
+  "ratin": 0,
+  "disponibilite": true,
+  "etatdelivraison": "en boutique",
+  "isnew": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648849603155"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648849603155"
+    }
+  },
+  "__v": 0
+}]

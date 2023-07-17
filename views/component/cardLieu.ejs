@@ -1,0 +1,214 @@
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 p-2">
+    <div class="card custom-card">
+        <!-- <img src="<%- url %><%- image %>"> -->
+        <div class="card overflow-hidden card-body ht-30p mg-0 pd-0">
+            <div class="carousel slide mg-20" data-ride="carousel" id="carouselExample<%= idr %>">
+                <div class="carousel-inner">
+                    <!-- image url invisible -->
+                    <div id="imgurl<%= idr %>" style="display: none;"><%= image %></div>
+                    <% var myArray = image.split(","); %>
+                    <% for(var i=0; i < myArray.length; i++) { 
+                        if(i == 0){ %>
+                            <div class="carousel-item active ht-200">
+                                <img alt="img" class="rounded mx-auto d-block" src="<%- url %><%= myArray[i] %>">
+                            </div>
+                    <% } else { %>
+                        <div class="carousel-item ht-200">
+                            <img alt="img" class="rounded mx-auto d-block" src="<%- url %><%= myArray[i] %>">
+                        </div>
+                    <% }
+                    } %>
+                </div>
+                
+                <% if(!(myArray.length < 2)) { %>
+                    <a class="carousel-control-prev" href="#carouselExample<%= idr %>" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left fs-30" aria-hidden="true"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample<%= idr %>" role="button" data-slide="next">
+                        <i class="fa fa-angle-right fs-30" aria-hidden="true"></i>
+                    </a>
+                <% } %>
+
+            </div>
+
+            <div class="card-body h-100">
+                <div class="d-flex">
+                    <span class="text-muted small mg-b-5" style="display: none;" id="id<%= idr %>"><%- id %></span>
+                </div>
+                <h3 class="h4 mb-2 font-weight-bold text-uppercase" id="intitule<%= idr %>"><%- intitule %></h3>
+                <p class="card-text" id="desc<%= idr %>"><%- description %></p>
+                <div class="row row-sm justify-content-between">
+                    <p class="card-text" id="lat<%= idr %>">Lat : <%- lat %></p>
+                    <p class="card-text" id="long<%= idr %>"> Long : <%- long %></p>
+                </div>
+                <div>
+                    <h4 class="h6 w-20 font-weight-bold" id="campus<%= idr %>">campus : <%- campus.intitule %></h4>
+                    <div id="idcam<%= idr %>" style="display: none;"><%- campus.id %></div>
+                    <h4 class="h6 w-20 font-weight-bold" id="type<%= idr %>">type : <%- type.intitule %></h4>
+                    <div id="idtype<%= idr %>" style="display: none;"><%- type.id %></div>
+                </div>
+                <div class="justify-content-center text-center mt-3 d-flex">
+					<a data-toggle="modal" href="#modaldemo8" class="btn ripple btn-secondary btn-icon mr-3" onclick="senddata('<%= idr %>')">
+						<i class="typcn typcn-edit"></i>
+					</a>
+					<a data-toggle="modal" onclick="deleteL('<%= idr %>')" class="btn ripple btn-danger btn-icon">
+						<i class="typcn typcn-trash"></i>
+					</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- *********************************** modal meme des suppression des users ************************************************************ -->
+<script>
+	//$('#swal-delete').click(function () {
+		function redirect(){
+			setTimeout( function(){
+				window.location.href="/lieu/";
+			}, 1000)
+		}
+
+		function deleteL(i){
+				swal(
+					{
+						title: "Are you sure you want to delete this Location?",
+						text: "Your will not be able to revert this action!",
+						type: "warning",
+						showCancelButton: true,
+						confirmButtonClass: "btn btn-danger",
+						confirmButtonText: "Yes, delete it!",
+						closeOnConfirm: false
+					},
+					function(){
+						var id = document.getElementById('id'+i).innerHTML;
+
+						$.ajax({
+							url: '<%= url %>web/lieu/destroy',
+							type: 'POST',
+							dataType: 'json',
+							contentType: 'application/json',
+							data: JSON.stringify({LieuID : id}),
+							//data: $(this).serialize(),
+							success: function(data) {
+								//$('#modaldemo8').modal('hide')
+								swal("Deleted!", "Location Deleted Successfully.", "success");
+								redirect();
+								//alert(data)
+							},
+							error: function(xhr, status, error) {
+								alert("Something went wrong "+error); // handle error response
+							}
+						});
+					}
+				);
+		}
+	//});
+</script>
+
+<script>
+    function senddata(i){
+        var tmp;
+        var image = document.getElementById('imgurl'+i).innerHTML;
+		var id =  document.getElementById('id'+i).innerHTML;
+		var intitule =  document.getElementById('intitule'+i).innerHTML;
+		var desc =  document.getElementById('desc'+i).innerHTML;
+
+		var lat =  document.getElementById('lat'+i).innerHTML;
+            tmp = lat.split(':');
+			lat = tmp[1].trim();
+
+		var long =  document.getElementById('long'+i).innerHTML;
+            tmp = long.split(':');
+			long = tmp[1].trim();
+
+		var fac =  document.getElementById('campus'+i).innerHTML;
+			tmp = fac.split(':');
+			fac = tmp[1].trim();
+		var facid = document.getElementById('idcam'+i).innerHTML;
+
+		var type =  document.getElementById('type'+i).innerHTML;
+			tmp = type.split(':');
+			type = tmp[1].trim();
+        var idtype = document.getElementById('idtype'+i).innerHTML;
+
+		// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
+
+		const div = document.getElementById('displayimg')
+		while (div.firstChild) {
+        	div.removeChild(div.firstChild);
+    	}
+		var imgtab = image.split(',');
+		var i = 0; //counter....
+
+		imgtab.forEach(imm => {
+			//alert(imm)
+			let div1 = document.createElement('div');
+			div1.setAttribute("class","mg-l-5 mg-r-5")
+			div1.setAttribute("id",i);
+			div1.innerHTML = "<button onclick=removeit('"+i+"') type='button' class='close'><span aria-hidden='true'>×</span></button>"
+
+			let img = document.createElement('img');
+			img.setAttribute("src",'<%- url %>'+imm)
+			img.setAttribute("class","dropify wd-100 img-thumbnail")
+
+			div1.appendChild(img)
+
+			div.appendChild(div1);
+
+			i++;
+		});
+
+			document.getElementById('imageURL').setAttribute("value",image)
+			document.getElementById('replaceURL').setAttribute("value",image)
+
+			document.getElementById('idU').setAttribute("value",id)
+			document.getElementById('intituleU').setAttribute("value",intitule)
+
+			document.getElementById('descriptionU').textContent = desc;
+            document.getElementById('descriptionU').setAttribute("placeholder",desc)
+
+			document.getElementById('latU').setAttribute("value",lat)
+            document.getElementById('longU').setAttribute("value",long)
+
+			document.getElementById('facUm').setAttribute("value",facid)
+			document.getElementById('facUm').innerHTML = fac;
+
+            document.getElementById('typeUm').setAttribute("value",idtype)
+			document.getElementById('typeUm').innerHTML = type;
+
+			document.getElementById('addressU').setAttribute("value",address)
+			document.getElementById('depU').setAttribute("value",dep)
+    }
+
+    function show(){
+        alert("i have changed")
+        document.getElementById('decision').style.display = 'block'
+    }
+
+	function removeit(id){
+		//alert(id)
+		
+		var imageURLs = document.getElementById('imageURL').value;
+
+		//alert(imageURLs)
+
+		let imgTab = imageURLs.split(',');
+		let i = 0; //counter....
+		var newImageUrl;
+
+		imgTab.forEach(img => {
+			if(id == i){
+				//alert(img)
+				newImageUrl = imageURLs.replace(img, "r");
+			}
+			i++;
+		});
+
+		//alert(newImageUrl)
+		document.getElementById('replaceURL').setAttribute("value",newImageUrl)
+		var div = document.getElementById(id)
+
+		div.parentNode.removeChild(div)
+	}
+</script>

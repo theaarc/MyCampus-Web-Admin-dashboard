@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:21:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Description" content="Dashfox - Laravel Admin & Dashboard Template">
+		<meta name="Author" content="Spruko Technologies Private Limited">
+		<meta name="Keywords" content="admin template, admin dashboard, bootstrap dashboard template, bootstrap 4 admin template, laravel, php framework, php laravel, laravel framework, php mvc, laravel admin panel, laravel admin panel, laravel template, laravel bootstrap, blade laravel, best php framework"/>
+
+        <!-- Title -->
+		<title> Admin Dashboard </title>
+        
+		<%- include('component/cssincludes'); %> 
+    </head>
+
+    <body  class="main-body light-theme app sidebar-mini active leftmenu-color">
+
+        <!-- Loader -->
+		<div id="global-loader">
+			<img src="/publics/img/loader-2.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /Loader -->
+
+        <!-- main-sidebar -->
+		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+
+		<!-- main-sidebar -->
+		<%- include('component/sidemenu'); %> 
+		<!-- main-sidebar -->
+
+		<!-- main-content -->
+		<div class="main-content app-content">
+
+			<!-- main-header -->
+				<%- include('component/header',{profil:user,ref:4,prof:"admin"}); %> 
+		 	<!-- main-header  -->
+   
+			<!-- container  -->
+			   <div class="container-fluid mg-t-10">
+				   <!-- breadcrumb  -->
+					   <div class="breadcrumb-header justify-content-between">
+							<div class="left-content">
+								<div class="content-title row row-sm mb-2">
+									<h3 class="col-xl-7 pd-r-0">Hi, welcome back!</h3>
+									<h3 class="col-xl-3 pd-l-0"><%- user.Name %></h3>
+								</div>
+								<nav aria-label="breadcrumb"></nav>
+							</div>
+							<!-- breadcrumb  -->
+			   			</div>
+				</div>
+			<!-- Container closed  -->
+   
+			   <!-- les donnees a ajouter -->
+			   <div class="container-fluid mg-t-10">
+				<!-- Stats sur les users -->
+					<div class="row row-sm">
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">utilisateurs</h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1 font-weight-bold">154<span class="text-success tx-13 ml-2">(+0.98%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-primary-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-group-outline text-primary tx-24"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-primary wd-70p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">70%</span></small>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">Nombre Total de visites</h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1 font-weight-bold">5274<span class="text-danger tx-13 ml-2">(-12.45%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-pink-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-chart-line-outline text-pink tx-24"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-pink wd-50p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">50%</span></small>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">Taux de rebond</h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1   font-weight-bold">76.3%<span class="text-success tx-13 ml-2">(+13.52%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-teal-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-chart-bar-outline text-teal tx-20"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-teal wd-60p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">60%</span></small>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">Durée des Visites </h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1 font-weight-bold">5m 24s<span class="text-success tx-13 ml-2">(+19.5%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-purple-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-time  text-purple tx-24"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-purple wd-40p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">40%</span></small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="container-fluid mg-t-10">	
+					<div class="row row-sm mg-b-20 justify-content-between mg-10">
+						<p>Clicker sur le button ajouter pour creer un nouvelle faculte !!!</p>
+						<a class="modal-effect btn btn-primary mb-3 mg-l-10 float-right" data-effect="effect-super-scaled" data-toggle="modal" href="#modaldemo33">Ajouter</a>
+					 </div>
+                     <div class="row row-sm">
+                        <div class="col-xl-3 col-lg-4 mb-3 mb-md-0">
+                            <!-- Search bar for annonce -->
+                            <div class="card overflow-hidden">
+                                <h5 class="m-0 p-3 card-title bg-white border-bottom">Search</h5>
+                                <div class="py-3 px-3">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ...">
+                                        <span class="input-group-append">
+                                            <button class="btn btn-primary" type="button">Search</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card overflow-hidden">
+                                <h5 class="m-0 p-3 card-title bg-white border-bottom">Filtre les Annonces</h5>
+                                <div class="py-2 px-3">
+                                    <label class="p-1 mt-2 d-flex align-items-center">
+                                        <span class="checkbox">
+                                            <span class="check-box mb-0">
+                                                <span class="ckbox"><input type="checkbox" id="universite" onclick="validate('universite')"><span></span></span>
+                                            </span>
+                                        </span>
+                                        <span class="ml-2">
+                                            Universite
+                                        </span>
+                                    </label>
+                                    <label class="p-1 d-flex align-items-center">
+                                        <span class="checkbox">
+                                            <span class="check-box mb-0">
+                                                <span class="ckbox"><input type="checkbox" id="faculte" onclick="validate('faculte')"><span></span></span>
+                                            </span>
+                                        </span>
+                                        <span class="ml-2">
+                                            Faculte
+                                        </span>
+                                    </label>
+                                    <label class="p-1 d-flex align-items-center">
+                                        <span class="check-box mb-0">
+                                            <span class="ckbox"><input type="checkbox" onclick="validate('departement')"><span></span></span>
+                                        </span>
+                                        <span class="ml-2">
+                                            Departement
+                                        </span>
+                                    </label>
+                                </div>
+                                    <script>
+                                        function validate(id) {
+                                            if (document.getElementById(id).checked) {
+                                                alert("checked "+id);
+        
+                                                if(id == "universite"){
+                                                    var send = {faculte:""};
+                                                    $.ajax({
+                                                        type: 'POST',
+                                                        url: '<%= url%>api/annonce/test',
+                                                        dataType: 'json',
+                                                        contentType: 'application/json',
+                                                        data: JSON.stringify(send)
+                                                    })
+                                                    .done(function(response) {
+                                                        // Si la requête réussit, affiche le message de confirmation
+                                                        // window.location.href="/";
+                                                        alert("very good")
+                                                    })
+                                                    .fail(function(data) {
+                                                        // Si la requête échoue, affiche le message d'erreur et ajoute la classe "error" au formulaire
+                                                        $('#error-message').text(data.responseText);
+                                                        $(form).addClass('error');
+                                                    });			
+                                                }
+                                            } else {
+                                                alert("unchecked");
+                                            }
+                                        }
+                                    </script>
+                            </div>	
+                        </div>
+                       
+                        <!-- displaying lieux -->
+                        <div class="container-fluid mg-t-5 ht-85p col-xl-9 col-lg-8">
+                            <div class="row row-sm">
+                                <% for(var i=0; i < campus.length; i++) { %>
+                                   
+                                    
+                                    <%- include('component/cardcampus',{image:campus[i].image,intitule:campus[i].intitule,id:campus[i]._id,description:campus[i].description,lat:campus[i].lat,long:campus[i].long,idr:i}); %> 
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+
+					<!-- *********************************** modal meme des modification des users ************************************************************ -->
+					<div class="modal" id="modaldemo8">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content modal-content-demo">
+								<div class="modal-header">
+									<h3>Modifier les informations ici</h3>
+									<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+								</div>
+								<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+								<form id="myFormU" enctype="multipart/form-data">
+									<div class="modal-body">
+										<input class="form-control" type="text" id="idU" name="CampusID" style="display: none;"><br>
+											<div class="card">
+												<div class="card-body">
+													<div class="row row-sm">
+														<div class="col-lg-12">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<div class="input-group-text">
+																		Intitule:
+																	</div>
+																</div>
+																<input class="form-control" type="text" id="intituleU" name="intitule">
+															</div><!-- input-group -->
+														</div><!-- col-4 -->
+														<div class="col-lg-12 mg-t-20">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<div class="input-group-text">
+																		description:
+																	</div>
+																</div><!-- input-group-prepend -->
+																<textarea class="form-control" id="descriptionU" name="description"></textarea>
+															</div><!-- input-group -->
+														</div>
+														<div class="col-lg-12 mg-t-20">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<div class="input-group-text">
+																		Latitude:
+																	</div>
+																</div><!-- input-group-prepend -->
+																<input class="form-control" type="text" id="latU" name="lat">
+															</div><!-- input-group -->
+														</div>
+														<div class="col-lg-12 mg-t-20">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<div class="input-group-text">
+																		Longitude:
+																	</div><!-- input-group-text -->
+																</div><!-- input-group-prepend -->
+																<input class="form-control" type="text" name="long" id="longU">
+															</div>
+														</div>
+													
+														
+														<div class="col-lg-12 mg-t-20">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<div class="input-group-text">
+																		Remove the images you wish to !
+																	</div><!-- input-group-text -->
+																</div><!-- input-group-prepend -->
+															</div>
+															<div id="displayimg" class="d-flex">
+
+															</div>
+														</div>
+														<div class="col-lg-12 mg-t-20">
+															<div class="input-group">
+																<div class="input-group-prepend">
+																	<div class="input-group-text">
+																		Chose a pictures for the location you wish to add
+																	</div><!-- input-group-text -->
+																</div><!-- input-group-prepend -->
+															</div>
+															<input class="form-control" type="file" name="image" multiple>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										<input id="imageURL" name="imageString" style="display: none;">
+										<input id="replaceURL" name="replaceImage" style="display: none;">
+										<input id="pathURL" name="path" style="display: none;">
+									</div>
+									<div class="modal-footer">
+										<input class="btn ripple btn-primary form-control" type="submit" value="EDIT">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- *********************************** modal meme ************************************************************ -->
+
+					 <!-- *********************************** modal meme des ajouts des campus ************************************************************ -->
+					 <div class="modal" id="modaldemo33">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content modal-content-demo">
+								<div class="modal-header">
+									<h3>Fill in the following fields</h3>
+									<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+								</div>
+								<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+								<form id="myForm" enctype="multipart/form-data">
+									<div class="modal-body">
+										<!-- <input class="form-control" type="text" id="idU" name="id" style="display: none;"><br> -->
+										<input class="form-control" type="text" id="intituleU" name="intitule" placeholder="intitule" required><br>
+										<textarea class="form-control" id="descriptionU" name="description" placeholder="description" col="20" row="10" required></textarea><br>
+										<input class="form-control" type="text" id="latU" name="lat" placeholder="Latitude" required><br>
+										<input class="form-control" type="text" name="long" id="longU" placeholder="Longitude" required><br>
+					
+										
+					
+									
+							
+					
+										<label class="form-label">Chose a pictures for the location you wish to modify </label>
+										<input class="form-control" type="file" name="image" required placeholder="Upload pictures" multiple>
+									</div>
+									
+									<div class="modal-footer">
+										<input class="btn ripple btn-primary form-control" type="submit" value="ADD">
+									</div>
+								</form>
+							</div>
+							</div>
+						</div>
+					
+					 <!-- *********************************** modal meme ************************************************************ -->
+			   <!-- les donnees a ajouter -->
+   
+		   </div>
+		   <!-- main-content closed -->   
+
+		   <%- include('component/footer'); %> 
+        
+		   <%- include('component/scriptIncudes'); %> 
+
+			<!---  *************************************************** script for adding lieux ************************************************ -->
+			<script>
+				function showConfirm(callback){
+					swal(
+						{
+							title: 'Well done!',
+							text: 'Lieu created successfully!',
+							type: 'success',
+							// confirmButtonColor: '#57a94f'
+						}
+					)
+					callback();
+				}
+				function redirectHome(){
+					setTimeout( function(){
+						window.location.href="/lieu/";
+					}, 1000)
+				}
+	
+				$(document).ready(function() {
+				  $('#myForm').submit(function(e) {
+					e.preventDefault(); // prevent form from submitting
+
+					var formData = new FormData(this);
+
+					$.ajax({
+					  url: '<%= url%>web/faculte/store',
+					  type: 'POST',
+					  processData: false,
+   				 	  contentType: false,
+					  data: formData,
+					  //data: $(this).serialize(),
+					  success: function(data) {
+						$('#modaldemo33').modal('hide')
+						showConfirm(redirectHome);
+					  },
+					  error: function(xhr, status, error) {
+						alert("Something went wrong"); // handle error response
+					  }
+					});
+				  });
+				});
+			</script>
+
+<!---  *************************************************** script for mdifing lieux ************************************************ -->
+<script>
+	function showConfirmU(callback){
+		swal(
+			{
+				title: 'Well done!',
+				text: 'Lieu modified successfully!',
+				type: 'success',
+				// confirmButtonColor: '#57a94f'
+			}
+		)
+		callback();
+	}
+	function redirectHomeU(){
+		setTimeout( function(){
+			window.location.href="/web/faculte/";
+		}, 1000)
+	}
+
+	$(document).ready(function() {
+	  $('#myFormU').submit(function(e) {
+		e.preventDefault(); // prevent form from submitting
+
+		var formData = new FormData(this);
+
+		alert(formData.description)
+
+		$.ajax({
+		  url: '<%= url%>web/faculte/update',
+		  type: 'POST',
+		  processData: false,
+			  contentType: false,
+		  data: formData,
+		  //data: $(this).serialize(),
+		  success: function(data) {
+			$('#modaldemo8').modal('hide')
+			showConfirmU(redirectHomeU);
+		  },
+		  error: function(xhr, status, error) {
+			alert("Something went wrong"); // handle error response
+		  }
+		});
+	  });
+	});
+</script>
+    </body>
+
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:24:51 GMT -->
+</html>

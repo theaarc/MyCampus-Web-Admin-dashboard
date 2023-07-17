@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "6247640c7f59352daccd3990"
+  },
+  "intitule": "le GoFFRIER",
+  "description": "vente de goufre a gogo moin cher",
+  "image": "upload\\pub\\1648845836379.jpg,upload\\pub\\1648845836382.jpg",
+  "id_partenaire": "6247615bff910a0504663f5d",
+  "id_categoris": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648845836508"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648845836508"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62476a34078f831c50bf5cb9"
+  },
+  "intitule": "CHOPPING MARKET",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor pulvinar orci consequat magna feugiat praesent aliquam est scelerisque.",
+  "image": "upload\\pub\\1648847411245.png",
+  "id_partenaire": "6247615bff910a0504663f5d",
+  "id_categoris": null,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648847412277"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648847412277"
+    }
+  },
+  "__v": 0
+}]

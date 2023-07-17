@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "61ccd7c1d2414c093099eb6a"
+  },
+  "id_lieu": "61cca220f9a9d01d18211ca3",
+  "user_id": "61ccd5fd0251f03ac863129a",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640814529978"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640814529978"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ccdbb01c357a3028facf76"
+  },
+  "id_lieu": "61cca220f9a9d01d18211ca3",
+  "user_id": "61ccd5fd0251f03ac863129a",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640815536072"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640815536072"
+    }
+  },
+  "__v": 0
+}]

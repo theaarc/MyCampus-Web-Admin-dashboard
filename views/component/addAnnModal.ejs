@@ -1,0 +1,71 @@
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content modal-content-demo">
+        <div class="modal-header">
+            <h3>Fill in the following fields to add an Annonce</h3>
+            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <form id="my-formS" enctype="multipart/form-data">
+            <div class="modal-body">
+                    <input class="form-control" type="text" name="titre" id="titre" required placeholder="Titre de l'annonce"><br>
+                    <textarea class="form-control" name="description" id="description" required placeholder="Description de l'annonce"></textarea><br>
+                    <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+                        <select class="form-control" id="type" name="type" class="testselect2 SumoUnder" tabindex="-1" placeholder="Select annonce type">
+                            <% for(var i=0; i < type_annonce.length; i++) { %>
+                                <option value="<%= type_annonce[i]._id%>"><%= type_annonce[i].intitule %></option>
+                                <% } %>
+                        </select><br>
+                    </div><br>
+                    <% 	 types= JSON.parse(autorite.type) %>
+                    <% 	 campus= JSON.parse(autorite.idcampus) %>
+ 
+ 
+                    <!-- *********************************** si c est un recteur ************************************************************ -->
+                    <% if( types.id== "63f63957b0cc1c35f852bf48") { %>
+                        <!-- <input type="text" name="Chosen[]" value="" style="display:none"  > -->
+                        <input type="text" name="faculte" value="" style="display:none">
+                        <input type="text" name="departement" value="" style="display:none">
+                        
+                    <% } %>
+
+                    <!-- *********************************** si c est un doyen ************************************************************ -->
+                    <% if( types.id== "63f6398eb0cc1c35f852bf4c")  { %>  
+                        <!-- <input type="text" name="Chosen[]" value="<%= departement %>" style="display:none"  > -->
+                        <input type="text" name="faculte" value="<%= campus.id %>" style="display:none">
+                        <input type="text" name="departement" value=" " style="display:none">
+                   
+                        <% } %>
+
+                    <!-- *********************************** si c est un chef de departement ************************************************************ -->
+                   
+                    <% if( types.id=="647bb6c4a4976608f46bc0c9")  { %>  
+                        <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+                            <select class="form-control" id="type" name="filiere" class="testselect2 SumoUnder" tabindex="-1" placeholder="Select annonce type">
+                                <% for(var i=0; i < filiere.length; i++) { %>
+                                    <option value="<%= filiere[i]._id%>"><%= filiere[i].intitule %></option>
+                                    <% } %>
+                            </select><br>
+                        </div><br>
+                        <!-- <input type="text" name="Chosen[]" value="<%= departement %>" style="display:none"  > -->
+                        <input type="text" name="faculte" value="" style="display:none">
+                        <input type="text" name="departement" value="" style="display:none">
+                        
+
+                    <% } %>
+
+                    <input type="text" name="etat" value="1" style="display:none"  >
+                    <input type="text" name="minsup" value=""  style="display:none" >
+                    <input type="text" name="universite" value=""  style="display:none" >
+                    <input type="text" name="id_annoncer" value="<%= autorite._id %>"  style="display:none" >
+                    <input type="text" name="comment" value=""  style="display:none" >
+                    <input type="text" name="id_admin" value=""  style="display:none" >
+
+                    <br><input class="form-control" type="file"  required id="document" name="document"  placeholder="document attacher" multiple>
+            </div>
+            <div class="modal-footer">
+                <!-- <input class="btn ripple btn-primary form-control" type="submit" value="ADD"> -->
+                <input class="btn btn-main-primary btn-block" value="ADD" type="submit">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "61cc84add8f48e30a8d598d4"
+  },
+  "Name": "kamga",
+  "email": "kamga@gmail.com",
+  "phone": "1547895658",
+  "address": "dddddddddddddddddddddffffffff",
+  "birthDay": "1478958",
+  "avatar": "upload\\autorite\\1640793632730.PNG",
+  "fonction": "ddddddddddddddddf",
+  "Profession": "zeeeeeeeeee",
+  "lieudeservice": "zeeeeeeeeeeeeeeeee",
+  "password": "$2a$10$b6Hl.GbFIi9fjhP4Y.6i.eSORRt9KTELsUi8GLRMljYIrGnyHgyGe",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1640793261237"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1640793632744"
+    }
+  },
+  "__v": 0
+}]

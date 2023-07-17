@@ -1,0 +1,94 @@
+<!-- index.ejs -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Real-Time Notifications Example</title>
+    <style>
+        #notificationPopover {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #notificationTrigger {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        }
+
+    </style>
+    <%- include('component/cssincludes'); %> 
+    </head>
+    <body>
+        <button id="notificationTrigger" onclick="show()">Show Notification</button>
+        <div id="notificationPopover">
+        <h3>Notification Title</h3>
+        <p>Notification message goes here...</p>
+        </div>
+        
+        <script>
+            const notificationTrigger = document.getElementById('notificationTrigger');
+            const notificationPopover = document.getElementById('notificationPopover');
+
+            notificationTrigger.addEventListener('click', () => {
+            // Toggle the visibility of the popover
+            notificationPopover.style.display = notificationPopover.style.display === 'none' ? 'block' : 'none';
+            });
+
+            function show(){
+                const notificationTrigger = document.getElementById('notificationTrigger');
+                document.getElementById("pop").style.display = "block"
+            }
+        </script>
+
+    <div style="display: none;" id="pop" class="ht-150 pos-relative mb-3">
+        <div class="demo-static-toast pos-absolute t-10 r-10">
+            <div aria-atomic="true" aria-live="assertive" class="toast fade show shadow" role="alert">
+                <div class="toast-header">
+                    <h6 class="tx-14 mg-b-0 mg-r-auto">Notification</h6><small class="text-muted">11 mins ago</small> <button aria-label="Close" class="ml-2 mb-1 close tx-normal" data-dismiss="toast" type="button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12 col-md-12 total-revenue">
+            <p class="tx-12 text-muted mb-4">Total revenue in economics refers to the total receipts from sales of a given quantity of goods or services. <a href="#">Learn more</a></p>
+            <div class="aligner-wrapper">
+                <canvas id="chart-donut" class=""></canvas>
+            </div>
+            <div class="d-flex justify-content-center mt-4 mb-0">
+                <div class="wrapper d-flex flex-column align-items-center pr-3">
+                    <p class="text-muted mb-0 font-weight-normal d-flex"><span class="legend bg-primary brround"></span>Local</p>
+                    <h4 class="mb-0 font-weight-medium tx-30">3642</h4>
+                    <span class="tx-10 text-success"><strong>13%</strong><i class="mdi mdi-arrow-up"></i> <span class="text-muted tx-12 ml-0 mt-1">increased</span></span>
+                </div>
+                <div class="wrapper d-flex flex-column align-items-center pr-3">
+                    <p class="text-muted mb-0 font-weight-normal d-flex"><span class="legend bg-danger brround"></span>Domestic</p>
+                    <h4 class="mb-0 font-weight-medium tx-30">1688</h4>
+                    <span class=" tx-10 text-danger"><strong>-5%</strong><i class="mdi mdi-arrow-down"></i> <span class="text-muted tx-12 ml-0 mt-1">decrease</span></span>
+                </div>
+                <div class="wrapper d-flex flex-column align-items-center">
+                    <p class="text-muted mb-0 font-weight-normal d-flex"><a class="legend bg-secondary brround"></a>International</p>
+                    <h4 class="mb-0 font-weight-medium tx-30">2160</h4>
+                    <span class=" tx-10 text-danger"><strong>-10%</strong><i class="mdi mdi-arrow-down"></i> <span class="text-muted tx-12 ml-0 mt-1">decrease</span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('component/scriptIncudes'); %>
+    </body>
+</html>
+
+

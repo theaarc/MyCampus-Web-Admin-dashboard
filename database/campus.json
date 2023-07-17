@@ -1,0 +1,101 @@
+[{
+  "_id": {
+    "$oid": "61e1f651ba7b511350d40ed2"
+  },
+  "intitule": "Faculté de Lettre ",
+  "image": "upload\\lieu\\IMG_20220830_164245_272.jpg",
+  "lat": 1.222222222222,
+  "long": 4.333333333333333,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1642198609938"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1642198609938"
+    }
+  },
+  "__v": 0,
+  "description": ""
+},{
+  "_id": {
+    "$oid": "61e34b84b3c9710b84a6ea84"
+  },
+  "intitule": "Faculté des Sciences",
+  "image": "upload\\lieu\\IMG_20220830_162804_254.jpg",
+  "lat": 3.868266,
+  "long": 11.500326,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1642285961958"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1642285961958"
+    }
+  },
+  "__v": 0,
+  "description": ""
+},{
+  "_id": {
+    "$oid": "61e34bd5b3c9710b84a6ecac"
+  },
+  "intitule": "Ecole Normal Supperieur Polytechnique",
+  "image": "upload\\lieu\\1642286037959.png",
+  "lat": 3.86385,
+  "long": 11.499746,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1642286037965"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1642286037965"
+    }
+  },
+  "__v": 0,
+  "description": ""
+},{
+  "_id": {
+    "$oid": "61e34d0eb3c9710b84a6ee8e"
+  },
+  "intitule": "Faculté de medecine et des Sciences bio medicalles",
+  "image": "upload\\lieu\\1642286350008.jpg",
+  "lat": 3.863474,
+  "long": 11.466334,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1642286350015"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1642286350015"
+    }
+  },
+  "__v": 0,
+  "description": ""
+},{
+  "_id": {
+    "$oid": "630e3fc122b8d631f4a5a222"
+  },
+  "intitule": "Faculté des Sciences de l' éducation",
+  "description": " ",
+  "image": "upload\\lieu\\1661878209014.jpg",
+  "lat": 1.12233333333,
+  "long": 4.33322222255,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1661878209564"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1661878209564"
+    }
+  },
+  "__v": 0
+}]

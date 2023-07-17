@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:21:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Description" content="Dashfox - Laravel Admin & Dashboard Template">
+		<meta name="Author" content="Spruko Technologies Private Limited">
+		<meta name="Keywords" content="admin template, admin dashboard, bootstrap dashboard template, bootstrap 4 admin template, laravel, php framework, php laravel, laravel framework, php mvc, laravel admin panel, laravel admin panel, laravel template, laravel bootstrap, blade laravel, best php framework"/>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+        <!-- Title -->
+		<title> Admin Dashboard </title>
+
+		<!-- ***********************************test data****************************** -->
+			<!-- <script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-core.min.js"></script>
+			<script src="https://cdn.anychart.com/releases/8.0.1/js/anychart-pie.min.js"></script>
+
+			<script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script> -->
+        <!-- ***********************************test data****************************** -->
+		<%- include('../component/cssincludes'); %> 
+
+
+
+    </head>
+
+    <body  class="main-body light-theme app sidebar-mini active leftmenu-color">
+        
+        <!-- Start Switcher -->
+
+		<!-- End Switcher -->
+
+        <!-- Loader -->
+		<div id="global-loader">
+			<img src="/publics/img/loader-2.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /Loader -->
+
+        <!-- main-sidebar -->
+		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+
+		<!-- main-sidebar -->
+
+		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+		<%- include('../component/authSideMenu'); %> 	 
+		<!-- main-sidebar -->
+
+		<!-- main-content -->
+		<div class="main-content app-content">
+			<!-- main-header -->
+				<%- include('../component/header',{profil:autorite,ref:10,prof:"auth"}); %>
+			<!-- main-header  -->
+   
+			<!-- container  -->
+			   <div class="container-fluid mg-t-20">
+				   <!-- breadcrumb  -->
+					   <div class="breadcrumb-header justify-content-between">
+						   <div class="left-content">
+								<div class="content-title row row-sm mb-2">
+									<h3 class="col-xl-9 pd-r-0">Hi, welcome back!</h3>
+									<h3 class="col-xl-3 pd-l-0"><%- autorite.Name %></h3>
+								</div>
+							   <p id="idAnn" style="display: none;"><%- autorite._id %></p>
+						   </div>
+					   </div>
+					<!-- breadcrumb  -->
+			   </div>
+			   <!-- Container closed  -->
+   
+			   <!-- ************************************* les donnees a ajouter ********************************************-->
+			<div>
+
+						<!-- ********************************** from data base filters for annonces ************************************ -->
+						<div class="row row-sm mg-20">
+							<!-- Search bar for annonce -->
+							<div class="col-lg-5 col-xl-4">
+								<div class="card overflow-hidden">
+									<h5 class="m-0 p-3 card-title bg-white border-bottom">Search</h5>
+									<div class="py-3 px-3">
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Search ...">
+											<span class="input-group-append">
+												<button class="btn btn-primary" type="button">Search</button>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-1 col-xl-2">
+
+							</div>
+
+							<div class="col-lg-6 col-xl-6">
+								<div class="card">
+									<div class="card-body">
+										<div class="main-content-label mg-b-10">
+											Filtre les Annonces
+										</div>
+										<div class="row row-sm">
+											<div class="col-lg-4">
+												<label class="ckbox"><input type="checkbox"><span>Universite</span></label>
+											</div>
+											<div class="col-lg-3 mg-t-20 mg-lg-t-0">
+												<label class="ckbox"><input type="checkbox"><span>Faculte</span></label>
+											</div>
+											<div class="col-lg-5 mg-t-20 mg-lg-t-0">
+												<label class="ckbox"><input type="checkbox"><span>Departement</span></label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					<!-- annonce -->
+					<div class="row row-sm mg-20">
+						<div class="bg-gray-200 rounded-5 mg-5">
+							<div class="card-body">
+								<div class="row row-sm mg-b-20 justify-content-between">
+									<p>Clicker sur le button ajouter pour Publier une annonce !!!</p>
+									<a class="modal-effect btn btn-primary mb-3 mg-l-10" data-effect="effect-super-scaled" data-toggle="modal" href="#modaldemo1">Ajouter</a>
+								</div>
+								
+								<div id="main">
+									<%- include('../component/mainHomeAuth',{annonces:annonces,annoncehead:annonces.message}); %> 
+								</div>
+
+								
+							</div>
+						</div>
+					</div>
+
+					 <!-- *********************************** modal meme ************************************************************ -->
+					<div class="modal" id="modaldemo1">
+						<%- include('../component/addAnnModal',{type_annonce:type_annonce, autorite:autorite,  faculte:faculte, departement:departement,filiere:filiere}) %>
+					</div>
+
+					 <!-- *********************************** modal meme pour la modif des annonces ************************************************************ -->
+					 <div class="modal" id="modaldemo31">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content modal-content-demo">
+								<div class="modal-header">
+									<div class="main-img-user"><img alt="" id="imgR" src="/publics/img/faces/6.jpg"></div>
+									<div class="mg-l-20">
+										<div id="nomAnnR" class="card-text" onclick=""></div>
+										<div id="titreAnnR" class="card-text"></div>
+									</div>
+									<button onclick="takeoff()" aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+								</div>
+								<div class="modal-body row row-sm">
+                                    <div class="col-lg-6 bd bd-2 bd-dark rounded-20 pd-10 mg-r-3 mg-t-10" style="background-image: url(/publics/img/Blason_univ_Yaoundé_1.png);">
+										
+										<div id="view">
+											<div id="titreARR"><h6 id="titreAR" class="text-black" onclick="changetiInput('input','titreARR','titreAR')"></h6></div>
+											<div id="descARR"><p id="descAR" class="text-black d-flex-wrap" onclick="changetiInput('textarea','descARR','descAR')"></p></div>
+
+											<br>
+											<div id="showDoc" style="display:block;">
+												<div class="d-flex-wrap justify-content-between" id="documentR" class="wd-85p"></div>
+												<br><div id="displaydoc1">
+													<!-- <input class="btn ripple btn-primary form-control" type="submit" value="change/add documents" onclick="addDelete();"> -->
+												</div>
+											 </div>
+	
+											 <input type="submit" class="btn ripple btn-primary form-control" value="modify" onclick="showform()">
+											<!--  -->
+										</div>
+
+										<div id="modify" style="display: none;">
+											<form id="my-formM" enctype="multipart/form-data">
+												<div class="card">
+													<div class="card-body">
+														<div class="row row-sm">
+															<div class="col-lg-12">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Titre:
+																		</div>
+																	</div>
+																	<input class="form-control" type="text" id="titreAM" name="titre">
+																</div><!-- input-group -->
+															</div><!-- col-4 -->
+
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Description:
+																		</div>
+																	</div><!-- input-group-prepend -->
+																</div><!-- input-group -->
+																<textarea class="form-control mg-b-5" name="description" id="descAM" rows="15" cols="30"></textarea>
+															</div>
+
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Select Your Type
+																		</div><!-- input-group-text -->
+																	</div><!-- input-group-prepend -->
+																	<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																		<select class="form-control" id="typeM" name="type" class="testselect2 SumoUnder" tabindex="-1">
+																			<option id="typeMu" selected></option>
+																			
+																			<script>
+																				'<% var s %>' = document.getElementById('typeMu').innerHTML
+																				</script>
+																			<% for(var i=0; i < type_annonce.length; i++) { %>
+																				<% if(!(type_annonce[i].intitule == s )) { %>
+																					<option id="" value="<%= type_annonce[i]._id %>"><%= type_annonce[i].intitule %></option>
+																				<% } %>
+																			<% } %>
+																		</select>
+																	</div>
+																</div>
+															</div>
+
+															<!-- ****************** invisible useful data *********************** -->
+															<div style="display: none;">
+																<input id="minsupM" name="minsup">
+																<input id="universiteM" name="universite">
+																<input id="faculteM" name="faculte">
+																<input id="departementM" name="departement">
+																<input id="filiereM" name="filiere">
+
+																<input id="documentRM" name="documentURL">
+																<input id="documentReplace" name="documentReplace">
+
+																<input id="id_annoncerM" name="id_annoncer">
+																<input id="idM" name="annonceid">
+															</div>
+
+															<div id="modifDoc">
+																<br><br>
+																<div class="d-flex-wrap justify-content-between" id="documentRD"></div>
+																<br><input class="form-control" type="file" id="document" name="document" placeholder="document attacher" multiple>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<input class="btn ripple btn-primary form-control mg-r-5" id="save" type="submit" value="Save Changes">
+												
+											</form>
+											<br>
+											<button class="btn btn-danger btn-block mg-l-5" id="cancel" onclick="cancel();">cancel</button>
+										</div>
+                                    </div>
+                                    <div class="col-lg-5 bd bd-2 bd-dark rounded-20 pd-10 mg-l-3 mg-t-10">
+                                        <h3>Voir les document associer ici</h3>
+										<div id="see"></div>
+
+										<!-- ************* scripts for the views ************* -->
+										<script>
+											function dis(data,ref){
+												if(ref == 2){
+													const div = document.getElementById("see");
+
+													div.innerHTML = "";
+													div.innerHTML = "<img src='http://localhost:5000/"+data+"'>";
+												}else if(ref == 1){
+													window.open('http://localhost:5000/'+data, "_blank");
+												} else if(ref == 3){
+													const div = document.getElementById("see");
+
+													div.innerHTML = "";
+													div.innerHTML = "<video width='320' height='240' controls> <source src='http://localhost:5000/"+data+"' type='video/mp4'></video>"
+												}
+											}
+
+											function takeoff(){
+												const div = document.getElementById("see");
+												div.innerHTML = "";
+												document.getElementById('view').style.display = 'block';
+												document.getElementById('modify').style.display = 'none';
+											}
+										</script>
+                                    </div>
+								</div>
+								<div class="modal-footer">
+								</div>	
+							</div>
+						</div>
+					</div>
+					<!-- annonce END -->
+			</div>
+			   <!--******************************************** les donnees a ajouter*************************************** -->
+   
+		</div>
+		   <!-- main-content closed -->   
+
+        
+		   <%- include('../component/scriptIncudes'); %> 
+
+    </body>
+
+	<script>
+		
+	function showform(){
+		document.getElementById('view').style.display = 'none';
+		document.getElementById('modify').style.display = 'block';
+	}
+
+	function cancel(){
+		document.getElementById('view').style.display = 'block';
+		document.getElementById('modify').style.display = 'none';
+    }
+
+		function showConfirm(callback,message){
+			swal(
+				{
+					title: 'Well done!',
+					text: message,
+					type: 'success',
+				}
+				)
+				callback();
+			}
+		function redirectHome(){
+			setTimeout( function(){
+				window.location.href="<%-url%>web/annonce/annoncebyAutorite/0";
+			}, 1000)
+		}
+	
+		$(document).ready(function() {
+		  // Ecouteur pour soumettre le formulaire
+			$('#my-formS').submit(function(event) {
+			event.preventDefault();
+		
+			//var formData = $(form).serialize();
+			var formdata= new FormData(this);
+		
+			// Envoi de la requête AJAX
+			$.ajax({
+				url: "<%= url%>api/annonce/store",
+				type: 'POST',
+				processData: false,
+				contentType: false,
+				data: formdata,
+	
+				success: function(data) {
+					$('#modaldemo1').modal('hide')
+					showConfirm(redirectHome,data);
+					window.location.href = "/post"
+				},
+				error: function(xhr, status, error) {
+					alert("Something went wrong"); // handle error response
+				}
+			})
+			});
+		});
+		
+		</script>
+
+			<!--- ***************************** script pour la modification ************************************************** -->
+	<script>
+		function changetiInput(type,idc,id){
+			if(type == 'input'){
+				var txt = document.getElementById(id);
+				var div = document.getElementById(idc);
+
+				var elt_input = document.createElement("input");
+
+				elt_input.setAttribute("placeholder",txt.innerHTML);
+				elt_input.setAttribute("class","form-control");
+				elt_input.setAttribute("type","text");
+				elt_input.setAttribute("name","titre");
+				elt_input.setAttribute("id","titre");
+				elt_input.setAttribute("onkeydown","saveInput(this)");
+
+				txt.style.display = "none";
+				div.appendChild(elt_input);       
+			}
+			else if(type == 'textarea'){
+
+				var txt = document.getElementById('descAR').textContent;
+
+				document.getElementById('descARR').style.display = 'none';
+				document.getElementById('inputTextarea').style.display = 'block'
+
+				document.getElementById('descriptionModif').textContent = txt;
+			}
+		}
+
+		function savetextarea(){
+					/* if the user does not change any thing */
+					var ele = document.getElementById("descriptionModif");
+					if(ele.textContent == ""){
+						var txt = document.getElementById("descARR");
+						txt.style.display = "block";
+						document.getElementById('inputTextarea').style.display = 'none'
+					}
+					/*if he changes */
+					else{
+						/* update to database */
+						var txt = document.getElementById("descARR");
+						document.getElementById('descAR').textContent = ele.textContent;
+						txt.style.display = "block";
+						document.getElementById('inputTextarea').style.display = 'none'
+					}
+			}
+
+		function saveInput(ele,type){
+			if(event.key === 'Enter'){
+					/* if the user does not change any thing */
+					if(ele.value == ""){
+						var txt = document.getElementById("titreAR");
+						txt.style.display = "block";
+						var inp = document.getElementById("titreARR");
+						inp.removeChild(inp.lastElementChild);
+					}
+					/*if he changes */
+					else{
+						/* update to database */
+						var txt = document.getElementById("titreAR");
+						txt.innerHTML = ele.value;
+						txt.style.display = "block";
+						var inp = document.getElementById("titreARR");
+						inp.removeChild(inp.lastElementChild);
+					}
+				}
+			}
+
+			function remove(id){
+			alert(id+" will be deleted")
+
+			var documents = document.getElementById("documentRM").value;
+
+			if(documents != 'none'){
+
+				var docs = documents.split(",");
+				var newURL;
+				let i = 0; //counter....
+
+				docs.forEach(elt => {
+					if(id == i){
+						//alert(img)
+						newURL = documents.replace(elt, "r");
+					}
+					i++;		
+				});
+
+				document.getElementById('documentReplace').setAttribute('value',newURL)
+				var div = document.getElementById(id)
+
+				div.parentNode.removeChild(div)
+
+				var div1 = document.getElementById("d"+id)
+				div1.parentNode.removeChild(div1)
+
+				//alert(documents)
+
+			  }
+		 }
+</script>
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:24:51 GMT -->
+</html>

@@ -1,0 +1,254 @@
+
+<div class="card-header pb-0 pd-t-10 pd-b-5"><h2><%- annoncehead %></h2></div>
+<div class="mg-t-20 ht-85p pd-l-10 pd-r-10">
+    <div class="row row-sm">
+        <% for(var i=0; i < annonces.length; i++) { %>
+           
+                    <div class="col-md-12 col-lg-6 col-xl-4">
+                        <div class="card">
+                            <div class="card-body pd-20">
+                                <div class="d-flex flex-row justify-content-between mg-b-20">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <% if(autorite.avatar == "none"){ %> 
+                                            <div class="main-img-user"><img alt="" id="img<%= i %>" src="/publics/img/profil1.png"></div>
+                                        <% } else { %> 
+                                            <div class="main-img-user"><img alt="" id="img<%= i %>" src="<%-url+ autorite.avatar %>"></div>
+                                        <% } %>
+                                        <div class="mg-l-20">
+                                            <div class="card-text" id="nomAner<%= i %>"><%- autorite.Name  %></div><p id="ids<%= i %>" style="display: none;"><%= i %></p>
+                                            <div class="card-text" id="titreAner<%= i %>"><%- autorite.Profession  %></div>
+                                        </div>
+                                    </div>
+                                    <div><a data-toggle="modal" href="#modaldemo31"><i onclick="send('<%= i %>')"  class="fas fa-light fa-eye"></i></a></div>
+                                </div>
+
+                                <% if(annonces[i].etat == 2){ %> 
+                                    <div class="alert alert-danger mg-b-0" role="alert">
+                                        <!-- <button aria-label="Close" class="close" data-dismiss="alert" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button> -->
+                                        <strong>Voici les raison de la supression de cette annonce : </strong><br> <%= annonces[i].comment %>
+                                    </div>
+                                <% } %>
+
+                                <br>
+                                <h5 id="titreA<%= i %>"><%= annonces[i].titre %></h5><br>
+                                <div class="d-flex flex-row justify-content-between mg-b-20">
+                                    <p  id="descA<%= i %>" class="card-text" style="display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;">
+                                        <%= annonces[i].description %>
+                                    </p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-between mg-b-20">
+                                    <% if(annonces[i].document == "none"){ %>
+                                        0 files
+                                    <% }else{ %>
+                                        <%  var arr = annonces[i].document.split(","); %>
+                                        <%= arr.length %> files
+                                    <% } %>
+                                </div>
+                            </div>
+                            <!-- ****************** invisible useful data *********************** -->
+                            <div style="display: none;">
+                                <p id="minsup<%= i %>"><%= annonces[i].minsup %></p>
+                                <p id="universite<%= i %>"><%= annonces[i].universite %></p>
+                                <p id="faculte<%= i %>"><%= annonces[i].faculte %></p>
+                                <p id="departement<%= i %>"><%= annonces[i].departement %></p>
+                                <p id="filiere<%= i %>"><%= annonces[i].filiere %></p>
+                                <%  var t = JSON.parse(annonces[i].type) %>
+                                    <p id="typeid<%= i %>"><%= t.id %></p>
+                                    <p id="typeint<%= i %>"><%= t.intitule %></p>
+                                <p id="document<%= i %>"><%= annonces[i].document %></p>
+                                <p id="etat<%= i %>"><%= annonces[i].etat %></p>
+                                <p id="id_annoncer<%= i %>"><%= autorite._id %></p>
+                                <p id="id<%= i %>"><%= annonces[i]._id %></p>
+                            </div>
+                            <!-- ****************** invisible useful data *********************** -->						
+                        </div>
+                    </div>
+            
+
+            <script>
+                function see(){
+                    // alert("yo")
+                    // PDFJS.getDocument('upload/annonce/1681386713734.pdf').then(function(pdf) {
+                    //     pdf.getPage(1).then(function(page) {
+                    //         var canvas = document.getElementById('pdfCanvas');
+                    //         var context = canvas.getContext('2d');
+                    //         var viewport = page.getViewport({scale: 1});
+                    //         canvas.height = viewport.height;
+                    //         canvas.width = viewport.width;
+                            
+                    //         page.render({
+                    //             canvasContext: context,
+                    //             viewport: viewport
+                    //         });
+                    //         });
+                    // });
+                }
+
+                function send(intex){
+                    var ids = document.getElementById(`ids${intex}`).innerHTML;
+                    
+                    var nom = document.getElementById(`nomAner${intex}`).innerHTML;
+                    var title = document.getElementById(`titreAner${intex}`).innerHTML;
+                    var img = document.getElementById(`img${intex}`).getAttribute("src");
+                    var titre = document.getElementById(`titreA${intex}`).innerHTML;
+                    var desc = document.getElementById(`descA${intex}`).innerHTML;
+
+                    var minsup = document.getElementById(`minsup${intex}`).innerHTML;
+                    var universite = document.getElementById(`universite${intex}`).innerHTML;
+                    var faculte = document.getElementById(`faculte${intex}`).innerHTML;
+                    var departement = document.getElementById(`departement${intex}`).innerHTML;
+                    var filiere = document.getElementById(`filiere${intex}`).innerHTML;
+
+                    var typeint = document.getElementById(`typeint${intex}`).innerHTML;
+                    var typeid = document.getElementById(`typeid${intex}`).innerHTML;
+
+                    var etat = document.getElementById(`etat${intex}`).innerHTML;
+                    var id_annoncer = document.getElementById(`id_annoncer${intex}`).innerHTML;
+                    var id = document.getElementById(`id${intex}`).innerHTML;
+                    
+                    
+                    document.getElementById("nomAnnR").innerHTML = nom;
+                    document.getElementById("titreAnnR").innerHTML = title;
+
+                    document.getElementById("titreAR").innerHTML = titre;
+                    document.getElementById("titreAM").setAttribute('value',titre);
+
+                    document.getElementById("descAR").innerHTML = desc;
+                    document.getElementById("descAM").textContent = desc;
+
+                    //document.getElementById("minsupR").innerHTML = minsup;
+                    document.getElementById("minsupM").setAttribute('value',minsup);
+
+                    //document.getElementById("universiteR").innerHTML = universite;
+                    document.getElementById("universiteM").setAttribute('value',universite);
+
+                    //document.getElementById("faculteR").innerHTML = faculte;
+                    document.getElementById("faculteM").setAttribute('value',faculte);
+
+                    //document.getElementById("departementR").innerHTML = departement;
+                    document.getElementById("departementM").setAttribute('value',departement);
+
+                    //document.getElementById("filiereR").innerHTML = filiere;
+                    document.getElementById("filiereM").setAttribute('value',filiere);
+
+                    document.getElementById("typeMu").innerHTML = typeint;
+                    document.getElementById("typeMu").setAttribute('value',typeid);
+
+                    document.getElementById("id_annoncerM").setAttribute('value',id_annoncer);
+
+                    document.getElementById("idM").setAttribute('value',id);
+
+                    document.getElementById("imgR").setAttribute('src',img)
+
+                    var documents = document.getElementById(`document${intex}`).innerHTML;
+                    document.getElementById("documentRM").setAttribute('value',documents);
+                    document.getElementById("documentReplace").setAttribute('value',documents);
+
+                    //document.getElementById("documentRrr").innerHTML = documents;
+					document.getElementById("documentR").innerHTML = " ";
+                    document.getElementById("documentRD").innerHTML = " ";
+
+                    //********************************* view zone *************************************
+					if(documents != 'none'){
+
+						var docs = documents.split(",");
+						var divDoc = document.getElementById("documentR").innerHTML;
+						divDoc = "";
+							for (let k = 0; k < docs.length; k++) {
+								var arrs = docs[k].split("\\");
+
+										var arrsExt = arrs[2].split(".");
+
+                                        //const div  = document.getElementById('documentR');
+
+                                        if(arrsExt[1] == "pdf"){
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-pdf pdf-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>'; 
+                                        }
+                                        else if(arrsExt[1] == "png" || arrsExt[1] == "jpg" || arrsExt[1] == "jpeg"){
+                                            //document.getElementById("documentR").innerHTML += '<div id=d'+k+' class=".d-inline-block"><img width="20" height="20" alt="" id="" src="/publics/img/Photos-new-icon.png"> ' +arrs[2]+ '</div>';
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,2)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-image image-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>';
+                                        }
+                                        else if(arrsExt[1] == "mp4" || arrsExt[1] == "mp3"){
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,3)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-video video-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>'; 
+                                        }
+                                        else if(arrsExt[1] == "docx" || arrsExt[1] == "txt"){
+                                            //word, text
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-alt text-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>';
+                                        }
+                                        else if(arrsExt[1] == "xlsx"){
+                                            //excel
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-excel excel-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>';
+                                        }
+                                        else if(arrsExt[1] == "ppt" || arrsExt[1] == "pptx"){
+                                            //power point
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-powerpoint ppt-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>';
+                                        } 
+                                        else if(arrsExt[1] == "zip" || arrsExt[1] == "rar"){
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-archive zip-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>';
+                                        }
+                                        else {
+                                            document.getElementById("documentR").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-alt text-file"></i></span> <div id ="url" style="display:none">'+docs[k]+'</div>' +arrs[2]+ '</div>';
+                                        }	
+							}			
+					}else{
+						document.getElementById("documentR").innerHTML = " ";
+					}
+
+                    //****************************** modify zone ***********************************
+					if(documents != 'none'){
+
+                    var docs = documents.split(",");
+                    var divDoc1 = document.getElementById("documentRD").innerHTML;
+                    divDoc1 = "";
+                        for (let k = 0; k < docs.length; k++) {
+                            var arrs = docs[k].split("\\");
+
+                                    var arrsExt = arrs[2].split(".");
+
+                                    if(arrsExt[1] == "pdf"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-pdf pdf-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                                    else if(arrsExt[1] == "png" || arrsExt[1] == "jpg" || arrsExt[1] == "jpeg"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,2)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-image image-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                                    else if(arrsExt[1] == "mp4" || arrsExt[1] == "mp3"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,3)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-video video-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                                    else if(arrsExt[1] == "docx" || arrsExt[1] == "txt"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-alt text-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                                    else if(arrsExt[1] == "xlsx"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-excel excel-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    } 
+                                    else if(arrsExt[1] == "ppt" || arrsExt[1] == "pptx"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-powerpoint ppt-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                                    else if(arrsExt[1] == "zip" || arrsExt[1] == "rar"){
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-archive zip-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                                    else {
+                                        document.getElementById("documentRD").innerHTML += '<div onclick="dis(this.id,1)" id="'+docs[k]+'"> <span class="icon-holder"><i class="fas fa-file-alt text-file"></i></span> ' +arrs[2]+ '<i onclick="remove('+k+')" type="button" class="typcn typcn-delete"></i></div>';
+                                    }
+                        }			
+                    }else{
+                        document.getElementById("documentRD").innerHTML = " ";
+                    }
+                }
+
+                function addDelete(){
+                    var div = document.getElementById("showDoc");
+                    var div1 = document.getElementById("modifDoc");
+
+                    div.style.display = "none";
+
+                    div1.style.display = "block";
+
+                    var documents = document.getElementById("documentRr").innerHTML;
+                    
+                }
+            </script>
+        <% } %>
+    </div>     
+</div>

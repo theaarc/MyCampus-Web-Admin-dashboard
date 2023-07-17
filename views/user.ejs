@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:21:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Description" content="Dashfox - Laravel Admin & Dashboard Template">
+		<meta name="Author" content="Spruko Technologies Private Limited">
+		<meta name="Keywords" content="admin template, admin dashboard, bootstrap dashboard template, bootstrap 4 admin template, laravel, php framework, php laravel, laravel framework, php mvc, laravel admin panel, laravel admin panel, laravel template, laravel bootstrap, blade laravel, best php framework"/>
+
+        <!-- Title -->
+		<title> Admin Dashboard </title>
+        
+		<%- include('component/cssincludes'); %> 
+    </head>
+
+    <body  class="main-body light-theme app sidebar-mini active leftmenu-color">
+
+        <!-- Loader -->
+		<div id="global-loader">
+			<img src="/publics/img/loader-2.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /Loader -->
+
+        <!-- main-sidebar -->
+		<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+
+		<!-- main-sidebar -->
+		<%- include('component/sidemenu'); %> 
+		<!-- main-sidebar -->
+		<link href="/publics/css/formWizard.css" rel="stylesheet" />
+
+		<!-- main-content -->
+		<div class="main-content app-content">
+
+			<!-- main-header -->
+				<%- include('component/header',{profil:user,ref:3,prof:"admin"}); %> 
+		 	<!-- main-header  -->
+   
+			<!-- container  -->
+			   <div class="container-fluid mg-t-20">
+				   <!-- breadcrumb  -->
+					   <div class="breadcrumb-header justify-content-between">
+                        <div class="left-content">
+							<div class="content-title">
+								<h3 class="">Hi, welcome back!</h3>
+								<h3 class=""><%- user.Name %></h3>
+							</div>
+							<nav aria-label="breadcrumb">
+							</nav>
+					   </div>
+					<!-- breadcrumb  -->
+			   </div>
+			   <!-- Container closed  -->
+   
+			   <!-- les donnees a ajouter -->
+			   <div class="container-fluid mg-t-20">
+				<!-- Stats sur les users -->
+					<div class="row row-sm">
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">utilisateurs</h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1 font-weight-bold">154<span class="text-success tx-13 ml-2">(+0.98%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-primary-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-group-outline text-primary tx-24"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-primary wd-70p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">70%</span></small>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">Nombre Total de visites</h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1 font-weight-bold">5274<span class="text-danger tx-13 ml-2">(-12.45%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-pink-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-chart-line-outline text-pink tx-24"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-pink wd-50p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">50%</span></small>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">Taux de rebond</h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1   font-weight-bold">76.3%<span class="text-success tx-13 ml-2">(+13.52%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-teal-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-chart-bar-outline text-teal tx-20"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-teal wd-60p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">60%</span></small>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+							<div class="card">
+								<div class="card-body iconfont text-left">
+									<div class="d-flex justify-content-between">
+										<h4 class="card-title mb-3">Durée des Visites </h4>
+									</div>
+									<div class="d-flex mb-0">
+										<div class="">
+											<h4 class="mb-1 font-weight-bold">5m 24s<span class="text-success tx-13 ml-2">(+19.5%)</span></h4>
+											<p class="mb-2 tx-12 text-muted">aperçu du mois dernier</p>
+										</div>
+										<div class="card-chart bg-purple-transparent brround ml-auto mt-0">
+											<i class="typcn typcn-time  text-purple tx-24"></i>
+										</div>
+									</div>
+
+									<div class="progress progress-sm mt-2">
+										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="70" class="progress-bar bg-purple wd-40p" role="progressbar"></div>
+									</div>
+									<small class="mb-0  text-muted">Mensuel<span class="float-right text-muted">40%</span></small>
+								</div>
+							</div>
+						</div>
+					</div>
+				<!-- Stats sur les users -->
+				
+				<div class="row row-sm mg-b-20 justify-content-between mg-10">
+					<p>Clicker sur le button ajouter pour creer un nouvelle utilisateur !!!</p>
+					<a class="modal-effect btn btn-primary mb-3 mg-l-10 float-right" data-effect="effect-super-scaled" data-toggle="modal" href="#modaldemo9">Ajouter</a>
+				 </div>
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-header pb-0 pd-t-25">
+							<div class="d-flex justify-content-between">
+								<h4 class="card-title mg-b-0">Table des utilisateurs</h4>
+							</div>
+							
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table key-buttons text-md-nowrap table-striped" id="example">
+									<thead>
+										<tr>
+											<th class="" style="display: none;">id</th>
+											<th class="wd-5p border-bottom-0">Photo Profile</th>
+											<th class="wd-10p border-bottom-0">Nom</th>
+											<th class="wd-15p border-bottom-0">Email</th>
+											<th class="wd-10p border-bottom-0">Adresse</th>
+											<th class="wd-10p border-bottom-0">Telephone</th>
+											<th class="wd-5p border-bottom-0">Sexe</th>
+											<th class="wd-15p border-bottom-0">Faculte</th>
+											<th class="wd-15p border-bottom-0">Departement</th>
+											<th class="wd-10p border-bottom-0">Action</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										<% for(var i=0; i < users.length; i++) { %>
+											<% 	var faculte= JSON.parse(users[i].faculte) %>
+											<% 	var dep= JSON.parse(users[i].departement) %>
+											<tr>
+												<%- include('component/cardUser',{profil:users[i].avatar,name:users[i].userName,id:users[i]._id,email:users[i].email,tel:users[i].phone,address:users[i].address,sexe:users[i].sexe,birthDay:users[i].birthDay,fac:faculte,departement:dep,address:users[i].address,ref:'user',idr:i,facultes:facultes,typesUser:typesUser}); %>
+											</tr>
+										<% } %>
+									</tbody>
+								</table>
+							</div>
+						</div><!-- bd -->
+					</div><!-- bd -->
+				</div>
+				
+				</div>
+			</div>
+
+					 <!-- *********************************** modal meme des ajouts des users ************************************************************ -->
+					 <div class="modal" id="modaldemo9">
+						
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content modal-content-demo panel panel-primary tabs-style-2">
+									<div class="mg-10"><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button></div>
+								<div class="panel-body tabs-menu-body main-content-body-right border">
+										<div class="col-lg-12 col-md-12">
+											<div class="card">
+												<div class="card-body">
+													<div class="main-content-label mg-b-5">
+														Ajouter un nouvelle utilisateur
+													</div>
+													<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+													<form id="myForm" enctype="multipart/form-data">															  
+														<!-- Circles which indicates the steps of the form: -->
+													  	<div style="text-align:center;margin-top:40px;" id="steps">
+															<span class="step"></span>
+															<span class="step"></span>
+															<span class="step"></span>
+															<span class="step"></span>
+													  	</div>
+													  	<div class="tab">
+															<h3>Information de Contact</h3>
+															<section>
+																<div class="row row-sm">
+																	<div class="form-group wd-xs-300">
+																		<label class="form-control-label">Email: </label> <input class="form-control" id="email" name="email" placeholder="name@gmail.com" type="email">
+																	</div>
+																	<div class="form-group wd-xs-300">
+																		<label class="form-control-label">Telephone: </label> <input class="form-control" id="phone" name="phone" value="+237" placeholder="658780480" type="tel">
+																	</div>
+																	<div class="form-group wd-xs-300">
+																		<label class="form-control-label">Adresse: </label> <input class="form-control" id="address" name="address" placeholder="Nkolbisson" type="text">
+																	</div>																																
+																</div>
+															</section>
+														</div>
+														<div style="text-align:center" class="tab">
+															<h3>Information Personel</h3>
+															<section class="row row-sm">
+																<div class="form-group wd-xs-300">
+																	<label class="form-control-label">Sexe: </label> 
+																	<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																		<select class="form-control" id="sexe" name="sexe" class="testselect2 SumoUnder" tabindex="-1">
+																			<option value="M">M</option>
+																			<option value="F">F</option>
+																		</select><br>
+																	</div><br>
+																</div>
+																<div class="form-group wd-xs-300">
+																	<label class="form-control-label">Photo de Profile(Optionnel): </label> <input class="form-control" id="avatar" name="avatar" type="file">
+																</div>
+																<div class="form-group wd-xs-300">
+																	<label class="form-control-label">Type: </label>
+																	<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																		<select class="form-control" id="type" name="typeA" class="testselect2 SumoUnder" tabindex="-1">
+																			<% for(var i=0; i < typesUser.length; i++) { %>
+																				<option value="<%= typesUser[i]._id%>"><%= typesUser[i].type_user %></option>
+																			<% } %>
+																			</select><br>
+																	</div><br>
+																</div>																
+															</section>
+														</div>
+														<div class="tab">
+															<h3>Information Professionnel</h3>
+															<section>
+																<div class="form-group">
+																<label class="form-label" >Faculte</label>
+																	<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																		<select class="form-control" id="fac" name="idcampus" class="testselect2 SumoUnder" tabindex="-1">
+																			<option id="facUm" selected></option>
+																				<% for(var i=0; i < facultes.length; i++) { %>
+																					<option value="<%= facultes[i]._id%>"><%= facultes[i].intitule %></option>
+																				<% } %>
+																			</select><br>
+																		</div><br>
+																	</div>
+																	<div class="form-group">
+																		<label class="form-label">Departement</label>
+																		<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																			<select class="form-control" id="dep" name="departement" class="testselect2 SumoUnder" tabindex="-1">
+																				<option id="depUm" selected></option>
+																				<% for(var i=0; i < departement.length; i++) { %>
+																					<option value="<%= departement[i]._id%>"><%= departement[i].intitule %></option>
+																				<% } %>
+																			</select><br>
+																		</div><br>
+																	</div>
+																	<div class="form-group">
+																		<label class="form-label">Code:</label>
+																		<div class="input-group">
+																			<input type="text" class="form-control" placeholder="" name="matricule" id="matricule">
+																		</div>
+																	</div>
+															</section>
+														</div>
+														<div class="tab">
+															<h3>Information de Connexion</h3>
+															<div class="col-md-5 col-lg-4">
+																<label class="form-control-label">Username: </label> <input class="form-control" id="userName" name="userName" placeholder="TheAARC" type="text">
+															</div>
+															<div class="col-md-5 col-lg-4 mg-t-20 mg-md-t-0">
+																<label class="form-control-label">mot de passe: </label> <input class="form-control" id="password" name="password" placeholder="***********" type="password">
+															</div>
+															<div class="col-md-5 col-lg-4 mg-t-20 mg-md-t-0">
+																<label class="form-control-label">confirmer mot de passe: </label> <input class="form-control" id="password1" name="password1" placeholder="***********" type="password">
+															</div>
+
+														</div>
+
+														<div style="overflow:auto;" id="normal">
+															<div style="float:right;">
+																<button class="btn btn-primary" id="prevBtn" onclick="nextPrev(-1,event)">Previous</button>
+																<button class="btn btn-primary" id="nextBtn" onclick="nextPrev(1,event)">Next</button>
+															</div>
+														</div>
+													</form>
+													<br>
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					 <!-- *********************************** modal meme ************************************************************ -->
+
+<!-- *********************************** modal meme des modification des users ************************************************************ -->
+<div class="modal" id="modaldemo8">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content modal-content-demo">
+			<div id="updateref" style="display: none;"></div>
+			<div class="modal-header">
+				<h3>Modifier les informations ici</h3>
+				<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+			</div>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+			<form id="idForm" enctype="multipart/form-data">
+				<div class="modal-body">
+					<input class="form-control" type="text" id="idU" name="userID" style="display: none;"><br>
+						<div class="card">
+							<div class="card-body">
+								<div class="row row-sm">
+									<div class="col-lg-12">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													Username:
+												</div>
+											</div>
+											<input class="form-control" type="text" id="usernameU" name="userName">
+										</div><!-- input-group -->
+									</div><!-- col-4 -->
+									<div class="col-lg-12 mg-t-20">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													Email:
+												</div>
+											</div><!-- input-group-prepend -->
+											<input class="form-control" type="email" id="emailU" name="email">
+										</div><!-- input-group -->
+									</div>
+									<div class="col-lg-12 mg-t-20">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													Telephone:
+												</div>
+											</div><!-- input-group-prepend -->
+											<input class="form-control" type="tel" id="telU" name="phone">
+										</div><!-- input-group -->
+									</div>
+
+									<div id="foruser">
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														Date of Brith:
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<input class="form-control" id="datetimepicker" type="text" name="birthDay">
+											</div>
+										</div>
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														Sexe:
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<input class="form-control" type="text" name="sexe" id="sexeU">
+											</div>
+										</div>
+									</div>
+
+									<div id="forauth">
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														fonction:
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<input class="form-control" type="text" id="fonctionU" name="fonction" placeholder="fonction">
+											</div>
+										</div>
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														lieu de service:
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<input class="form-control" type="text" id="lieudeserviceU" name="lieudeservice" placeholder="lieudeservice">
+											</div>
+										</div>
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														Profession:
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<input class="form-control" type="text" id="ProfessionU" name="Profession" placeholder="Profession">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-12 mg-t-20">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													Address:
+												</div><!-- input-group-text -->
+											</div><!-- input-group-prepend -->
+											<input class="form-control" type="text" name="address" id="addressU">
+										</div>
+									</div>
+
+									<div id="facs">
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														Select Your Faculty
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+													<select class="form-control" id="facU" name="faculte" class="testselect2 SumoUnder" tabindex="-1">
+														<option value="">none</option>
+														<option id="facUmm" selected></option>
+														<% for(var i=0; i < facultes.length; i++) { %>
+															<option value="<%= facultes[i]._id%>"><%= facultes[i].intitule %></option>
+														<% } %>
+													</select>
+												</div>
+											</div><br>
+
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														Select Your Departement
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+													<select class="form-control" id="depU" name="departement" class="testselect2 SumoUnder" tabindex="-1">
+														<option value="">none</option>
+														<option id="depUmm" selected></option>
+														<% for(var i=0; i < departement.length; i++) { %>
+															<option value="<%= departement[i]._id%>"><%= departement[i].intitule %></option>
+														<% } %>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div id="types">
+										<div class="col-lg-12 mg-t-20">
+											<div class="input-group">
+												<div class="input-group-prepend">
+													<div class="input-group-text">
+														Select Your Type
+													</div><!-- input-group-text -->
+												</div><!-- input-group-prepend -->
+												<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+													<select class="form-control" id="typeU" name="type" class="testselect2 SumoUnder" tabindex="-1">
+														<option value="">none</option>
+														<option id="typeUm" selected></option>
+														<% for(var i=0; i < typesUser.length; i++) { %>
+															<option value="<%= typesUser[i]._id%>"><%= typesUser[i].type_user %></option>
+														<% } %>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-12 mg-t-20">
+										<div class="input-group">
+											<div class="input-group-prepend">
+												<div class="input-group-text">
+													Chose a profile picture if you don't have one yet or change the existing !
+												</div><!-- input-group-text -->
+											</div><!-- input-group-prepend -->
+											<br><small class="input-group-text">NB : SELECTING AN IMAGE WILL UPDATE YOUR PROFILE PICTURE TO ACTUAL SELECTED IMAGE</small><br>
+											
+										</div>
+										<input class="form-control" type="file" name="avatar">
+									</div>
+
+									<!-- invisible url for image -->
+									<input id="profilpic" name="profilpic" style="display: none;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input class="btn ripple btn-primary form-control" type="submit" value="EDIT">
+					</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- *********************************** modal meme ************************************************************ -->
+			   <!-- les donnees a ajouter -->
+   
+		   </div>
+		   <!-- main-content closed -->  
+
+		   <%- include('component/footer'); %> 
+        
+		   <%- include('component/scriptIncudes'); %> 
+
+		   <script src="/publics/js/formWizard.js"></script>
+			<!---  *************************************************** script for adding users ************************************************ -->
+			<script>
+				function showConfirm(callback){
+					swal(
+						{
+							title: 'Well done!',
+							text: 'User created successfully!',
+							type: 'success',
+							// confirmButtonColor: '#57a94f'
+						}
+					)
+					callback();
+				}
+				function redirectHome(){
+					setTimeout( function(){
+						window.location.href="/user/";
+					}, 1000)
+				}
+	
+				$(document).ready(function() {
+				  $('#myForm').submit(function(e) {
+					e.preventDefault(); // prevent form from submitting
+
+					var formData = new FormData(this);
+
+					$.ajax({
+					  url: '<%= url%>web/user/register',
+					  type: 'POST',
+					  processData: false,
+   				 	  contentType: false,
+					  data: formData,
+					  //data: $(this).serialize(),
+					  success: function(data) {
+						$('#modaldemo9').modal('hide')
+						showConfirm(redirectHome);
+					  },
+					  error: function(xhr, status, error) {
+						alert("Something went wrong"); // handle error response
+					  }
+					});
+				  });
+				});
+			</script>
+				<!--*********************** verifing form ***************************************-->
+				<script>
+
+				</script>
+
+
+			<!---  *************************************************** script for adding authorities ************************************************ -->
+			<script>
+				function showConfirmA(callback){
+					swal(
+						{
+							title: 'Well done!',
+							text: 'Authority created successfully!',
+							type: 'success',
+							// confirmButtonColor: '#57a94f'
+						}
+					)
+					callback();
+				}
+				function redirectHomeA(){
+					setTimeout( function(){
+						window.location.href="/user/";
+					}, 1000)
+				}
+	
+				$(document).ready(function() {
+				  $('#myFormA').submit(function(e) {
+					e.preventDefault(); // prevent form from submitting
+
+					var formData = new FormData(this);
+
+					$.ajax({
+					  url: '<%= url%>webAut/autorite/register',
+					  type: 'POST',
+					  processData: false,
+   				 	  contentType: false,
+					  data: formData,
+					  //data: $(this).serialize(),
+					  success: function(data) {
+						$('#modaldemo9').modal('hide')
+						showConfirmA(redirectHomeA);
+					  },
+					  error: function(xhr, status, error) {
+						//console.log(xhr.responseText); // handle error response
+						alert("Something went wrong");
+					  }
+					});
+				  });
+				});
+			</script>
+
+<!---  *************************************************** script for modifing users ************************************************ -->
+<script>
+	function showConfirm(callback){
+		swal(
+				{
+					title: 'Well done!',
+					text: 'User Modified successfully!',
+					type: 'success',
+					// confirmButtonColor: '#57a94f'
+				}
+			)
+			callback();
+	}
+
+	function showConfirmA(callback){
+		swal(
+				{
+					title: 'Well done!',
+					text: 'Authority Modified successfully!',
+					type: 'success',
+					// confirmButtonColor: '#57a94f'
+				}
+			)
+			callback();
+	}
+	
+	function redirectHome(){
+		setTimeout( function(){
+			window.location.href="/user/";
+		}, 1000)
+	}
+	
+	$(document).ready(function() {
+		$('#idForm').submit(function(e) {
+			e.preventDefault(); // prevent form from submitting
+
+			var ref = document.getElementById('updateref').innerHTML;
+			//alert(ref)
+			
+			var formData = new FormData(this);
+
+			if(ref == 'user'){
+				$.ajax({
+					url: '<%= url %>web/user/update',
+					type: 'POST',
+					processData: false,
+					contentType: false,
+					data: formData,
+					//data: $(this).serialize(),
+					success: function(data) {
+						$('#modaldemo8').modal('hide')
+						showConfirm(redirectHome);
+						//alert(data)
+					},
+					error: function(xhr, status, error) {
+						alert("Something went wrong"); // handle error response
+					}
+				});
+
+			}else if(ref == 'auth'){
+				$.ajax({
+					url: '<%= url %>webAut/autorite/update',
+					type: 'POST',
+					processData: false,
+					contentType: false,
+					data: formData,
+					//data: $(this).serialize(),
+					success: function(data) {
+						$('#modaldemo8').modal('hide')
+						showConfirmA(redirectHome);
+						//alert(data)
+					},
+					error: function(xhr, status, error) {
+						alert("Something went wrong"); // handle error response
+					}
+				});
+			}
+	
+		});
+	});
+</script>
+    </body>
+
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:24:51 GMT -->
+</html>

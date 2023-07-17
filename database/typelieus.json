@@ -1,0 +1,188 @@
+[{
+  "_id": {
+    "$oid": "6242d11a3d78410e3805cf9f"
+  },
+  "intitule": "shopping",
+  "image": "upload\\lieu\\1648546074006.png",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648546074775"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648546074775"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6242d1a33d78410e3805cfa3"
+  },
+  "intitule": "FastFood",
+  "image": "upload\\lieu\\1648546211328.png",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648546211337"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648546211337"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6242d1d43d78410e3805cfa7"
+  },
+  "intitule": "DEPARTEMENT",
+  "image": "upload\\lieu\\1648546260299.png",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648546260308"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648546260308"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6242d1eb3d78410e3805cfab"
+  },
+  "intitule": "Amphi",
+  "image": "upload\\lieu\\1648546283423.png",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648546283431"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648546283431"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6242d2253d78410e3805cfaf"
+  },
+  "intitule": "Salle",
+  "image": "upload\\lieu\\1648546341098.png",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1648546341106"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1648546341106"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e0131c39d32efcdbdb55"
+  },
+  "intitule": "Batiment",
+  "image": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654775827816"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654775827816"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e3611c39d32efcdbdb61"
+  },
+  "intitule": "Club",
+  "image": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654776673696"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654776673696"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1e4a11c39d32efcdbdb66"
+  },
+  "intitule": "Stade",
+  "image": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654776993381"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654776993381"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1efeb1c39d32efcdbdb6d"
+  },
+  "intitule": "Autre",
+  "image": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654779883644"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654779883644"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62a1f2781c39d32efcdbdb76"
+  },
+  "intitule": "Restaurant",
+  "image": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1654780536614"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1654780536614"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62ab458b72e8bd34a0747cdb"
+  },
+  "intitule": "Infirmerie",
+  "image": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1655391631523"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1655391631523"
+    }
+  },
+  "__v": 0
+}]

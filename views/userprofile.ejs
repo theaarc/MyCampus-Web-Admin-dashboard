@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:21:14 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="Description" content="Dashfox - Laravel Admin & Dashboard Template">
+		<meta name="Author" content="Spruko Technologies Private Limited">
+		<meta name="Keywords" content="admin template, admin dashboard, bootstrap dashboard template, bootstrap 4 admin template, laravel, php framework, php laravel, laravel framework, php mvc, laravel admin panel, laravel admin panel, laravel template, laravel bootstrap, blade laravel, best php framework"/>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<!-- <script src="/js/main.js"></script> -->
+        <!-- Title -->
+		<title> Admin Dashboard </title>
+        
+		<%- include('component/cssincludes'); %> 
+		
+    </head>
+
+    <body  class="main-body light-theme app sidebar-mini active leftmenu-color">
+        
+        <!-- Start Switcher -->
+
+		<!-- End Switcher -->
+
+        <!-- Loader -->
+		<div id="global-loader">
+			<img src="/publics/img/loader-2.svg" class="loader-img" alt="Loader">
+		</div>
+		<!-- /Loader -->
+
+        <!-- main-sidebar -->
+			<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+			<%- include('component/sidemenu'); %> 
+		<!-- main-sidebar -->
+
+		<!-- main-content -->
+		<div class="main-content app-content">
+
+			<%- include('component/header',{profil:user,ref:6,prof:"admin",facultes:facultes,annonces:annonces}); %> 
+
+         <!-- container  -->
+            <div class="container-fluid mg-t-10">
+				<!-- breadcrumb  -->
+                    <div class="breadcrumb-header justify-content-between">
+                        <div class="left-content">
+							<div class="content-title mb-2">
+								<h3 class="">Hi, welcome back!</h3>
+								<h3 class=""><%- user.Name %></h3>
+							</div>
+							<div id="adminid" style="display: none;"><%- user._id %></div>
+							<nav aria-label="breadcrumb">
+							</nav>
+                        </div>
+                    </div>
+				 <!-- breadcrumb  -->
+            </div>
+
+            <!-- container -->
+            <div class="container-fluid mg-t-20">
+				
+				<!-- row -->
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+				<form id="idForm" enctype="multipart/form-data">
+					<div class="row row-sm">
+						<!-- Col -->
+						<div class="col-lg-4 col-xl-3">
+							<div class="card mg-b-20">
+								<div class="card-body">
+									<div class="pl-0">
+										<div class="main-profile-overview">
+											<!-- userid -->
+											<input type="text" name="userid" value="<%- user._id %>" style="display: none;">
+											<input type="text" name="profile" value="<%- user.avatar %>" style="display: none;">
+											<% if(user.avatar == "none") { %> 
+                                                <div class="main-img-user profile-user"><img alt="" id="profilpic" src="/publics/img/profil1.png"><a class="fas fa-camera profile-edit" onclick="openFileExplorer()"><input name="avatar" type="file" id="file-input" style="display: none;"></a></div>
+                                            <% } else { %> 
+											    <div class="main-img-user profile-user"><img alt="" id="profilpic" src="<%= url %><%- user.avatar %>"><a class="fas fa-camera profile-edit" onclick="openFileExplorer()"><input name="avatar" type="file" id="file-input" style="display: none;"></a></div>
+                                            <% } %>
+											<div class="d-flex justify-content-between mg-b-20">
+												<div>
+													<h5 class="main-profile-name"><%- user.Name %></h5>
+													<p class="main-profile-name-text"><%- user.Profession %></p>
+												</div>
+											</div>
+											<!-- main-profile-work-list -->
+										</div><!-- main-profile-overview -->
+									</div>
+								</div>
+							</div>
+							<div class="card mg-b-20">
+								<div class="card-body">
+									<div class="main-content-label tx-13 mg-b-25">
+										Conatct
+									</div>
+									<div class="main-profile-contact-list">
+										<div class="media">
+											<div class="media-icon bg-primary-transparent text-primary">
+												<i class="icon ion-md-phone-portrait"></i>
+											</div>
+											<div class="media-body">
+												<span>Mobile</span>
+												<div>
+													<%- user.phone %>
+												</div>
+											</div>
+										</div>
+										<div class="media">
+											<div class="media-icon bg-info-transparent text-info">
+												<i class="icon ion-md-locate"></i>
+											</div>
+											<div class="media-body">
+												<span>Current Address</span>
+												<div>
+													<%- user.address %>
+												</div>
+											</div>
+										</div>
+									</div><!-- main-profile-contact-list -->
+								</div>
+							</div>
+						</div>
+						<!-- /Col -->
+
+						<!-- Col -->
+						<div class="col-lg-8 col-xl-9">
+							<div class="card">
+								<div class="card-body">
+									<div class="mb-4 main-content-label">Personal Information</div>
+									<form class="form-horizontal">
+										<div class="mb-4 main-content-label">Name</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">User Name</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="username"  placeholder="User Name" value="<%- user.Name %>">
+												</div>
+											</div>
+										</div>
+										<div class="mb-4 main-content-label">Contact Info</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">Email</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="email"  placeholder="Email" value="<%- user.email %>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">Phone</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="phone" placeholder="phone number" value="<%- user.phone %>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">Address</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="address" placeholder="phone number" value="<%- user.address %>">
+												</div>
+											</div>
+										</div>
+										<div class="mb-4 main-content-label">Services Info</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">fonction</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="fonction" placeholder="fonction" value="<%- user.fonction %>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">Profession</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="profession" placeholder="Profession" value="<%- user.Profession %>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">lieudeservice</label>
+												</div>
+												<div class="col-md-9">
+													<input type="text" class="form-control" name="lieudeservice" placeholder="lieudeservice" value="<%- user.lieudeservice %>">
+												</div>
+											</div>
+										</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">Select Your Campus</label>
+												</div>
+												<div class="col-md-9">
+													<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+														<% 	var campus= JSON.parse(user.idcampus) %>
+														<select class="form-control" name="faculte" class="testselect2 SumoUnder" tabindex="-1">
+															<option value="<%- campus.id %>" selected><%- campus.intitule %></option>
+															<% for(var i=0; i < facultes.length; i++) { %>
+																<% if(facultes[i].intitule != campus.intitule) { %>
+																	<option value="<%= facultes[i]._id%>"><%= facultes[i].intitule %></option>
+																<% } %>
+															<% } %>
+														</select><br>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">Select Your departement</label>
+												</div>
+												<div class="col-md-9">
+													<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+														<% 	var dep= JSON.parse(user.departement) %>
+														<select class="form-control" name="departement" class="testselect2 SumoUnder" tabindex="-1">
+															<option value="<%- dep.id %>" selected><%- dep.intitule %></option>
+															<% for(var i=0; i < departement.length; i++) { %>
+																<% if(departement[i].intitule != dep.intitule) { %>
+																	<option value="<%= departement[i]._id%>"><%= departement[i].intitule %></option>
+																<% } %>
+															<% } %>
+														</select><br>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="mb-4 main-content-label">About Yourself</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">birthDay</label>
+												</div>
+												<div class="col-md-9">
+													<input class="form-control fc-datepicker hasDatepicker" type="text" name="birthday" value="<%- user.birthDay %>">
+												</div>
+											</div>
+										</div>
+
+										<div class="mb-4 main-content-label">Update your password</div>
+										<div class="form-group ">
+											<div class="row">
+												<div class="col-md-3">
+													<label class="form-label">New Password</label>
+												</div>
+												<div class="col-md-9">
+													<input class="form-control" type="password" id="password" name="password"><br>
+													<input type="checkbox" onclick="togglePasswordVisibility()"> Show Password
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<div class="card-footer">
+									<div class="d-flex float-right">
+										<button type="submit" class="btn btn-primary waves-effect waves-light mg-4">Update Profile</button>
+										<button type="reset" class="btn btn-light mg-4" onclick="goBack()">cancel</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /Col -->
+					</div>
+				<!-- row closed -->
+			</form>
+
+
+            </div>
+
+            <!-- les donnees a ajouter -->
+		</div>
+		<!-- main-content closed -->     
+        
+		<%- include('component/footer'); %> 
+
+		<%- include('component/scriptIncudes'); %> 
+
+		<!--****************** Script for changing image dynamically************************ -->
+		<script>
+			// Get references to the file input and image preview elements
+			const fileInput = document.getElementById('file-input');
+			const imagePreview = document.getElementById('profilpic');
+
+			// Add event listener for the file input change event
+			fileInput.addEventListener('change', function() {
+			// Check if any file is selected
+			if (fileInput.files && fileInput.files[0]) {
+				// Create a FileReader object
+				const reader = new FileReader();
+
+				// Set the onload event handler
+				reader.onload = function(e) {
+				// Update the source of the image preview with the selected image
+				imagePreview.src = e.target.result;
+				};
+
+				// Read the selected file as a data URL
+				reader.readAsDataURL(fileInput.files[0]);
+			}
+			});
+
+		</script>
+		<script>
+			function togglePasswordVisibility() {
+			  var passwordInput = document.getElementById("password");
+			  if (passwordInput.type === "password") {
+				passwordInput.type = "text";
+			  } else {
+				passwordInput.type = "password";
+			  }
+			}
+
+			
+			  function openFileExplorer() {
+				var fileInput = document.getElementById("file-input");
+				fileInput.click();
+				}
+
+				function goBack() {
+					const urlParams = new URLSearchParams(window.location.search);
+			  		const referenceNumber = urlParams.get('ref');
+
+					  	if(referenceNumber == 1){window.location.href = "/dahsbordadmin/";}
+						else if(referenceNumber == 2){window.location.href = "/annonce/";}
+						else if(referenceNumber == 3){window.location.href = "/user/";}
+						else if(referenceNumber == 4){window.location.href = "/lieu/";}
+						else if(referenceNumber == 51){window.location.href = "/dahsbordadmin/";}
+						else if(referenceNumber == 52){window.location.href = "/typeLieu";}
+						else if(referenceNumber == 53){window.location.href = "/type_annonce";}
+						else if(referenceNumber == 54){window.location.href = "/dahsbordadmin/";}
+						else if(referenceNumber == 55){window.location.href = "/dahsbordadmin/";}
+						else if(referenceNumber == 56){window.location.href = "/type_auth";}
+						else if(referenceNumber == 6){window.location.href = "/dahsbordadmin/";}
+						else if(referenceNumber == 7){window.location.href = "/admin/addadmin";}
+						else if(referenceNumber == 8){window.location.href = "/dahsbordadmin/";}
+						else if(referenceNumber == 9){window.location.href = "/auth";}
+						else if(referenceNumber == 10){window.location.href = "/auth/homeAttente";}
+						else if(referenceNumber == 11){window.location.href = "/auth/homeValide";}
+						else if(referenceNumber == 12){window.location.href = "/auth/modifauth";}
+						else if(referenceNumber == 13){window.location.href = "/auth/addauth";}
+						else if(referenceNumber == 14){window.location.href = "/filiere";}
+					
+				}
+		</script>
+
+			<!---  *************************************************** script for updating admin ************************************************ -->
+			<script>
+				function showConfirmA(callback){
+					swal(
+						{
+							title: 'Well done!',
+							text: 'Modified successfully!',
+							type: 'success',
+							// confirmButtonColor: '#57a94f'
+						}
+					)
+					callback();
+				}
+				function redirectHomeA(){
+					setTimeout( function(){
+						window.location.href="/admin/modifprof";
+					}, 1000)
+				}
+	
+				$(document).ready(function() {
+				  $('#idForm').submit(function(e) {
+					e.preventDefault(); // prevent form from submitting
+
+					var formData = new FormData(this);
+
+					$.ajax({
+					  url: '<%= url%>webAut/autorite/updateAdmin',
+					  type: 'POST',
+					  processData: false,
+   				 	  contentType: false,
+					  data: formData,
+					  //data: $(this).serialize(),
+					  success: function(data) {
+						showConfirmA(redirectHomeA);
+					  },
+					  error: function(xhr, status, error) {
+						//console.log(xhr.responseText); // handle error response
+						alert("Something went wrong");
+					  }
+					});
+				  });
+				});
+			</script>
+
+    </body>
+
+<!-- Mirrored from laravel.spruko.com/dashfox/ltr/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Dec 2022 22:24:51 GMT -->
+</html>

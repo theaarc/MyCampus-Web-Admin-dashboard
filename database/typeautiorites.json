@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "63f63932b0cc1c35f852bf44"
+  },
+  "type_user": "minsup",
+  "num_reference": "123",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1677080883160"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1677080883160"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f63957b0cc1c35f852bf48"
+  },
+  "type_user": "Recteur",
+  "num_reference": "143",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1677080919428"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1677080919428"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f6398eb0cc1c35f852bf4c"
+  },
+  "type_user": "doyen",
+  "num_reference": "143",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1677080974975"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1677080974975"
+    }
+  },
+  "__v": 0
+}]

@@ -1,0 +1,44 @@
+ quelque route a tester
+GET ( nomdedomaine/api/users/) recuperer les utilisateurs.
+GET ( nomdedomaine/api/lieu/) recuperer les lieux
+GET ( nomdedomaine/api/typeLieu/) recuperer les type de lieu
+post(nomdedomaine/api/users/register ,data )  data= formdata({
+userName:"",
+            email:""l,
+             phone:"", 
+            birthDay:"",
+            avatar[ ] : fichier,
+            password:"",
+            address:""
+            sexe:""
+
+})  cree un compte
+
+post(nomdedomaine/api/users/store ,data )  data= formdata({
+intitule:" ",
+        id_user:"",
+        description:"",
+        image[ ]:file,
+        lat:"",
+        long:"",
+        rating:"",
+        id_campus:"",
+        id_type:""
+
+})  cree un  lieu
+
+*****************************************************************************************
+											<br><div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+												<select id="departement" multiple="multiple" class="testselect2 SumoUnder" tabindex="-1" placeholder="Select a departement">
+													<% for(var i=0; i < departement.length; i++) { %>
+														<option value="<%= departement[i]._id%>"><%= departement[i].intitule %></option>
+														<% } %>
+												</select><br>
+											</div><br>
+											<br><div class="SumoSelect" tabindex="0" role="button" aria-expanded="true">
+												<select id="faculte" multiple="multiple" class="testselect2 SumoUnder" tabindex="-1" placeholder="Select a faculte">
+													<% for(var i=0; i < faculte.length; i++) { %>
+													<option value="<%= faculte[i]._id%>"><%= faculte[i].intitule %></option>
+													<% } %>
+												</select><br>
+											</div><br>
