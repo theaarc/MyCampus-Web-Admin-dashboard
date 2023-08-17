@@ -60,9 +60,9 @@
 				   <!-- breadcrumb  -->
 					   <div class="breadcrumb-header justify-content-between">
 						   <div class="left-content">
-								<div class="content-title row row-sm mb-2">
-									<h3 class="col-xl-9 pd-r-0">Hi, welcome back!</h3>
-									<h3 class="col-xl-3 pd-l-0"><%- autorite.Name %></h3>
+								<div class="content-title mb-2">
+									<h3 class="">Hi, welcome back!</h3>
+									<h3 class=""><%- autorite.userName %></h3>
 								</div>
 								<p id="idAnn" style="display: none;"><%- autorite._id %></p>
 						   </div>
@@ -75,9 +75,9 @@
 			   <div>
 
 					<!-- ********************************** from data base filters for annonces ************************************ -->
-					<div class="row row-sm mg-20">
+					<div class="row row-sm mg-20 d-flex justify-content-between">
 						<!-- Search bar for annonce -->
-						<div class="col-lg-5 col-xl-4">
+						<div class="col-lg-4 col-xl-4">
 							<div class="card overflow-hidden">
 								<h5 class="m-0 p-3 card-title bg-white border-bottom">Search</h5>
 								<div class="py-3 px-3">
@@ -91,11 +91,8 @@
 							</div>
 						</div>
 
-						<div class="col-lg-1 col-xl-2">
 
-						</div>
-
-						<div class="col-lg-6 col-xl-6">
+						<div class="col-lg-4 col-xl-4">
 							<div class="card">
 								<div class="card-body">
 									<div class="main-content-label mg-b-10">
@@ -120,7 +117,7 @@
 
 					<!-- annonce -->
 					<div class="row row-sm mg-20">
-						<div class="bg-gray-200 rounded-5 mg-5">
+						<div class="col-12 bg-gray-200 rounded-5 mg-5">
 							<div class="card-body">
 								<div class="row row-sm mg-b-20 justify-content-between">
 									<p>Clicker sur le button ajouter pour Publier une annonce !!!</p>
@@ -128,7 +125,25 @@
 								</div>
 								
 								<div id="main">
-									<%- include('../component/mainHomeAuth',{annonces:annonces,annoncehead:annonces.message}); %> 
+									<% if(annonces.length == 0){ %>
+										<div class="card-header pb-0 pd-t-10 pd-b-5"><h2><%= annonces.message %></h2></div>
+										<div class="container-fluid col-lg-4 col-md-4 mg-t-30">
+											<!--Page Widget Error-->
+											<div class="card bd-0 mg-b-20 bg-primary">
+												<div class="card-body text-white">
+													<div class="main-error-wrapper">
+														<i class="si si-info mg-b-20 tx-60"></i>
+														<h4 class="mg-b-10">No Annonce on wait state</h4>
+														<p class="mb-0 tx-white-8 tx-20">You have registered no Annonce you might click on "ajouter" to open modal to add annonce</p>
+													</div>
+												</div>
+											</div>
+											<!--Page Widget Error-->
+										</div>
+										<div class="col-lg-4 col-md-4"></div>
+									<% } else { %>
+										<%- include('../component/mainHomeAuth',{annonces:annonces,annoncehead:annonces.message}); %> 
+									<% } %>
 								</div>
 							</div>
 						</div>
@@ -336,7 +351,7 @@
 			
 				// Envoi de la requête AJAX
 				$.ajax({
-					url: "<%= url%>api/annonce/store",
+					url: "<%= url%>web/annonce/store",
 					type: 'POST',
 					processData: false,
 					contentType: false,

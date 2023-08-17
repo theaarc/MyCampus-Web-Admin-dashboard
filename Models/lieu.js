@@ -28,6 +28,15 @@ const lieuSchema = new Schema({
     rating:{
         type:Number
     },
+    niveau:{
+        type:String
+    },
+    batiment:{
+        type:String
+    },
+    numeroPorte : {
+        type:Number
+    }
   
     
      

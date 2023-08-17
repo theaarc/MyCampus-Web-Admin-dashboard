@@ -15,7 +15,7 @@
         <!-- Title -->
 		<title> Admin Dashboard </title>
         
-		<%- include('component/cssincludes'); %> 
+		<%- include('component/cssincludes'); %>
     </head>
 
     <body  class="main-body light-theme app sidebar-mini active leftmenu-color">
@@ -48,7 +48,7 @@
                         <div class="left-content">
 							<div class="content-title">
 								<h3 class="">Hi, welcome back!</h3>
-								<h3 class=""><%- user.Name %></h3>
+								<h3 class=""><%- user.userName %></h3>
 							</div>
 							<nav aria-label="breadcrumb">
 							</nav>
@@ -165,6 +165,18 @@
 						<div class="card-header pb-0 pd-t-25">
 							<div class="d-flex justify-content-between">
 								<h4 class="card-title mg-b-0">Table des utilisateurs</h4>
+								<!--****************************** filtrage des utilisaters **************************-->
+								<div class="d-flex">
+									<h5>Filtrer les utilisteurs</h5>
+									<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+										<select class="form-control" id="filterUser" name="filterUser" class="testselect2 SumoUnder" tabindex="-1">
+											<option value="all">all</option>
+											<% for(var i=0; i < typesUser.length; i++) { %>
+												<option value="<%= typesUser[i]._id%>"><%= typesUser[i].type_user %></option>
+											<% } %>
+										</select>
+									</div>
+								</div>
 							</div>
 							
 						</div>
@@ -186,26 +198,59 @@
 											
 										</tr>
 									</thead>
-									<tbody>
+									<tbody id="displayUsers">
 										<% for(var i=0; i < users.length; i++) { %>
 											<% 	var faculte= JSON.parse(users[i].faculte) %>
 											<% 	var dep= JSON.parse(users[i].departement) %>
-											<tr>
-												<%- include('component/cardUser',{profil:users[i].avatar,name:users[i].userName,id:users[i]._id,email:users[i].email,tel:users[i].phone,address:users[i].address,sexe:users[i].sexe,birthDay:users[i].birthDay,fac:faculte,departement:dep,address:users[i].address,ref:'user',idr:i,facultes:facultes,typesUser:typesUser}); %>
+											<% 	var type= JSON.parse(users[i].typeuser) %>
+											<tr data-type="<%= type.id %>">
+												<%- include('component/cardUser',{profil:users[i].avatar,name:users[i].userName,id:users[i]._id,email:users[i].email,tel:users[i].phone,address:users[i].address,sexe:users[i].sexe,fac:faculte,departement:dep,type:type,address:users[i].address,matricule:users[i].matricule,Profession:users[i].Profession,fonction:users[i].fonction,address:users[i].address,ref:'user',idr:i,facultes:facultes,typesUser:typesUser}); %>
 											</tr>
 										<% } %>
 									</tbody>
 								</table>
 							</div>
 						</div><!-- bd -->
+
+						<!-- /******************************* script for filters ***************************************/ -->
+						<script>
+
+							const userTypeFilter = document.getElementById("filterUser");
+							const userTableBody = document.getElementById("displayUsers");
+
+							  // Function to show all users
+							function showAllUsers() {
+								const allUserRows = userTableBody.querySelectorAll('tr[data-type]');
+								allUserRows.forEach((row) => {
+									row.style.display = 'table-row';
+								});
+							}
+
+							// Function to filter users based on the selected dropdown value
+							function filterUsers() {
+								const selectedValue = userTypeFilter.value;
+								const allUserRows = userTableBody.querySelectorAll('tr[data-type]');
+								allUserRows.forEach((row) => {
+								const userType = row.getAttribute('data-type');
+								if (selectedValue === 'all' || selectedValue === userType) {
+									row.style.display = 'table-row';
+								} else {
+									row.style.display = 'none';
+								}
+								});
+							}
+
+							// Event listener to detect changes in the dropdown
+							userTypeFilter.addEventListener("change", filterUsers);
+						</script>
 					</div><!-- bd -->
 				</div>
 				
 				</div>
 			</div>
 
-					 <!-- *********************************** modal meme des ajouts des users ************************************************************ -->
-					 <div class="modal" id="modaldemo9">
+					<!-- *********************************** modal meme des ajouts des users ************************************************************ -->
+					<div class="modal" id="modaldemo9">
 						
 						<div class="modal-dialog modal-lg" role="document">
 							<div class="modal-content modal-content-demo panel panel-primary tabs-style-2">
@@ -218,7 +263,7 @@
 														Ajouter un nouvelle utilisateur
 													</div>
 													<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-													<form id="myForm" enctype="multipart/form-data">															  
+													<form id="wizardForm" enctype="multipart/form-data">															  
 														<!-- Circles which indicates the steps of the form: -->
 													  	<div style="text-align:center;margin-top:40px;" id="steps">
 															<span class="step"></span>
@@ -226,23 +271,28 @@
 															<span class="step"></span>
 															<span class="step"></span>
 													  	</div>
-													  	<div class="tab">
+														  <div class="error-message"></div>
+
+													  	<div class="form-step">
 															<h3>Information de Contact</h3>
 															<section>
 																<div class="row row-sm">
 																	<div class="form-group wd-xs-300">
-																		<label class="form-control-label">Email: </label> <input class="form-control" id="email" name="email" placeholder="name@gmail.com" type="email">
+																		<label class="form-control-label">Email: </label> 
+																		<input class="form-control" id="email" name="email" placeholder="name@gmail.com" type="email">
 																	</div>
 																	<div class="form-group wd-xs-300">
-																		<label class="form-control-label">Telephone: </label> <input class="form-control" id="phone" name="phone" value="+237" placeholder="658780480" type="tel">
+																		<label class="form-control-label">Telephone: </label> 
+																		<input class="form-control" id="phone" name="phone" value="+237" placeholder="658780480" type="tel">
 																	</div>
 																	<div class="form-group wd-xs-300">
-																		<label class="form-control-label">Adresse: </label> <input class="form-control" id="address" name="address" placeholder="Nkolbisson" type="text">
+																		<label class="form-control-label">Adresse: </label> 
+																		<input class="form-control" id="address" name="address" placeholder="Nkolbisson" type="text">
 																	</div>																																
 																</div>
 															</section>
 														</div>
-														<div style="text-align:center" class="tab">
+														<div style="text-align:center" class="form-step">
 															<h3>Information Personel</h3>
 															<section class="row row-sm">
 																<div class="form-group wd-xs-300">
@@ -260,7 +310,7 @@
 																<div class="form-group wd-xs-300">
 																	<label class="form-control-label">Type: </label>
 																	<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
-																		<select class="form-control" id="type" name="typeA" class="testselect2 SumoUnder" tabindex="-1">
+																		<select class="form-control" id="typeUsers" name="typeA" class="testselect2 SumoUnder" tabindex="-1">
 																			<% for(var i=0; i < typesUser.length; i++) { %>
 																				<option value="<%= typesUser[i]._id%>"><%= typesUser[i].type_user %></option>
 																			<% } %>
@@ -269,23 +319,23 @@
 																</div>																
 															</section>
 														</div>
-														<div class="tab">
+														<div class="form-step">
 															<h3>Information Professionnel</h3>
 															<section>
-																<div class="form-group">
+																<div class="col-sm-12">
 																<label class="form-label" >Faculte</label>
 																	<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
-																		<select class="form-control" id="fac" name="idcampus" class="testselect2 SumoUnder" tabindex="-1">
-																			<option id="facUm" selected></option>
+																		<select class="form-control" id="fac" name="faculte" class="testselect2 SumoUnder" tabindex="-1">
+																			<option id="facUm" value="" selected></option>
 																				<% for(var i=0; i < facultes.length; i++) { %>
 																					<option value="<%= facultes[i]._id%>"><%= facultes[i].intitule %></option>
 																				<% } %>
 																			</select><br>
 																		</div><br>
 																	</div>
-																	<div class="form-group">
+																	<div class="col-sm-12 mg-t-20 mg-md-t-0">
 																		<label class="form-label">Departement</label>
-																		<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																		<div class="SumoSelect" value="" tabindex="0" role="button" aria-expanded="false">
 																			<select class="form-control" id="dep" name="departement" class="testselect2 SumoUnder" tabindex="-1">
 																				<option id="depUm" selected></option>
 																				<% for(var i=0; i < departement.length; i++) { %>
@@ -294,34 +344,55 @@
 																			</select><br>
 																		</div><br>
 																	</div>
-																	<div class="form-group">
+																	<div class="col-sm-12 mg-t-20 mg-md-t-0 mg-b-20 mg-md-b-0">
 																		<label class="form-label">Code:</label>
 																		<div class="input-group">
-																			<input type="text" class="form-control" placeholder="" name="matricule" id="matricule">
+																			<input type="text" class="form-control" value="" placeholder="" name="mat" id="mat">
 																		</div>
-																	</div>
+																	</div><br>
+																	<div class="col-sm-12 mg-t-20 mg-md-t-0 mg-b-20 mg-md-b-0">
+																		<label class="form-label">Fonction:</label>
+																		<div class="input-group">
+																			<input type="text" class="form-control" value="" placeholder="" name="fonction" id="fonction">
+																		</div>
+																	</div><br>
+																	<div class="col-sm-12 mg-t-20 mg-md-t-0 mg-b-20 mg-md-b-0">
+																		<label class="form-label">Profession:</label>
+																		<div class="input-group">
+																			<input type="text" class="form-control" value="" placeholder="" name="Profession" id="Profession">
+																		</div>
+																	</div><br>
 															</section>
 														</div>
-														<div class="tab">
+														<div class="form-step">
 															<h3>Information de Connexion</h3>
-															<div class="col-md-5 col-lg-4">
-																<label class="form-control-label">Username: </label> <input class="form-control" id="userName" name="userName" placeholder="TheAARC" type="text">
+															<div class="col-sm-12">
+																<label class="form-control-label">Username: </label> 
+																<input class="form-control" id="userName" name="userName" placeholder="TheAARC" type="text">
 															</div>
-															<div class="col-md-5 col-lg-4 mg-t-20 mg-md-t-0">
-																<label class="form-control-label">mot de passe: </label> <input class="form-control" id="password" name="password" placeholder="***********" type="password">
+															<div class="col-sm-12 mg-t-20 mg-md-t-0">
+																<label class="form-control-label">mot de passe: </label> 
+																<input class="form-control" id="password" name="password" placeholder="***********" type="password">
+																<div class="input-group-prepend">
+																	<span class="input-group-text"><i class="fe fe-eye" onclick="togglePasswordVisibility()"></i></span>
+																</div>
 															</div>
-															<div class="col-md-5 col-lg-4 mg-t-20 mg-md-t-0">
-																<label class="form-control-label">confirmer mot de passe: </label> <input class="form-control" id="password1" name="password1" placeholder="***********" type="password">
+															<div class="col-sm-12 mg-t-20 mg-md-t-0 mg-b-20 mg-md-b-0">
+																<label class="form-control-label">confirmer mot de passe: </label> 
+																<input class="form-control" id="confirmPassword" name="confirmPassword" placeholder="***********" type="password">
+																<div class="input-group-prepend">
+																	<span class="input-group-text"><i class="fe fe-eye" onclick="togglePasswordVisibility()"></i></span>
+																</div>
 															</div>
 
-														</div>
+														</div><br>
 
-														<div style="overflow:auto;" id="normal">
-															<div style="float:right;">
-																<button class="btn btn-primary" id="prevBtn" onclick="nextPrev(-1,event)">Previous</button>
-																<button class="btn btn-primary" id="nextBtn" onclick="nextPrev(1,event)">Next</button>
+														
+															<div class="form-navigation d-flex flex-row-reverse">
+																<button class="submit btn btn-primary mg-l-20">Submit</button>
+																<button class="next btn btn-primary mg-l-20">Next</button>
+																<button class="previous btn btn-primary mg-l-20">Previous</button>
 															</div>
-														</div>
 													</form>
 													<br>
 												</div>
@@ -331,208 +402,279 @@
 							</div>
 						</div>
 					</div>
-					 <!-- *********************************** modal meme ************************************************************ -->
+					<!-- *********************************** modal meme ************************************************************ -->
 
-<!-- *********************************** modal meme des modification des users ************************************************************ -->
-<div class="modal" id="modaldemo8">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content modal-content-demo">
-			<div id="updateref" style="display: none;"></div>
-			<div class="modal-header">
-				<h3>Modifier les informations ici</h3>
-				<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
-			</div>
-			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-			<form id="idForm" enctype="multipart/form-data">
-				<div class="modal-body">
-					<input class="form-control" type="text" id="idU" name="userID" style="display: none;"><br>
-						<div class="card">
-							<div class="card-body">
-								<div class="row row-sm">
-									<div class="col-lg-12">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													Username:
-												</div>
-											</div>
-											<input class="form-control" type="text" id="usernameU" name="userName">
-										</div><!-- input-group -->
-									</div><!-- col-4 -->
-									<div class="col-lg-12 mg-t-20">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													Email:
-												</div>
-											</div><!-- input-group-prepend -->
-											<input class="form-control" type="email" id="emailU" name="email">
-										</div><!-- input-group -->
-									</div>
-									<div class="col-lg-12 mg-t-20">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													Telephone:
-												</div>
-											</div><!-- input-group-prepend -->
-											<input class="form-control" type="tel" id="telU" name="phone">
-										</div><!-- input-group -->
-									</div>
-
-									<div id="foruser">
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														Date of Brith:
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input class="form-control" id="datetimepicker" type="text" name="birthDay">
-											</div>
-										</div>
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														Sexe:
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input class="form-control" type="text" name="sexe" id="sexeU">
-											</div>
-										</div>
-									</div>
-
-									<div id="forauth">
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														fonction:
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input class="form-control" type="text" id="fonctionU" name="fonction" placeholder="fonction">
-											</div>
-										</div>
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														lieu de service:
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input class="form-control" type="text" id="lieudeserviceU" name="lieudeservice" placeholder="lieudeservice">
-											</div>
-										</div>
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														Profession:
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<input class="form-control" type="text" id="ProfessionU" name="Profession" placeholder="Profession">
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-12 mg-t-20">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													Address:
-												</div><!-- input-group-text -->
-											</div><!-- input-group-prepend -->
-											<input class="form-control" type="text" name="address" id="addressU">
-										</div>
-									</div>
-
-									<div id="facs">
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														Select Your Faculty
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
-													<select class="form-control" id="facU" name="faculte" class="testselect2 SumoUnder" tabindex="-1">
-														<option value="">none</option>
-														<option id="facUmm" selected></option>
-														<% for(var i=0; i < facultes.length; i++) { %>
-															<option value="<%= facultes[i]._id%>"><%= facultes[i].intitule %></option>
-														<% } %>
-													</select>
-												</div>
-											</div><br>
-
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														Select Your Departement
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
-													<select class="form-control" id="depU" name="departement" class="testselect2 SumoUnder" tabindex="-1">
-														<option value="">none</option>
-														<option id="depUmm" selected></option>
-														<% for(var i=0; i < departement.length; i++) { %>
-															<option value="<%= departement[i]._id%>"><%= departement[i].intitule %></option>
-														<% } %>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div id="types">
-										<div class="col-lg-12 mg-t-20">
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<div class="input-group-text">
-														Select Your Type
-													</div><!-- input-group-text -->
-												</div><!-- input-group-prepend -->
-												<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
-													<select class="form-control" id="typeU" name="type" class="testselect2 SumoUnder" tabindex="-1">
-														<option value="">none</option>
-														<option id="typeUm" selected></option>
-														<% for(var i=0; i < typesUser.length; i++) { %>
-															<option value="<%= typesUser[i]._id%>"><%= typesUser[i].type_user %></option>
-														<% } %>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="col-lg-12 mg-t-20">
-										<div class="input-group">
-											<div class="input-group-prepend">
-												<div class="input-group-text">
-													Chose a profile picture if you don't have one yet or change the existing !
-												</div><!-- input-group-text -->
-											</div><!-- input-group-prepend -->
-											<br><small class="input-group-text">NB : SELECTING AN IMAGE WILL UPDATE YOUR PROFILE PICTURE TO ACTUAL SELECTED IMAGE</small><br>
-											
-										</div>
-										<input class="form-control" type="file" name="avatar">
-									</div>
-
-									<!-- invisible url for image -->
-									<input id="profilpic" name="profilpic" style="display: none;">
+					<!-- *********************************** modal meme des modification des users ************************************************************ -->
+					<div class="modal" id="modaldemo8">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content modal-content-demo">
+								<div id="updateref" style="display: none;"></div>
+								<div class="modal-header">
+									<h3>Modifier les informations ici</h3>
+									<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
 								</div>
+								<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+								<form id="idForm" enctype="multipart/form-data">
+									<div class="modal-body">
+										<input class="form-control" type="text" id="idU" name="userID" style="display: none;"><br>
+												<!-- <div class="card-body">													 -->
+													<div class="row row-sm d-flex justify-content-around">
+														<div class="col-12">
+															<!-- invisible url for image -->
+															<!-- <input id="profilpic" name="profilpic" style="display: none;"> -->
+															<!-- <div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Chose a profile picture if you don't have one yet or change the existing !
+																		</div> input-group-text 
+																	</div> input-group-prepend 
+																	<br><small class="input-group-text">NB : SELECTING AN IMAGE WILL UPDATE YOUR PROFILE PICTURE TO ACTUAL SELECTED IMAGE</small><br>
+																	
+																</div>
+																<input class="form-control" type="file" name="avatar">
+															</div> -->
+															<input id="profilpic1" name="profilpic1" style="display: none;">
+															<div class="main-profile-overview col-lg-12">
+																<div class="main-img-user profile-user">
+																	<img alt="" id="profilpic" src="">
+																	<a class="fas fa-camera profile-edit" onclick="openFileExplorer()">
+																		<input name="avatar" type="file" id="file-input" style="display: none;">
+																	</a>
+																</div>
+															</div>
+															<div class="col-lg-12">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Username:
+																		</div>
+																	</div>
+																	<input class="form-control" type="text" id="usernameU" name="userName">
+																</div><!-- input-group -->
+															</div><!-- col-4 -->
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Email:
+																		</div>
+																	</div><!-- input-group-prepend -->
+																	<input class="form-control" type="email" id="emailU" name="email">
+																</div><!-- input-group -->
+															</div>
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Telephone:
+																		</div>
+																	</div><!-- input-group-prepend -->
+																	<input class="form-control" type="tel" id="telU" name="phone">
+																</div><!-- input-group -->
+															</div>
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Sexe:
+																		</div><!-- input-group-text -->
+																	</div><!-- input-group-prepend -->
+																	<input class="form-control" type="text" name="sexe" id="sexeU">
+																</div>
+															</div>
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			Address:
+																		</div><!-- input-group-text -->
+																	</div><!-- input-group-prepend -->
+																	<input class="form-control" type="text" name="address" id="addressU">
+																</div>
+															</div>
+															<div class="col-lg-12 mg-t-20">
+																<div class="input-group">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">
+																			New Password:
+																		</div><!-- input-group-text -->
+																	</div><!-- input-group-prepend -->
+																	<input class="form-control" type="password" name="password" id="passwordU">
+																</div>
+															</div>
+														
+
+															
+																<div class="col-12 mg-t-20">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<div class="input-group-text">
+																				Select Your Type
+																			</div><!-- input-group-text -->
+																		</div><!-- input-group-prepend -->
+																		<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																			<select class="form-control" id="typeU" name="type" class="testselect2 SumoUnder" tabindex="-1">
+																				<!-- <option value="">none</option> -->
+																				<option id="typeUm" selected></option>
+																				<% for(var i=0; i < typesUser.length; i++) { %>
+																					<option value="<%= typesUser[i]._id%>"><%= typesUser[i].type_user %></option>
+																				<% } %>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+														</div>
+
+														<div id="forauth" class="col-12">
+															<div id="prof">
+																<div class="col-lg-12 mg-t-20">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<div class="input-group-text">
+																				fonction:
+																			</div><!-- input-group-text -->
+																		</div><!-- input-group-prepend -->
+																		<input class="form-control" type="text" id="fonctionU" name="fonction" placeholder="fonction">
+																	</div>
+																</div>
+																<div class="col-lg-12 mg-t-20">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<div class="input-group-text">
+																				Profession:
+																			</div><!-- input-group-text -->
+																		</div><!-- input-group-prepend -->
+																		<input class="form-control" type="text" id="ProfessionU" name="Profession" placeholder="Profession">
+																	</div>
+																</div>
+															</div>
+
+															<div id="prof1">
+																<div class="col-lg-12 mg-t-20">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<div class="input-group-text">
+																				Code:
+																			</div><!-- input-group-text -->
+																		</div><!-- input-group-prepend -->
+																		<input class="form-control" type="text" name="matricule" id="matriculeU">
+																	</div>
+																</div>
+
+																<div class="col-lg-12 mg-t-20">
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<div class="input-group-text">
+																				Select Your Faculty
+																			</div><!-- input-group-text -->
+																		</div><!-- input-group-prepend -->
+																		<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																			<select class="form-control" id="facU" name="faculte" class="testselect2 SumoUnder" tabindex="-1">
+																				<option value="">none</option>
+																				<option id="facUmm" selected></option>
+																				<% for(var i=0; i < facultes.length; i++) { %>
+																					<option value="<%= facultes[i]._id%>"><%= facultes[i].intitule %></option>
+																				<% } %>
+																			</select>
+																		</div>
+																	</div><br>
+
+																	<div class="input-group">
+																		<div class="input-group-prepend">
+																			<div class="input-group-text">
+																				Select Your Departement
+																			</div><!-- input-group-text -->
+																		</div><!-- input-group-prepend -->
+																		<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
+																			<select class="form-control" id="depU" name="departement" class="testselect2 SumoUnder" tabindex="-1">
+																				<option value="">none</option>
+																				<option id="depUmm" selected></option>
+																				<% for(var i=0; i < departement.length; i++) { %>
+																					<option value="<%= departement[i]._id%>"><%= departement[i].intitule %></option>
+																				<% } %>
+																			</select>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<!-- </div> -->
+										</div>
+										<div class="modal-footer">
+											<input class="btn ripple btn-primary form-control" type="submit" value="EDIT">
+										</div>
+								</form>
 							</div>
 						</div>
 					</div>
-					<div class="modal-footer">
-						<input class="btn ripple btn-primary form-control" type="submit" value="EDIT">
-					</div>
-			</form>
-		</div>
-	</div>
-</div>
-<!-- *********************************** modal meme ************************************************************ -->
+
+					<script>
+						const dropdown = document.getElementById("typeU");
+					  
+						dropdown.addEventListener("change", function () {
+						  // Get the selected value
+						  const selectedValue = dropdown.value;
+							if(selectedValue == '64b67193b808e7223c3b8aa0'){
+								document.getElementById("forauth").style.display = 'none';
+								document.getElementById("prof").style.display = 'none';
+								document.getElementById("prof1").style.display = 'none';
+							}else if(selectedValue == '644bca7f0368484533c6d519'){
+								document.getElementById("forauth").style.display = 'block';
+								document.getElementById("prof").style.display = 'block';
+								document.getElementById("prof1").style.display = 'none';
+							}else {
+								document.getElementById("forauth").style.display = 'block';
+								document.getElementById("prof").style.display = 'block';
+								document.getElementById("prof1").style.display = 'block';
+							}
+						});
+					  </script>
+					  
+					<!--****************** Script for changing image dynamically************************ -->
+					<script>
+						// Get references to the file input and image preview elements
+						const fileInput = document.getElementById('file-input');
+						const imagePreview = document.getElementById('profilpic');
+
+						// Add event listener for the file input change event
+						fileInput.addEventListener('change', function() {
+						// Check if any file is selected
+						if (fileInput.files && fileInput.files[0]) {
+							// Create a FileReader object
+							const reader = new FileReader();
+
+							// Set the onload event handler
+							reader.onload = function(e) {
+							// Update the source of the image preview with the selected image
+							imagePreview.src = e.target.result;
+							};
+
+							// Read the selected file as a data URL
+							reader.readAsDataURL(fileInput.files[0]);
+						}
+						});
+
+					</script>
+
+					<script>
+						function togglePasswordVisibility() {
+							var passwordInput = document.getElementById("password");
+							if (passwordInput.type === "password") {
+								passwordInput.type = "text";
+							} else {
+								passwordInput.type = "password";
+							}
+						}
+
+							
+						function openFileExplorer() {
+							var fileInput = document.getElementById("file-input");
+							fileInput.click();
+						}
+					</script>
+					<!-- *********************************** modal meme ************************************************************ -->
 			   <!-- les donnees a ajouter -->
    
 		   </div>
@@ -542,55 +684,186 @@
         
 		   <%- include('component/scriptIncudes'); %> 
 
-		   <script src="/publics/js/formWizard.js"></script>
-			<!---  *************************************************** script for adding users ************************************************ -->
-			<script>
-				function showConfirm(callback){
-					swal(
-						{
-							title: 'Well done!',
-							text: 'User created successfully!',
-							type: 'success',
-							// confirmButtonColor: '#57a94f'
-						}
-					)
-					callback();
+		   <!-- <script src="/publics/js/formWizard.js"></script> -->
+		   <!---  *************************************************** script for form wizard on adding users ************************************************ -->
+		   <script>
+			
+				function togglePasswordVisibility() {
+					var passwordInput = document.getElementById("password");
+					var passwordInput1 = document.getElementById("confirmPassword");
+
+					if (passwordInput.type === "password" || passwordInput1.type ==="password") {
+						passwordInput.type = "text";
+						passwordInput1.type = "text";
+					} else {
+						passwordInput.type = "password";
+						passwordInput1.type = "password";
+					}
 				}
-				function redirectHome(){
-					setTimeout( function(){
-						window.location.href="/user/";
-					}, 1000)
-				}
-	
+				
 				$(document).ready(function() {
-				  $('#myForm').submit(function(e) {
-					e.preventDefault(); // prevent form from submitting
+					var currentStep = 0;
+					var formSteps = $('.form-step');
+					var formNavigation = $('.form-navigation');
+					var errorMessage = $('.error-message');
 
-					var formData = new FormData(this);
+					var phoneError = document.getElementById('phoneError');
+					var passwordError = document.getElementById('passwordError');
+					
+					// Show the current step
+					showStep(currentStep);
+					
+					// Handle next button click
+					$('.next').click(function() {
+						if (validateStep(currentStep)) {
+							if (currentStep === 1 && $('#typeUsers').val() == '64b67193b808e7223c3b8aa0') {
+								currentStep = 3;
+							} else {
+								currentStep++;
+							}
 
-					$.ajax({
-					  url: '<%= url%>web/user/register',
-					  type: 'POST',
-					  processData: false,
-   				 	  contentType: false,
-					  data: formData,
-					  //data: $(this).serialize(),
-					  success: function(data) {
-						$('#modaldemo9').modal('hide')
-						showConfirm(redirectHome);
-					  },
-					  error: function(xhr, status, error) {
-						alert("Something went wrong"); // handle error response
-					  }
+							showStep(currentStep);
+							errorMessage.text(''); // Clear the error message if validation is successful
+						} else {
+							errorMessage.text('Please fill in all fields.'); // Display error message
+						}
 					});
-				  });
+					
+					// Handle previous button click
+					$('.previous').click(function() {
+						if (currentStep === 3 && $('#typeUsers').val() == '64b67193b808e7223c3b8aa0') {
+							currentStep = 1;
+						} else {
+							currentStep--;
+						}
+						showStep(currentStep);
+						errorMessage.text(''); // Clear the error message when moving to the previous step
+					});
+					
+					// Handle form submission
+					$('#wizardForm').submit(function(event) {
+						event.preventDefault(); // Prevent default form submission
+					});
+					
+					// Show the specified step
+					function showStep(stepIndex) {
+						formSteps.removeClass('active');
+						$(formSteps[stepIndex]).addClass('active');
+						
+						// Hide/show navigation buttons based on the step
+						if (stepIndex === 0) {
+							$('.previous').hide();
+						} else if (stepIndex === formSteps.length - 1) {
+							$('.next').hide();
+							$('.submit').show();
+						} else {
+							$('.previous').show();
+							$('.next').show();
+							$('.submit').hide();
+						}
+					}
+					
+					// Validate the current step
+					function validateStep(stepIndex) {
+						var inputs = $(formSteps[stepIndex]).find('input:not([type="file"]), textarea');
+						var isValid = true;
+						
+						inputs.each(function() {
+							var inputValue = $(this).val().trim();
+							
+							if (inputValue === '') {
+								isValid = false;
+								$(this).addClass('invalid');
+							} else {
+								$(this).removeClass('invalid');
+							}
+
+							// Perform additional validation for specific fields
+							if (stepIndex === 0 && $(this).attr('id') === 'phone') {
+								
+								var removedStr = inputValue.replace(/^\+237/, "");
+
+								if (removedStr.length !== 9) {
+									isValid = false;
+									$(this).addClass('invalid');
+									$('.error-message').text('Phone number must be 9 digits long.');
+								} else {
+									$(this).removeClass('invalid');
+									$('.error-message').text('');
+								}
+							}
+						});
+						
+						return isValid;
+					}
+				
+					// ******************************************* script for adding users
+
+					function showConfirm(callback){
+						swal(
+							{
+								title: 'Well done!',
+								text: 'User created successfully!',
+								type: 'success',
+								// confirmButtonColor: '#57a94f'
+							}
+						)
+						callback();
+					}
+					
+					function redirectHome(){
+						setTimeout( function(){
+							window.location.href="/user/";
+						}, 1000)
+					}
+
+					$('.submit').click(function() {
+						if (validateStep(currentStep)) {
+							$('#wizardForm').submit(function(e) {
+								e.preventDefault(); // prevent form from submitting
+
+								var isValid = true;
+								
+								var formData = new FormData(this);
+
+								var passwordValue = $('#password').val();
+								var confirmPasswordValue = $('#confirmPassword').val();
+
+								// Verify password and confirm password match
+								if (passwordValue !== confirmPasswordValue) {
+									isValid = false;
+									$('#password, #confirmPassword').addClass('invalid');
+								} else {
+									$('#password, #confirmPassword').removeClass('invalid');
+								}
+
+								if (isValid) {
+									$.ajax({
+										url: '<%= url%>web/user/register',
+										type: 'POST',
+										processData: false,
+										contentType: false,
+										data: formData,
+										//data: $(this).serialize(),
+										success: function(data) {
+											$('#modaldemo9').modal('hide')
+											showConfirm(redirectHome);
+										},
+										error: function(xhr, status, error) {
+											alert("Something went wrong"); // handle error response
+										}
+									});									
+								} else {
+									errorMessage.text('Please fill in all fields correctly.'); // Display error message
+								}
+							});
+						} else {
+							errorMessage.text('Please fill in all fields.'); // Display error message
+						}
+					});
 				});
-			</script>
-				<!--*********************** verifing form ***************************************-->
-				<script>
 
-				</script>
-
+		   </script>
 
 			<!---  *************************************************** script for adding authorities ************************************************ -->
 			<script>
@@ -651,17 +924,17 @@
 			callback();
 	}
 
-	function showConfirmA(callback){
-		swal(
-				{
-					title: 'Well done!',
-					text: 'Authority Modified successfully!',
-					type: 'success',
-					// confirmButtonColor: '#57a94f'
-				}
-			)
-			callback();
-	}
+	// function showConfirmA(callback){
+	// 	swal(
+	// 			{
+	// 				title: 'Well done!',
+	// 				text: 'Authority Modified successfully!',
+	// 				type: 'success',
+	// 				// confirmButtonColor: '#57a94f'
+	// 			}
+	// 		)
+	// 		callback();
+	// }
 	
 	function redirectHome(){
 		setTimeout( function(){
@@ -678,7 +951,7 @@
 			
 			var formData = new FormData(this);
 
-			if(ref == 'user'){
+			// if(ref == 'user'){
 				$.ajax({
 					url: '<%= url %>web/user/update',
 					type: 'POST',
@@ -696,24 +969,24 @@
 					}
 				});
 
-			}else if(ref == 'auth'){
-				$.ajax({
-					url: '<%= url %>webAut/autorite/update',
-					type: 'POST',
-					processData: false,
-					contentType: false,
-					data: formData,
-					//data: $(this).serialize(),
-					success: function(data) {
-						$('#modaldemo8').modal('hide')
-						showConfirmA(redirectHome);
-						//alert(data)
-					},
-					error: function(xhr, status, error) {
-						alert("Something went wrong"); // handle error response
-					}
-				});
-			}
+			// }else if(ref == 'auth'){
+			// 	$.ajax({
+			// 		url: '<%= url %>webAut/autorite/update',
+			// 		type: 'POST',
+			// 		processData: false,
+			// 		contentType: false,
+			// 		data: formData,
+			// 		//data: $(this).serialize(),
+			// 		success: function(data) {
+			// 			$('#modaldemo8').modal('hide')
+			// 			showConfirmA(redirectHome);
+			// 			//alert(data)
+			// 		},
+			// 		error: function(xhr, status, error) {
+			// 			alert("Something went wrong"); // handle error response
+			// 		}
+			// 	});
+			// }
 	
 		});
 	});

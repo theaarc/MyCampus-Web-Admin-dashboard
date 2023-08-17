@@ -16,7 +16,7 @@ const index = (req,res,next)=>{
             Campus.find().then(facultes =>{
                 Lieu.find({id_type:'6242d1d43d78410e3805cfa7'})
                 .then(departement => {
-                    TypeAutiorite.find().then(typesA =>{
+                    TypeUser.find().then(typesA =>{
                         console.log(facultes)
                         req.session.user={user:req.session.user.user, annonces:req.session.user.annonces, typeAuth :response, departement:departement, facultes:facultes, type:typesA};  
                         res.render('type_auth', req.session.user)

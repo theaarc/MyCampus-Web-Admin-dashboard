@@ -1,4 +1,4 @@
-<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6 p-2">
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-2">
     <div class="card custom-card">
         <!-- <img src="<%- url %><%- image %>"> -->
         <div class="card overflow-hidden card-body ht-30p mg-0 pd-0">
@@ -41,11 +41,19 @@
                     <p class="card-text" id="lat<%= idr %>">Lat : <%- lat %></p>
                     <p class="card-text" id="long<%= idr %>"> Long : <%- long %></p>
                 </div>
-                <div>
-                    <h4 class="h6 w-20 font-weight-bold" id="campus<%= idr %>">campus : <%- campus.intitule %></h4>
-                    <div id="idcam<%= idr %>" style="display: none;"><%- campus.id %></div>
-                    <h4 class="h6 w-20 font-weight-bold" id="type<%= idr %>">type : <%- type.intitule %></h4>
-                    <div id="idtype<%= idr %>" style="display: none;"><%- type.id %></div>
+                <div class="d-flex justify-content-between">
+					<div>
+						<h4 class="h6 w-20 font-weight-bold" id="campus<%= idr %>">campus : <%- campus.intitule %></h4>
+						<div id="idcam<%= idr %>" style="display: none;"><%- campus.id %></div>
+						<h4 class="h6 w-20 font-weight-bold" id="type<%= idr %>">type : <%- type.intitule %></h4>
+						<div id="idtype<%= idr %>" style="display: none;"><%- type.id %></div>
+					</div>
+					<div>
+						<h4 class="h6 w-20 font-weight-bold" id="bat<%= idr %>">batiment : <%- batiment.intitule %></h4>
+						<div id="idbat<%= idr %>" style="display: none;"><%- batiment.id %></div>
+						<h4 class="h6 w-20 font-weight-bold" id="niv<%= idr %>">Niveau : <%- niveau %></h4>
+						<h4 class="h6 w-20 font-weight-bold" id="nump<%= idr %>">Numero de porte : <%- numeroPorte %></h4>
+					</div>
                 </div>
                 <div class="justify-content-center text-center mt-3 d-flex">
 					<a data-toggle="modal" href="#modaldemo8" class="btn ripple btn-secondary btn-icon mr-3" onclick="senddata('<%= idr %>')">
@@ -132,6 +140,20 @@
 			type = tmp[1].trim();
         var idtype = document.getElementById('idtype'+i).innerHTML;
 
+
+		var batiment =  document.getElementById('bat'+i).innerHTML;
+			tmp = batiment.split(':');
+			batiment = tmp[1].trim();
+        var idbat = document.getElementById('idbat'+i).innerHTML;
+
+		var niveau =  document.getElementById('niv'+i).innerHTML;
+			tmp = niveau.split(':');
+			niveau = tmp[1].trim();
+
+		var num =  document.getElementById('nump'+i).innerHTML;
+			tmp = num.split(':');
+			num = tmp[1].trim();
+
 		// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
 
 		const div = document.getElementById('displayimg')
@@ -176,6 +198,14 @@
 
             document.getElementById('typeUm').setAttribute("value",idtype)
 			document.getElementById('typeUm').innerHTML = type;
+
+			document.getElementById('batUm').setAttribute("value",batiment)
+			document.getElementById('batUm').innerHTML = idbat;
+
+			document.getElementById('nivUm').setAttribute("value",niveau)
+			document.getElementById('nivUm').innerHTML = niveau;
+
+			document.getElementById('numU').setAttribute("value",num)
 
 			document.getElementById('addressU').setAttribute("value",address)
 			document.getElementById('depU').setAttribute("value",dep)

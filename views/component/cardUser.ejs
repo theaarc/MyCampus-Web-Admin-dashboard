@@ -1,5 +1,4 @@
 
-<% if(ref == 'user'){ %>
 	<td style="display: none;" id="id<%=idr%>"><%- id %></td>
 	<% if(profil == "none") { %>
 		<td class=""><img class="main-img-user avatar-md rounded-circle" src="/publics/img/profil1.png" alt="img"></td>
@@ -22,6 +21,10 @@
 		<p id="dep<%=idr%>"><%- departement.intitule %></p>
 		<p id="depid<%=idr%>" style="display: none;"><%- departement.id %></p>
 	</td>
+	<td style="display: none;">
+		<p id="type<%=idr%>"><%- type.intitule %></p>
+		<p id="typeid<%=idr%>"><%- type.id %></p>
+	</td>
 	<td>
 		<div class="justify-content-center text-center mt-3 d-flex">
 			<a data-toggle="modal"  class="btn ripple btn-secondary btn-icon mr-3" href="#modaldemo8" onclick="senddata('<%=idr%>','user')">
@@ -32,12 +35,16 @@
 			</a>
 		</div>
 	</td>
+	<td id="fonction<%=idr%>" style="display: none;">
+		<%- fonction %>
+	</td>
+	<td id="Profession<%=idr%>" style="display: none;">
+		<%- Profession %>
+	</td>
+	<td id="matricule<%=idr%>" style="display: none;">
+		<%- matricule %>
+	</td>
 
-
-
-<% } else if(ref == 'auth') { %>
-
-<% } %>
 
 <!-- *********************************** modal meme des suppression des users ************************************************************ -->
 	<script>
@@ -135,52 +142,43 @@
 <script>
 	function senddata(i, reff){
 		var tmp;
-		if(reff == 'user'){
-
-			let ref = document.getElementById('updateref')
-				ref.innerHTML = reff;
 
 			var avatar = document.getElementById('profil'+i).innerHTML;
 			var id =  document.getElementById('id'+i).innerHTML;
 			
 			var name =  document.getElementById('name'+i).innerHTML;
 
-			var email =  document.getElementById('email'+i);
-			for (const child of email.childNodes) {
-				if (child.nodeType === Node.TEXT_NODE) {
-					email = child.nodeValue
-				}
-			}
+			var email =  document.getElementById('email'+i).innerHTML;
 
-			var tel =  document.getElementById('tel'+i);
-			for (const child of tel.childNodes) {
-				if (child.nodeType === Node.TEXT_NODE) {
-					tel = child.nodeValue
-				}
-			}
+			var tel =  document.getElementById('tel'+i).innerHTML;
 
-			var address =  document.getElementById('address'+i);
-			for (const child of address.childNodes) {
-				if (child.nodeType === Node.TEXT_NODE) {
-					address = child.nodeValue
-				}
-			}
+			var address =  document.getElementById('address'+i).innerHTML;
 
 			var sexe = document.getElementById('sexe'+i).innerHTML;
-			var dof = document.getElementById('birthDay'+i).innerHTML;
 
 			var fac =  document.getElementById('fac'+i).innerHTML;
-				tmp = fac.split(':');
-				fac = tmp[1].trim();
 			var facid = document.getElementById('facid'+i).innerHTML;
 
 			var dep =  document.getElementById('dep'+i).innerHTML;
-				tmp = dep.split(':');
-				dep = tmp[1].trim();
+			var depid =  document.getElementById('depid'+i).innerHTML;
+
+			var type =  document.getElementById('type'+i).innerHTML;
+			var typeid =  document.getElementById('typeid'+i).innerHTML;
+
+			var matricule =  document.getElementById('matricule'+i).innerHTML;
+
+			var Profession =  document.getElementById('Profession'+i).innerHTML;
+
+			var fonction =  document.getElementById('fonction'+i).innerHTML;
 
 			// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
 
-				document.getElementById('profilpic').setAttribute("value",avatar)
+			'<% if(profil == "none") { %>'
+				document.getElementById("profilpic").setAttribute('src',"/publics/img/profil1.png");
+			'<% } else { %>'
+				document.getElementById("profilpic").setAttribute('src','<%- url %>'+avatar);
+			'<% } %>'
+				document.getElementById('profilpic1').setAttribute("value",avatar)
 				document.getElementById('idU').setAttribute("value",id)
 				document.getElementById('usernameU').setAttribute("value",name)
 				document.getElementById('emailU').setAttribute("value",email)
@@ -188,90 +186,98 @@
 
 				document.getElementById('facUmm').setAttribute("value",facid)
 				document.getElementById('facUmm').innerHTML = fac;
-				
-				document.getElementById('types').style.display = 'none';
-				document.getElementById('foruser').style.display = 'block';
-				document.getElementById('forauth').style.display = 'none';
 
-				document.getElementById('addressU').setAttribute("value",address)
-				document.getElementById('datetimepicker').setAttribute("value",dof)
-				document.getElementById('sexeU').setAttribute("value",sexe)
-
-				document.getElementById('depU').setAttribute("value",dep)
-
-
-		} else if(reff == 'auth'){
-
-			let ref = document.getElementById('updateref')
-				ref.innerHTML = reff;
-
-			var avatar = document.getElementById('profilA'+i).innerHTML;
-			var id =  document.getElementById('idA'+i).innerHTML;
-			
-			var type =  document.getElementById('typeA'+i).innerHTML;
-			var typeid =  document.getElementById('typeidA'+i).innerHTML;
-
-			var name =  document.getElementById('nameA'+i).innerHTML;
-
-			var email =  document.getElementById('emailA'+i);
-			for (const child of email.childNodes) {
-				if (child.nodeType === Node.TEXT_NODE) {
-					email = child.nodeValue
-				}
-			}
-
-			var tel =  document.getElementById('telA'+i);
-			for (const child of tel.childNodes) {
-				if (child.nodeType === Node.TEXT_NODE) {
-					tel = child.nodeValue
-				}
-			}
-
-			var address =  document.getElementById('addressA'+i);
-			for (const child of address.childNodes) {
-				if (child.nodeType === Node.TEXT_NODE) {
-					address = child.nodeValue
-				}
-			}
-
-			var fonction =  document.getElementById('fonctionA'+i).innerHTML;
-			var lieudeservice =  document.getElementById('lieudeserviceA'+i).innerHTML;
-			var Profession =  document.getElementById('ProfessionA'+i).innerHTML;
-
-			var fac =  document.getElementById('facA'+i).innerHTML;
-				tmp = fac.split(':');
-				fac = tmp[1].trim();
-				
-			var facid = document.getElementById('facidA'+i).innerHTML;
-
-			var dep =  document.getElementById('depA'+i).innerHTML;
-				tmp = dep.split(':');
-				dep = tmp[1].trim();
-
-			// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
-
-				document.getElementById('profilpic').setAttribute("value",avatar)
-				document.getElementById('idU').setAttribute("value",id)
-				document.getElementById('usernameU').setAttribute("value",name)
-				document.getElementById('emailU').setAttribute("value",email)
-				document.getElementById('telU').setAttribute("value",tel)
-
-				document.getElementById('facUmm').setAttribute("value",facid)
-				document.getElementById('facUmm').innerHTML = fac;
+				document.getElementById('depUmm').setAttribute("value",depid)
+				document.getElementById('depUmm').innerHTML = dep;
 
 				document.getElementById('typeUm').setAttribute("value",typeid)
 				document.getElementById('typeUm').innerHTML = type;
-				document.getElementById('types').style.display = 'block';
-				document.getElementById('foruser').style.display = 'none';
-				document.getElementById('forauth').style.display = 'block';
+				
+				if(typeid == "64b67193b808e7223c3b8aa0" || typeid == "644bca7f0368484533c6d519"){
+					document.getElementById('forauth').style.display = 'none';
+				}else{
+					document.getElementById('forauth').style.display = 'block';
+				}
 
-				document.getElementById('addressU').setAttribute("value",address)
-				document.getElementById('fonctionU').setAttribute("value",fonction)
-				document.getElementById('lieudeserviceU').setAttribute("value",lieudeservice)
+				document.getElementById('addressU').setAttribute("value",address);
+				document.getElementById('sexeU').setAttribute("value",sexe);
+				document.getElementById('matriculeU').setAttribute("value",matricule)
 				document.getElementById('ProfessionU').setAttribute("value",Profession)
+				document.getElementById('fonctionU').setAttribute("value",fonction)
 
-				document.getElementById('depU').setAttribute("value",dep)
+	}
+	// 	} else if(reff == 'auth'){
 
-		}
-	}	
+	// 		let ref = document.getElementById('updateref')
+	// 			ref.innerHTML = reff;
+
+	// 		var avatar = document.getElementById('profilA'+i).innerHTML;
+	// 		var id =  document.getElementById('idA'+i).innerHTML;
+			
+	// 		var type =  document.getElementById('typeA'+i).innerHTML;
+	// 		var typeid =  document.getElementById('typeidA'+i).innerHTML;
+
+	// 		var name =  document.getElementById('nameA'+i).innerHTML;
+
+	// 		var email =  document.getElementById('emailA'+i);
+	// 		for (const child of email.childNodes) {
+	// 			if (child.nodeType === Node.TEXT_NODE) {
+	// 				email = child.nodeValue
+	// 			}
+	// 		}
+
+	// 		var tel =  document.getElementById('telA'+i);
+	// 		for (const child of tel.childNodes) {
+	// 			if (child.nodeType === Node.TEXT_NODE) {
+	// 				tel = child.nodeValue
+	// 			}
+	// 		}
+
+	// 		var address =  document.getElementById('addressA'+i);
+	// 		for (const child of address.childNodes) {
+	// 			if (child.nodeType === Node.TEXT_NODE) {
+	// 				address = child.nodeValue
+	// 			}
+	// 		}
+
+	// 		var fonction =  document.getElementById('fonctionA'+i).innerHTML;
+	// 		var lieudeservice =  document.getElementById('lieudeserviceA'+i).innerHTML;
+	// 		var Profession =  document.getElementById('ProfessionA'+i).innerHTML;
+
+	// 		var fac =  document.getElementById('facA'+i).innerHTML;
+	// 			tmp = fac.split(':');
+	// 			fac = tmp[1].trim();
+				
+	// 		var facid = document.getElementById('facidA'+i).innerHTML;
+
+	// 		var dep =  document.getElementById('depA'+i).innerHTML;
+	// 			tmp = dep.split(':');
+	// 			dep = tmp[1].trim();
+
+	// 		// alert("yo"+id+" "+email+" "+name+" "+tel+" "+fac+" "+dep);
+
+	// 			document.getElementById('profilpic').setAttribute("value",avatar)
+	// 			document.getElementById('idU').setAttribute("value",id)
+	// 			document.getElementById('usernameU').setAttribute("value",name)
+	// 			document.getElementById('emailU').setAttribute("value",email)
+	// 			document.getElementById('telU').setAttribute("value",tel)
+
+	// 			document.getElementById('facUmm').setAttribute("value",facid)
+	// 			document.getElementById('facUmm').innerHTML = fac;
+
+	// 			document.getElementById('typeUm').setAttribute("value",typeid)
+	// 			document.getElementById('typeUm').innerHTML = type;
+	// 			document.getElementById('types').style.display = 'block';
+	// 			document.getElementById('foruser').style.display = 'none';
+	// 			document.getElementById('forauth').style.display = 'block';
+
+	// 			document.getElementById('addressU').setAttribute("value",address)
+	// 			document.getElementById('fonctionU').setAttribute("value",fonction)
+	// 			document.getElementById('lieudeserviceU').setAttribute("value",lieudeservice)
+	// 			document.getElementById('ProfessionU').setAttribute("value",Profession)
+
+	// 			document.getElementById('depU').setAttribute("value",dep)
+
+	// 	}
+	// }	
 </script>

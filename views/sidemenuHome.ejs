@@ -86,7 +86,7 @@
                         <div class="left-content">
 							<div class="content-title mb-2">
 								<h3 class="">Hi, welcome back!</h3>
-								<h3 class=""><%- user.Name %></h3>
+								<h3 class=""><%- user.userName %></h3>
 							</div>
 							<div id="adminid" style="display: none;"><%- user._id %></div>
 							<nav aria-label="breadcrumb">
@@ -102,10 +102,10 @@
 
 					
 					<div class="container-fluid mg-t-20 ht-15p">
-						<h1>Annonces en Attente</h1>
+						<!-- <h1>Annonces en Attente</h1> -->
 							<!-- row -->
 							<div class="row row-sm justify-content-md-center">
-								<div class="col col-lg-5">
+								<div class="col col-lg-4">
 									<div class="card mg-b-20">
 										<div class="card-body">
 											<div class="main-content-label mg-b-5">
@@ -115,7 +115,7 @@
 										</div>
 									</div>
 								</div><!-- col-6 -->
-								<div class="col col-lg-5">
+								<div class="col col-lg-4">
 									<div class="card mg-b-20">
 										<div class="card-body">
 											<div class="main-content-label mg-b-5">
@@ -125,6 +125,71 @@
 										</div>
 									</div>
 								</div><!-- col-6 -->
+								<div class="col col-lg-4">
+									<div class="card overflow-hidden mg-30">
+										<h5 class="m-0 p-3 card-title bg-white border-bottom">Filtre les Annonces</h5>
+										<div class="py-2 px-3">
+											<label class="p-1 mt-2 d-flex align-items-center">
+												<span class="checkbox">
+													<span class="check-box mb-0">
+														<span class="ckbox"><input type="checkbox" id="universite" onclick="validate('universite')"><span></span></span>
+													</span>
+												</span>
+												<span class="ml-2">
+													Universite
+												</span>
+											</label>
+											<label class="p-1 d-flex align-items-center">
+												<span class="checkbox">
+													<span class="check-box mb-0">
+														<span class="ckbox"><input type="checkbox" id="faculte" onclick="validate('faculte')"><span></span></span>
+													</span>
+												</span>
+												<span class="ml-2">
+													Faculte
+												</span>
+											</label>
+											<label class="p-1 d-flex align-items-center">
+												<span class="check-box mb-0">
+													<span class="ckbox"><input type="checkbox" onclick="validate('departement')"><span></span></span>
+												</span>
+												<span class="ml-2">
+													Departement
+												</span>
+											</label>
+										</div>
+										<script>
+											function validate(id) {
+												if (document.getElementById(id).checked) {
+													//alert("checked "+id);
+			
+													if(id == "universite"){
+														var send = {faculte:""};
+														$.ajax({
+															type: 'POST',
+															url: '<%= url%>api/annonce/test',
+															dataType: 'json',
+															contentType: 'application/json',
+															data: JSON.stringify(send)
+														})
+														.done(function(response) {
+															// Si la requête réussit, affiche le message de confirmation
+															// window.location.href="/";
+														//	alert("very good")
+														})
+														.fail(function(data) {
+															// Si la requête échoue, affiche le message d'erreur et ajoute la classe "error" au formulaire
+															$('#error-message').text(data.responseText);
+															$(form).addClass('error');
+														});			
+													}
+												} else {
+													alert("unchecked");
+												}
+											}
+										</script>
+									</div>
+								</div>
 							</div>
 							<!-- /row -->
 
@@ -219,7 +284,6 @@
 
 				<!-- annonce -->
 				<div class="row row-sm">
-					<div class="col-xl-3 col-lg-4 mb-3 mb-md-0">
 						<!-- Search bar for annonce
 						<div class="card overflow-hidden">
 							<h5 class="m-0 p-3 card-title bg-white border-bottom">Search</h5>
@@ -232,88 +296,38 @@
 								</div>
 							</div>
 						</div> -->
-					<!-- <div class="d-flex align-items-center justify-content-center mg-20"> -->
-						<div class="card overflow-hidden mg-30">
-							<h5 class="m-0 p-3 card-title bg-white border-bottom">Filtre les Annonces</h5>
-							<div class="py-2 px-3">
-								<label class="p-1 mt-2 d-flex align-items-center">
-									<span class="checkbox">
-										<span class="check-box mb-0">
-											<span class="ckbox"><input type="checkbox" id="universite" onclick="validate('universite')"><span></span></span>
-										</span>
-									</span>
-									<span class="ml-2">
-										Universite
-									</span>
-								</label>
-								<label class="p-1 d-flex align-items-center">
-									<span class="checkbox">
-										<span class="check-box mb-0">
-											<span class="ckbox"><input type="checkbox" id="faculte" onclick="validate('faculte')"><span></span></span>
-										</span>
-									</span>
-									<span class="ml-2">
-										Faculte
-									</span>
-								</label>
-								<label class="p-1 d-flex align-items-center">
-									<span class="check-box mb-0">
-										<span class="ckbox"><input type="checkbox" onclick="validate('departement')"><span></span></span>
-									</span>
-									<span class="ml-2">
-										Departement
-									</span>
-								</label>
-							</div>
-							<script>
-								function validate(id) {
-									if (document.getElementById(id).checked) {
-										//alert("checked "+id);
+					<!-- <div class="d-flex align-items-center justify-content-center mg-20"> -->	
 
-										if(id == "universite"){
-											var send = {faculte:""};
-											$.ajax({
-												type: 'POST',
-												url: '<%= url%>api/annonce/test',
-												dataType: 'json',
-												contentType: 'application/json',
-												data: JSON.stringify(send)
-											})
-											.done(function(response) {
-												// Si la requête réussit, affiche le message de confirmation
-												// window.location.href="/";
-											//	alert("very good")
-											})
-											.fail(function(data) {
-												// Si la requête échoue, affiche le message d'erreur et ajoute la classe "error" au formulaire
-												$('#error-message').text(data.responseText);
-												$(form).addClass('error');
-											});			
-										}
-									} else {
-										alert("unchecked");
-									}
-								}
-							</script>
-						</div>	
-					</div>
-
-					<div class="container-fluid mg-t-20 mg-l-0 ht-85p col-xl-8 col-lg-7">
+					<div class="container-fluid mg-20 ht-85p col-xl-12 col-lg-12">
 						<div class="row row-sm">
 							<% var num = 0 %>
 							<% for(var i=0; i < annonces.length; i++) { %>
-								<% if(annonces[i].etat == "1") { %> 
+								<% if(annonces[i].etat == "0") { %> 
 									<% num++; %>
 								<% } %>
 							<% } %>
 
 							<% if(num == 0) {%>
-								<h5 class="container-fluid">Acucune annonces en attente !!!</h5>
+								<div class="container-fluid col-lg-4 col-md-4 mg-t-30">
+									<!--Page Widget Error-->
+									<div class="card bd-0 mg-b-20 bg-primary">
+										<div class="card-body text-white">
+											<div class="main-error-wrapper">
+												<i class="si si-info mg-b-20 tx-60"></i>
+												<h4 class="mg-b-10">Aucune Annonce en Attente</h4>
+												<p class="mb-0 tx-white-8 tx-20">
+													Vous n'avez enregistré aucune annonce, vous pouvez cliquer sur "ajouter" pour ouvrir le modal pour ajouter une annonce
+												</p>
+											</div>
+										</div>
+									</div>
+									<!--Page Widget Error-->
+								</div>
 							<% } else { %>
 								<% for(var i=0; i < annonces.length; i++) { %>
-									<% if(annonces[i].etat == "1") { %> 
+									<% if(annonces[i].etat == "0") { %> 
 										<%  var auth= JSON.parse(annonces[i].id_annoncer) %>
-										<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-6">
+										<div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
 											<div class="card">
 												<div class="card-body">
 													<div class="d-flex flex-row justify-content-between mg-b-20">

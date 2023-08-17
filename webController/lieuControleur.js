@@ -1,5 +1,6 @@
 const mongoose =require('mongoose')
 const fs = require('fs')
+const mongodb = require('mongodb');
 
 const Lieu=require('../Models/lieu')
 const TypeLieu = require('../Models/typelieu')
@@ -14,6 +15,7 @@ const index = (req,res,next)=>{
       }else{
         var i = 0;
         var j = 0; 
+        const objectId = mongodb.ObjectId('62a1e0131c39d32efcdbdb55');
 
         Lieu.find()
         .then(lieux =>{
@@ -21,13 +23,14 @@ const index = (req,res,next)=>{
             lieux.forEach(async lieu=>{
 
                 if(!(lieu.id_type == '' || lieu.id_type === undefined)){
-                    
-                    const [dataA, dataB] = await Promise.all([
-                        Campus.findOne({_id:lieu.id_campus}),
-                        TypeLieu.findOne({_id:lieu.id_type})
-                    ]);
+                    if(!(lieu.batiment == '' || lieu.batiment === undefined)){
 
-                    
+                        const [dataA, dataB, dataC] = await Promise.all([
+                            Campus.findOne({_id:lieu.id_campus}),
+                            TypeLieu.findOne({_id:lieu.id_type}),
+                            Lieu.findOne({_id:lieu.batiment})
+                        ]);
+
                         lieu.id_campus = JSON.stringify({
                             intitule:dataA.intitule,
                             id:dataA._id
@@ -38,48 +41,31 @@ const index = (req,res,next)=>{
                             id:dataB._id
                         });
 
+                        lieu.batiment = JSON.stringify({
+                            intitule:dataC.intitule,
+                            id:dataC._id
+                        })
                         
                         j++; 
                         if(j == lieux.length){
                             Campus.find().then(facultes =>{
-                                Lieu.find({id_type:'6242d1d43d78410e3805cfa7'})
+                                Lieu.findById('62a1e0131c39d32efcdbdb55')
                                 .then(departement => {
-                                    TypeAutiorite.find().then(typesA =>{
-                                        TypeLieu.find().then(typesL =>{
-                                            req.session.user =  {annonces:req.session.user.annonces,departement:departement,lieux :lieux,user: req.session.user.user,facultes:facultes,typeL:typesL,type:typesA}; 
-                                            res.render('lieu', req.session.user)
+                                    Lieu.find({_id:objectId })
+                                    .then(batiment =>{
+                                        TypeAutiorite.find().then(typesA =>{
+                                            TypeLieu.find().then(typesL =>{
+                                                req.session.user =  {annonces:req.session.user.annonces,departement:departement,lieux :lieux,user: req.session.user.user,facultes:facultes,typeL:typesL,type:typesA,batiment:batiment}; 
+                                                res.render('lieu', req.session.user)
+                                            }).catch(error =>{
+                                                res.render("error404",{message:"Page not found"})
+                                            })
                                         }).catch(error =>{
                                             res.render("error404",{message:"Page not found"})
                                         })
                                     }).catch(error =>{
                                         res.render("error404",{message:"Page not found"})
                                     })
-                                })
-                            }).catch(error =>{
-                                res.render("error404",{message:"Page not found"})
-                            }) 
-                        }
-                }else{
-                    Campus.findOne({_id:lieu.id_campus})
-                    .then(faculte=>{
-                        lieu.id_campus = JSON.stringify({
-                            intitule:faculte.intitule,
-                            id:faculte._id
-                        });
-                        
-                        //console.log(lieu.id_type);
-                        lieu.id_type = JSON.stringify({
-                            intitule:'none',
-                            id:'none'
-                        });
-    
-                        //console.log(lieu)
-                        j++; 
-                        if(j == lieux.length){
-                            Campus.find().then(facultes =>{
-                                TypeLieu.find().then(typesL =>{
-                                    var data =  {lieux :lieux,user: req.session.user.user,facs:facultes,typeL:typesL}; 
-                                    res.render('lieu', data)
                                 }).catch(error =>{
                                     res.render("error404",{message:"Page not found"})
                                 })
@@ -87,7 +73,154 @@ const index = (req,res,next)=>{
                                 res.render("error404",{message:"Page not found"})
                             })
                         }
-                    })
+                    }else{
+                        const [dataA, dataB] = await Promise.all([
+                            Campus.findOne({_id:lieu.id_campus}),
+                            TypeLieu.findOne({_id:lieu.id_type})
+                        ]);
+
+                        lieu.id_campus = JSON.stringify({
+                            intitule:dataA.intitule,
+                            id:dataA._id
+                        });
+
+                        lieu.id_type = JSON.stringify({
+                            intitule:dataB.intitule,
+                            id:dataB._id
+                        });
+
+                        lieu.batiment = JSON.stringify({
+                            intitule:"",
+                            id:""
+                        })
+                        
+                        j++; 
+                        if(j == lieux.length){
+                            Campus.find().then(facultes =>{
+                                Lieu.findById('62a1e0131c39d32efcdbdb55')
+                                .then(departement => {
+                                    Lieu.find({_id:objectId })
+                                    .then(batiment =>{
+                                        TypeAutiorite.find().then(typesA =>{
+                                            TypeLieu.find().then(typesL =>{
+                                                req.session.user =  {annonces:req.session.user.annonces,departement:departement,lieux :lieux,user: req.session.user.user,facultes:facultes,typeL:typesL,type:typesA,batiment:batiment}; 
+                                                res.render('lieu', req.session.user)
+                                            }).catch(error =>{
+                                                res.render("error404",{message:"Page not found"})
+                                            })
+                                        }).catch(error =>{
+                                            res.render("error404",{message:"Page not found"})
+                                        })
+                                    }).catch(error =>{
+                                        res.render("error404",{message:"Page not found"})
+                                    })
+                                }).catch(error =>{
+                                    res.render("error404",{message:"Page not found"})
+                                })
+                            }).catch(error =>{
+                                res.render("error404",{message:"Page not found"})
+                            })
+                        } 
+                    }
+                }else{
+                    if(!(lieu.batiment == '' || lieu.batiment === undefined)){
+                        const [dataA, dataC] = await Promise.all([
+                            Campus.findOne({_id:lieu.id_campus}),
+                            TypeLieu.findOne({_id:lieu.id_type}),
+                            Lieu.findOne({_id:lieu.batiment})
+                        ]);
+
+                        lieu.id_campus = JSON.stringify({
+                            intitule:dataA.intitule,
+                            id:dataA._id
+                        });
+
+                        lieu.id_type = JSON.stringify({
+                            intitule:"none",
+                            id:"none"
+                        });
+
+                        lieu.batiment = JSON.stringify({
+                            intitule:dataC.intitule,
+                            id:dataC._id
+                        })
+                            //console.log(lieu)
+                            j++; 
+                            if(j == lieux.length){
+                                Campus.find().then(facultes =>{
+                                    Lieu.find({id_type:'6242d1d43d78410e3805cfa7'})
+                                    .then(departement => {
+                                        Lieu.findById('62a1e0131c39d32efcdbdb55')
+                                        .then(batiment =>{
+                                            TypeAutiorite.find().then(typesA =>{
+                                                TypeLieu.find().then(typesL =>{
+                                                    req.session.user =  {annonces:req.session.user.annonces,departement:departement,lieux :lieux,user: req.session.user.user,facultes:facultes,typeL:typesL,type:typesA,batiment:batiment}; 
+                                                    res.render('lieu', req.session.user)
+                                                }).catch(error =>{
+                                                    res.render("error404",{message:"Page not found"})
+                                                })
+                                            }).catch(error =>{
+                                                res.render("error404",{message:"Page not found"})
+                                            })
+                                        }).catch(error =>{
+                                            res.render("error404",{message:"Page not found"})
+                                        })
+                                    }).catch(error =>{
+                                        res.render("error404",{message:"Page not found"})
+                                    })
+                                }).catch(error =>{
+                                    res.render("error404",{message:"Page not found"})
+                                })
+                            }
+                    }else{
+                        Campus.findOne({_id:lieu.id_campus})
+                        .then(faculte=>{
+                            lieu.id_campus = JSON.stringify({
+                                intitule:faculte.intitule,
+                                id:faculte._id
+                            });
+                            
+                            //console.log(lieu.id_type);
+                            lieu.id_type = JSON.stringify({
+                                intitule:'none',
+                                id:'none'
+                            });
+
+                            lieu.batiment = JSON.stringify({
+                                intitule:"",
+                                id:""
+                            })
+        
+                            //console.log(lieu)
+                            j++; 
+                            if(j == lieux.length){
+                                Campus.find().then(facultes =>{
+                                    Lieu.find({id_type:'6242d1d43d78410e3805cfa7'})
+                                    .then(departement => {
+                                        Lieu.findById('62a1e0131c39d32efcdbdb55')
+                                        .then(batiment =>{
+                                            TypeAutiorite.find().then(typesA =>{
+                                                TypeLieu.find().then(typesL =>{
+                                                    req.session.user =  {annonces:req.session.user.annonces,departement:departement,lieux :lieux,user: req.session.user.user,facultes:facultes,typeL:typesL,type:typesA,batiment:batiment}; 
+                                                    res.render('lieu', req.session.user)
+                                                }).catch(error =>{
+                                                    res.render("error404",{message:"Page not found"})
+                                                })
+                                            }).catch(error =>{
+                                                res.render("error404",{message:"Page not found"})
+                                            })
+                                        }).catch(error =>{
+                                            res.render("error404",{message:"Page not found"})
+                                        })
+                                    }).catch(error =>{
+                                        res.render("error404",{message:"Page not found"})
+                                    })
+                                }).catch(error =>{
+                                    res.render("error404",{message:"Page not found"})
+                                })
+                            }
+                        })
+                    }
                 }
             })
         })
@@ -124,7 +257,10 @@ const store =(req,res,next)=>{
         long:req.body.long,
         //rating:req.body.rating,
         id_campus:req.body.id_campus,
-        id_type:req.body.id_type
+        id_type:req.body.id_type,
+        batiment:req.body.batiment,
+        niveau:req.body.niveau,
+        numeroPorte:req.body.numeroPorte
        
     })
     if(req.files){
@@ -160,7 +296,10 @@ const update =(req,res,next) =>{
         lat:req.body.lat,
         long:req.body.long,
         id_campus:req.body.id_campus,
-        id_type:req.body.id_type
+        id_type:req.body.id_type,
+        batiment:req.body.batiment,
+        niveau:req.body.niveau,
+        numeroPorte:req.body.numeroPorte
     }
 
     let tabimage = imageString.split(',');

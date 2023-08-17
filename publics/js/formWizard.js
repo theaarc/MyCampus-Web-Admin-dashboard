@@ -22,9 +22,6 @@ function showTab(n) {
 }
 
 function nextPrev(n, event) {
-  if(event != null){
-    event.preventDefault();
-  }
   // This function will figure out which tab to display
   var x = document.getElementsByClassName("tab");
   var s = document.getElementsByClassName("step");
@@ -33,6 +30,10 @@ function nextPrev(n, event) {
 
   if(currentTab == 1)
   {
+    if(event != null){
+      event.preventDefault();
+    }
+
     var dropdown = document.getElementById('type');
     var selectedValue = dropdown.value;
     
@@ -47,21 +48,30 @@ function nextPrev(n, event) {
 
         // Hide the current tab:
         x[currentTab].style.display = "none";
-        // Increase or decrease the current tab by 1:
+        var button = document.getElementById("nextBtn");
+        button.setAttribute('id', 'submit');
+        button.innerHTML = "submit";
         currentTab = 3;
     }
   }else{
-    // Hide the current tab:
-    x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
-    // if you have reached the end of the form... :
-  }
 
-  if (currentTab >= x.length) {
-    //...the form gets submitted:
-    document.getElementById("myForm").submit();
-    return false;
+    if (currentTab == 2 ) {
+      if(event != null){
+        event.preventDefault();
+      }
+      var button = document.getElementById("nextBtn");
+      button.setAttribute('id', 'submit');
+      button.innerHTML = "submit";
+
+    }else{
+      if(event != null){
+        event.preventDefault();
+      }
+      // Hide the current tab:
+      x[currentTab].style.display = "none";
+      // Increase or decrease the current tab by 1:
+      currentTab = currentTab + n;
+    }
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);

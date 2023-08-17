@@ -41,6 +41,8 @@ const filiere=require("./webRoute/filiere")
 const open =require('open');
 const epreuve =require('./Routes/epreuve');
 
+const ipAddress = process.env.IP_ADDRESS || 'localhost';
+
 global.url="http://localhost:5000/"
 mongoose.set('useCreateIndex', true)
 mongoose.connect('mongodb://127.0.0.1:27017/mycampus',{useNewUrlParser:true,useUnifiedTopology:true})

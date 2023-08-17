@@ -7,14 +7,29 @@
     min-width: 300px;
   }
   
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+
+  .submit {
+    display: none;
+  }
+  
   /* Mark input boxes that gets an error on validation: */
-  input.invalid {
+  .invalid {
     background-color: #ffdddd;
   }
   
   /* Hide all steps by default: */
-  .tab {
+  .form-step {
     display: none;
+  }
+
+  .form-step.active {
+    display: block;
   }
   
   /* Make circles that indicate the steps of the form: */

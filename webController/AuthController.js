@@ -42,8 +42,9 @@ const index = (req,res,next)=>{
                     users.forEach(async user=>{
                         if(!((user.faculte == "" || user.faculte === undefined) && (user.departement == "" || user.departement === undefined))){
                             if(user.departement == "" || user.departement === undefined){
-                                const [dataA1] = await Promise.all([
-                                    Campus.findOne({_id:user.faculte})
+                                const [dataA1, dataC1] = await Promise.all([
+                                    Campus.findOne({_id:user.faculte}),
+                                    TypeUser.findOne({_id:user.typeUser})                                    
                                 ]);
 
                                 user.faculte = JSON.stringify({
@@ -56,9 +57,15 @@ const index = (req,res,next)=>{
                                     id:''
                                 });
 
+                                user.typeuser = JSON.stringify({
+                                    intitule:dataC1.type_user,
+                                    id:dataC1._id
+                                });
+
                             }else if(user.faculte == "" || user.faculte === undefined){
-                                const [dataB1] = await Promise.all([
-                                    Lieu.findOne({_id:user.departement})
+                                const [dataB1, dataC2] = await Promise.all([
+                                    Lieu.findOne({_id:user.departement}),
+                                    TypeUser.findOne({_id:user.typeUser})
                                 ]);
                     
                                 user.faculte = JSON.stringify({
@@ -70,10 +77,16 @@ const index = (req,res,next)=>{
                                     intitule:dataB1.intitule,
                                     id:dataB1._id
                                 });  
+
+                                user.typeuser = JSON.stringify({
+                                    intitule:dataC2.type_user,
+                                    id:dataC2._id
+                                });
                             }else{
-                                const [dataA, dataB] = await Promise.all([
+                                const [dataA, dataB, dataC] = await Promise.all([
                                     Campus.findOne({_id:user.faculte}),
-                                    Lieu.findOne({_id:user.departement})
+                                    Lieu.findOne({_id:user.departement}),
+                                    TypeUser.findOne({_id:user.typeUser})
                                 ]);
                     
                                 user.faculte = JSON.stringify({
@@ -85,7 +98,13 @@ const index = (req,res,next)=>{
                                     intitule:dataB.intitule,
                                     id:dataB._id
                                 });
+
+                                user.typeuser = JSON.stringify({
+                                    intitule:dataC.type_user,
+                                    id:dataC._id
+                                });
                             }
+                            console.log("user i"+user.typeuser);
                             j++;
                             if(j==users.length){
                                 //finding faculty and departement per faculty
@@ -93,7 +112,7 @@ const index = (req,res,next)=>{
                                     Lieu.find({id_type:'6242d1d43d78410e3805cfa7'})
                                     .then(departement => {
                                         TypeUser.find().then(typesU =>{
-                                            console.log(typesU)
+                                            // console.log(typesU)
                                             res.render("user", {users:users,annonces:req.session.user.annonces,user:req.session.user.user,departement:departement,facultes:facultes,typesUser:typesU})
                                         }).catch(error =>{
                                             res.render("error404",{message:"Page not found"})
@@ -104,6 +123,10 @@ const index = (req,res,next)=>{
                                 })
                              }
                         }else{
+                            const [dataC3] = await Promise.all([
+                                TypeUser.findOne({_id:user.typeUser})
+                            ]);
+
                             user.faculte = JSON.stringify({
                                 intitule:'none',
                                 id:''
@@ -112,6 +135,10 @@ const index = (req,res,next)=>{
                             user.departement = JSON.stringify({
                                 intitule:'none',
                                 id:''
+                            });
+                            user.typeuser = JSON.stringify({
+                                intitule:dataC3.type_user,
+                                id:dataC3._id
                             });
                             j++;
                             if(j==users.length){
@@ -149,13 +176,16 @@ const register=(req,res,next)=>{
         let user = new User({
             userName:req.body.userName,
             email:req.body.email,
-            phone:req.body.phone, 
-            birthDay:req.body.birthday,
+            phone:req.body.phone,
             password:hashedPass,
             address:req.body.address,
             sexe:req.body.sexe,
             faculte:req.body.faculte,
             departement : req.body.departement,
+            typeUser : req.body.typeA,
+            matricule : req.body.mat,
+            fonction : req.body.fonction,
+            Profession : req.body.Profession,
             
         });
         if(req.file){
@@ -219,6 +249,7 @@ const  login =(req,res,next)=>{
                                     User.findOne({_id:annonce.id_annoncer})
                                     .then(auth =>{
                                             i++;
+                                            // console.log(annonce.id_annoncer)
                                             annonce.id_annoncer=JSON.stringify({
                                                 Profession:auth.Profession,
                                                 name:auth.userName,
@@ -329,19 +360,19 @@ console.log(req.body.userID);
 const update =(req,res,next) =>{
         
         //console.log(req.body.userID);
-        var profile = req.body.profilpic;
+        var profile = req.body.profilpic1;
 
         let updateData={
             userID:req.body.userID,
             userName:req.body.userName,
             email:req.body.email,
             phone:req.body.phone, 
-            birthDay:req.body.birthDay,
-            avatar:req.body.avatar,
+            // birthDay:req.body.birthDay,
+            // avatar:req.body.avatar,
             address:req.body.address,
             sexe:req.body.sexe,
             faculte:req.body.faculte,
-            departement:'',    
+            departement:req.body.departement,    
         };
 
         if(req.file){

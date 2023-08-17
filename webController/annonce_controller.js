@@ -134,7 +134,7 @@ const store = (req,res,next)=>{
         faculte:req.body.faculte,
         departement:req.body.departement, 
         type:req.body.type,
-        etat:req.body.etat,
+        etat:"0",
         id_annoncer:req.body.id_annoncer,
         comment:req.body.comment,
         id_admin:req.body.id_admin     
@@ -335,11 +335,11 @@ const annoncebyAutorite = async (req,res,next)=>{
                                     switch (req.params.state) {
                                     
                                         case "0":   
-                                            res.render('./authAdmin/ValiderHome',{annonces :reponse, autorite:req.session.autorite.autorite, faculte: faculte, departement:departement,type_annonce:type_annonce,filiere:filiere}) 
+                                            res.render('./authAdmin/AttenteHome',{annonces :reponse, autorite:req.session.autorite.autorite, faculte: faculte, departement:departement,type_annonce:type_annonce,filiere:filiere}) 
                                         break;
         
                                         case "1":
-                                            res.render('./authAdmin/AttenteHome',{annonces :reponse, autorite:req.session.autorite.autorite, faculte: faculte, departement:departement,type_annonce:type_annonce,filiere:filiere}) 
+                                            res.render('./authAdmin/ValiderHome',{annonces :reponse, autorite:req.session.autorite.autorite, faculte: faculte, departement:departement,type_annonce:type_annonce,filiere:filiere}) 
                                         break;
                                             
                                         case "2":
@@ -693,7 +693,7 @@ const validate = (req,res,next) => {
             departement:annonce.departement,
             filiere:annonce.filiere,
             type:annonce.type,
-            etat:0, 
+            etat:1, 
             id_annoncer:annonce.id_annoncer,
         };
 

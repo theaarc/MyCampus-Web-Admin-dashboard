@@ -50,7 +50,7 @@
                         <div class="left-content">
 							<div class="content-title mb-2">
 								<h3 class="">Hi, welcome back!</h3>
-								<h3 class=""><%- user.Name %></h3>
+								<h3 class=""><%- user.userName %></h3>
 							</div>
 							<div id="adminid" style="display: none;"><%- user._id %></div>
 							<nav aria-label="breadcrumb">
@@ -83,7 +83,7 @@
                                             <% } %>
 											<div class="d-flex justify-content-between mg-b-20">
 												<div>
-													<h5 class="main-profile-name"><%- user.Name %></h5>
+													<h5 class="main-profile-name"><%- user.userName %></h5>
 													<p class="main-profile-name-text"><%- user.Profession %></p>
 												</div>
 											</div>
@@ -139,7 +139,7 @@
 													<label class="form-label">User Name</label>
 												</div>
 												<div class="col-md-9">
-													<input type="text" class="form-control" name="username"  placeholder="User Name" value="<%- user.Name %>">
+													<input type="text" class="form-control" name="username"  placeholder="User Name" value="<%- user.userName %>">
 												</div>
 											</div>
 										</div>
@@ -195,7 +195,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="form-group ">
+										<!-- <div class="form-group ">
 											<div class="row">
 												<div class="col-md-3">
 													<label class="form-label">lieudeservice</label>
@@ -204,15 +204,15 @@
 													<input type="text" class="form-control" name="lieudeservice" placeholder="lieudeservice" value="<%- user.lieudeservice %>">
 												</div>
 											</div>
-										</div>
+										</div> -->
 										<div class="form-group ">
 											<div class="row">
 												<div class="col-md-3">
-													<label class="form-label">Select Your Campus</label>
+													<label class="form-label">Select Your Faculty</label>
 												</div>
 												<div class="col-md-9">
 													<div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
-														<% 	var campus= JSON.parse(user.idcampus) %>
+														<% 	var campus= JSON.parse(user.faculte) %>
 														<select class="form-control" name="faculte" class="testselect2 SumoUnder" tabindex="-1">
 															<option value="<%- campus.id %>" selected><%- campus.intitule %></option>
 															<% for(var i=0; i < facultes.length; i++) { %>
